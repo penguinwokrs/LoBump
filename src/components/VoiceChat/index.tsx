@@ -138,7 +138,7 @@ export const VoiceChat = () => {
 									</ListItemAvatar>
 									<ListItemText
 										primary={u.userId}
-										secondary={u.userId === userId ? "(You)" : "Connected"}
+										secondary={u.userId === userId ? "(You)" : null}
 									/>
 								</ListItem>
 							))}
