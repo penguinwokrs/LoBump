@@ -1,20 +1,19 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import { Button as MuiButton } from '@mui/material';
+import type { ButtonProps as MuiButtonProps } from '@mui/material';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    children: ReactNode;
-    variant?: 'primary' | 'secondary';
+interface ButtonProps extends MuiButtonProps {
+    variant?: 'text' | 'outlined' | 'contained';
 }
 
-export const Button = ({ children, variant = 'primary', style, ...props }: ButtonProps) => {
-    const baseStyle: React.CSSProperties = {
-        backgroundColor: variant === 'secondary' ? 'transparent' : undefined,
-        border: variant === 'secondary' ? '1px solid currentColor' : undefined,
-        ...style,
-    };
+export const Button = ({ children, variant = 'contained', ...props }: ButtonProps) => {
+    // Map our old 'primary'/'secondary' usage to MUI variants if needed, 
+    // or just pass through. Assuming refactor will just use this component.
+    // For 'secondary' variant in original code, we map to 'outlined' or 'secondary' color.
 
+    // Custom logic to bridge the gap if needed, or simply re-export with defaults.
     return (
-        <button style={baseStyle} {...props}>
+        <MuiButton variant={variant} {...props}>
             {children}
-        </button>
+        </MuiButton>
     );
 };

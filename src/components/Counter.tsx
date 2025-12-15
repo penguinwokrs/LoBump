@@ -1,22 +1,23 @@
 import { useState } from 'react'
 import { Button } from './Button'
+import { Box, Typography, Stack } from '@mui/material'
 
 export const Counter = () => {
     const [count, setCount] = useState(0)
 
     return (
-        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', alignItems: 'center' }}>
-            <div data-testid="count-display" style={{ fontSize: '2em', fontWeight: 'bold' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+            <Typography variant="h3" data-testid="count-display" fontWeight="bold">
                 count is {count}
-            </div>
-            <div style={{ display: 'flex', gap: '8px' }}>
-                <Button onClick={() => setCount((count) => count + 1)}>
+            </Typography>
+            <Stack direction="row" spacing={2}>
+                <Button variant="contained" onClick={() => setCount((count) => count + 1)}>
                     Increment
                 </Button>
-                <Button variant="secondary" onClick={() => setCount((count) => count - 1)}>
+                <Button variant="outlined" onClick={() => setCount((count) => count - 1)}>
                     Decrement
                 </Button>
-            </div>
-        </div>
+            </Stack>
+        </Box>
     )
 }
