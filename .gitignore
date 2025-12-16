@@ -27,4 +27,5 @@ dist-ssr
 .env.development.local
 .env.test.local
 .env.production.local
-.wrangler/*tsp-output
+.wrangler/
+tsp-output/
