@@ -74,25 +74,6 @@ export const VoiceChat = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [routeSessionId]);
 
-	const createSession = async () => {
-		if (sessionId) {
-			navigate(`/${sessionId}`);
-			return;
-		}
-		setLoading(true);
-		setError("");
-		try {
-			const res = await fetch("/api/sessions", { method: "POST" });
-			if (!res.ok) throw new Error("Failed to create session");
-			const session: Session = await res.json();
-			navigate(`/${session.sessionId}`);
-		} catch (err) {
-			setError((err as Error).message);
-		} finally {
-			setLoading(false);
-		}
-	};
-
 	const joinSession = async (targetSessionId: string) => {
 		if (!targetSessionId || !userId) {
 			setError("Session ID and User ID are required");
@@ -290,23 +271,18 @@ export const VoiceChat = () => {
 						disabled={!!routeSessionId}
 					/>
 
-					<Stack direction="row" spacing={2}>
-						<Button
-							fullWidth
-							variant="outlined"
-							onClick={createSession}
-							disabled={loading || !userId}
-						>
-							{loading ? <CircularProgress size={24} /> : "Create New"}
-						</Button>
-						<Button
-							fullWidth
-							onClick={() => joinSession(sessionId)}
-							disabled={loading || !sessionId || !userId}
-						>
-							{loading ? <CircularProgress size={24} /> : "Join Session"}
-						</Button>
-					</Stack>
+					<Button
+						fullWidth
+						variant="contained"
+						onClick={() => joinSession(sessionId)}
+						disabled={loading || !userId || !sessionId}
+					>
+						{loading ? (
+							<CircularProgress size={24} color="inherit" />
+						) : (
+							"Join Game"
+						)}
+					</Button>
 				</Stack>
 			</CardContent>
 		</Card>
