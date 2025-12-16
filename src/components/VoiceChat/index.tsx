@@ -42,7 +42,7 @@ export const VoiceChat = () => {
 		}
 
 		if (!routeSessionId || targetSessionId !== routeSessionId) {
-			navigate(`/${targetSessionId}`);
+			navigate(`/join/${targetSessionId}`);
 			// The useEffect will trigger joinSession again, so we can return here
 			// But if we want instant feedback, we can proceed.
 			// However, navigating unmounts/remounts components usually unless router preserves state.

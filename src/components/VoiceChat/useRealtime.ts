@@ -91,6 +91,7 @@ export const useRealtime = () => {
 				// Explicitly request audio to ensure media tracks are initialized
 				config.defaults = {
 					audio: true,
+					video: false,
 				};
 				const newClient = await initClient(config);
 				if (newClient) {
@@ -138,7 +139,7 @@ export const useRealtime = () => {
 			if (c?.self?.setupTracks) {
 				try {
 					console.log("[useRealtime] Calling setupTracks({ audio: true })...");
-					await c.self.setupTracks({ audio: true });
+					await c.self.setupTracks({ audio: true, video: false });
 					console.log("[useRealtime] Track setup requested.");
 
 					// After setup, check again or just try to enable if it appeared
