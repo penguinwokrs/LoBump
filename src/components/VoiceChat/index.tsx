@@ -75,6 +75,10 @@ export const VoiceChat = () => {
 	}, [routeSessionId]);
 
 	const createSession = async () => {
+		if (sessionId) {
+			navigate(`/${sessionId}`);
+			return;
+		}
 		setLoading(true);
 		setError("");
 		try {
@@ -82,7 +86,6 @@ export const VoiceChat = () => {
 			if (!res.ok) throw new Error("Failed to create session");
 			const session: Session = await res.json();
 			navigate(`/${session.sessionId}`);
-			// If we are already on the page (e.g. from home), logic updates
 		} catch (err) {
 			setError((err as Error).message);
 		} finally {
@@ -173,7 +176,10 @@ export const VoiceChat = () => {
 				)}
 				<CardContent>
 					<Typography variant="h5" gutterBottom>
-						Session: {currentSession.sessionId.slice(0, 8)}...
+						Session:{" "}
+						{currentSession.sessionId.length > 12
+							? `${currentSession.sessionId.slice(0, 8)}...`
+							: currentSession.sessionId}
 					</Typography>
 					<Stack direction="row" alignItems="center" spacing={1} mb={2}>
 						<Box
@@ -276,11 +282,11 @@ export const VoiceChat = () => {
 					/>
 
 					<TextField
-						label="Session ID"
+						label="Game ID"
 						value={sessionId}
 						onChange={(e) => setSessionId(e.target.value)}
 						fullWidth
-						placeholder="Enter session ID to join"
+						placeholder="Enter game ID to join"
 						disabled={!!routeSessionId}
 					/>
 
