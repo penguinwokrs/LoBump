@@ -9,6 +9,7 @@
 		"dev:frontend": "vite",
 		"dev:backend": "wrangler pages dev http://127.0.0.1:5173 --kv VC_SESSIONS",
 		"build": "tsc -b && vite build",
+		"deploy": "pnpm build && wrangler pages deploy dist",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"check:ci": "biome ci . --error-on-warnings",
