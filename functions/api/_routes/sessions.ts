@@ -143,13 +143,15 @@ app.post("/:id/join", async (c) => {
 		await c.env.VC_SESSIONS.put(`game:${sessionId}`, meetingId);
 	}
 
-	if (session.users.length >= 5) {
-		return c.text("Session is full (max 5 users)", 403);
-	}
-
 	// Check if user already exists
 	const existingUser = session.users.find((u) => u.userId === userId);
+
 	if (!existingUser) {
+		// Only check capacity for NEW users
+		if (session.users.length >= 5) {
+			return c.text("Session is full (max 5 users)", 403);
+		}
+
 		session.users.push({ userId, joinedAt: Date.now(), iconUrl });
 		await c.env.VC_SESSIONS.put(
 			`session:${session.meetingId}`, // Save to session:meetingId
