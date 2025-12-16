@@ -184,6 +184,15 @@ app.post("/sessions/:id/join", async (c) => {
 	const mapping = await c.env.VC_SESSIONS.get(`game:${sessionId}`);
 
 	let meetingId = mapping;
+
+	// Validate meetingId compatibility with current mode
+	const useMock = c.env.USE_MOCK_REALTIME === "true";
+	if (meetingId && !useMock && meetingId.startsWith("mock-")) {
+		console.warn(
+			`[Real Mode] Found mock ID (${meetingId}) for game ${sessionId}. Ignoring and creating new real meeting.`,
+		);
+		meetingId = null;
+	}
 	let sessionData: string | null = null;
 
 	if (meetingId) {
@@ -192,10 +201,15 @@ app.post("/sessions/:id/join", async (c) => {
 
 	let session: Session;
 
-	if (sessionData) {
+	if (sessionData && meetingId) {
 		session = JSON.parse(sessionData);
+		// Ensure session object uses the validated meetingId (in case it was reset from mock to real)
+		if (session.meetingId !== meetingId) {
+			console.log("Updating session meetingId to match validated ID");
+			session.meetingId = meetingId;
+		}
 	} else {
-		// CREATE NEW SESSION (Game ID Room)
+		// CREATE NEW SESSION (Game ID Room) or RE-CREATE if mock ID was discarded
 		console.log(`Creating new session for Game ID: ${sessionId}`);
 
 		const useMock = c.env.USE_MOCK_REALTIME === "true";
@@ -208,8 +222,6 @@ app.post("/sessions/:id/join", async (c) => {
 				// Create a meeting in RealtimeKit with Game ID as name/title
 				// biome-ignore lint/suspicious/noExplicitAny: API response is untyped
 				const meeting: any = await callRealtimeKit("/meetings", "POST", c.env, {
-					// Trying 'name' again as per user request.
-					// If it fails, we might need to remove it or use metadata.
 					name: sessionId,
 				});
 				console.log("RealtimeKit Meeting Created:", meeting);

@@ -27,30 +27,35 @@ describe("VoiceChat", () => {
 		expect(screen.getByLabelText("Game ID")).toBeInTheDocument();
 	});
 
-	it("Create New button is disabled without User ID", () => {
+	it("Join Game button is disabled without User ID or Game ID", () => {
 		vi.spyOn(Storage.prototype, "getItem").mockReturnValue(null);
 		render(
 			<MemoryRouter>
 				<VoiceChat />
 			</MemoryRouter>,
 		);
-		const createBtn = screen.getByText("Create New");
-		expect(createBtn).toBeDisabled();
+		const joinBtn = screen.getByText("Join Game");
+		expect(joinBtn).toBeDisabled();
 	});
 
-	it("updates input fields", () => {
+	it("updates input fields and enables button", () => {
 		render(
 			<MemoryRouter>
 				<VoiceChat />
 			</MemoryRouter>,
 		);
+		const joinBtn = screen.getByText("Join Game");
+		expect(joinBtn).toBeDisabled();
+
 		const userInput = screen.getByLabelText("User ID") as HTMLInputElement;
 		fireEvent.change(userInput, { target: { value: "test-user" } });
 		expect(userInput.value).toBe("test-user");
+		expect(joinBtn).toBeDisabled(); // Still disabled, no Game ID
 
 		const sessionInput = screen.getByLabelText("Game ID") as HTMLInputElement;
 		fireEvent.change(sessionInput, { target: { value: "test-session" } });
 		expect(sessionInput.value).toBe("test-session");
+		expect(joinBtn).toBeEnabled();
 	});
 
 	it("simulates joining a session", async () => {
@@ -84,7 +89,7 @@ describe("VoiceChat", () => {
 		const sessionInput = screen.getByLabelText("Game ID");
 		fireEvent.change(sessionInput, { target: { value: "session-123" } });
 
-		const joinBtn = screen.getByText("Join Session");
+		const joinBtn = screen.getByText("Join Game");
 		expect(joinBtn).toBeEnabled();
 
 		fireEvent.click(joinBtn);
