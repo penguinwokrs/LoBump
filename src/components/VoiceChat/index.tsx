@@ -9,9 +9,10 @@ export const VoiceChat = () => {
 	const { sessionId: routeSessionId } = useParams();
 	const navigate = useNavigate();
 	const [sessionId, setSessionId] = useState(routeSessionId || "");
-	const [userId, setUserId] = useState(
-		() => localStorage.getItem("vp_user_id") || "",
-	);
+	const [userId, setUserId] = useState(() => {
+		const stored = localStorage.getItem("vp_user_id") || "";
+		return stored.length > 32 ? "" : stored;
+	});
 	const [currentSession, setCurrentSession] = useState<Session | null>(null);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");

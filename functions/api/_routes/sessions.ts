@@ -68,6 +68,10 @@ app.post("/:id/join", async (c) => {
 		return c.text("User ID is required", 400);
 	}
 
+	if (userId.length > 32) {
+		return c.text("User ID is too long (max 32 chars)", 400);
+	}
+
 	// Try fetching existing session via Mapping
 	const mapping = await c.env.VC_SESSIONS.get(`game:${sessionId}`);
 
