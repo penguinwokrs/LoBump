@@ -8,6 +8,7 @@ type Bindings = {
 	REALTIME_ORG_ID: string;
 	REALTIME_API_KEY: string;
 	REALTIME_KIT_APP_ID: string;
+	USE_MOCK_REALTIME: string;
 };
 
 const app = new Hono<{ Bindings: Bindings }>().basePath("/api");
@@ -112,19 +113,34 @@ app.post("/sessions", async (c) => {
 	const sessionId = crypto.randomUUID();
 
 	let meetingId: string | undefined;
-	try {
-		// Create a meeting in RealtimeKit
-		// Note: Actual API payload structure might vary, assuming minimal or default
-		// biome-ignore lint/suspicious/noExplicitAny: API response is untyped
-		const meeting: any = await callRealtimeKit("/meetings", "POST", c.env, {});
-		console.log("RealtimeKit Meeting Created:", meeting);
-		meetingId = meeting.data.id;
-	} catch (e) {
-		console.error("Failed to create RealtimeKit meeting:", e);
-		// Fallback for development/missing keys
-		console.warn("Using MOCK session due to API failure");
+
+	const useMock = c.env.USE_MOCK_REALTIME === "true";
+
+	if (useMock) {
+		console.log("[Mock Mode] Skipping RealtimeKit meet creation");
 		meetingId = "mock-meeting-id";
+	} else {
+		try {
+			// Create a meeting in RealtimeKit
+			// Note: Actual API payload structure might vary, assuming minimal or default
+			// biome-ignore lint/suspicious/noExplicitAny: API response is untyped
+			const meeting: any = await callRealtimeKit(
+				"/meetings",
+				"POST",
+				c.env,
+				{},
+			);
+			console.log("RealtimeKit Meeting Created:", meeting);
+			meetingId = meeting.data.id;
+		} catch (e) {
+			console.error("Failed to create RealtimeKit meeting:", e);
+			// Fallback for development/missing keys
+			console.warn("Using MOCK session due to API failure");
+			meetingId = "mock-meeting-id";
+		}
 	}
+
+	// ... (meeting creation logic remains same)
 
 	const session: Session = {
 		sessionId,
@@ -133,7 +149,23 @@ app.post("/sessions", async (c) => {
 		createdAt: Date.now(),
 	};
 
-	await c.env.VC_SESSIONS.put(`session:${sessionId}`, JSON.stringify(session));
+	// Save mapping: game:{gameId} -> meetingId
+	// If meetingId is undefined (mock failure fallback?), we use sessionId as fallback meetingId?
+	// In current logic meetingId is "mock-meeting-id" if failed. So it's always defined string.
+	if (meetingId) {
+		await c.env.VC_SESSIONS.put(`game:${sessionId}`, meetingId);
+		await c.env.VC_SESSIONS.put(
+			`session:${meetingId}`,
+			JSON.stringify(session),
+		);
+	} else {
+		// Should not happen with current logic, but safe fallback
+		await c.env.VC_SESSIONS.put(
+			`session:${sessionId}`,
+			JSON.stringify(session),
+		);
+	}
+
 	return c.json(session);
 });
 
@@ -148,12 +180,67 @@ app.post("/sessions/:id/join", async (c) => {
 		return c.text("User ID is required", 400);
 	}
 
-	const sessionData = await c.env.VC_SESSIONS.get(`session:${sessionId}`);
-	if (!sessionData) {
-		return c.text("Session not found", 404);
+	// Try fetching existing session via Mapping
+	const mapping = await c.env.VC_SESSIONS.get(`game:${sessionId}`);
+
+	let meetingId = mapping;
+	let sessionData: string | null = null;
+
+	if (meetingId) {
+		sessionData = await c.env.VC_SESSIONS.get(`session:${meetingId}`);
 	}
 
-	const session: Session = JSON.parse(sessionData);
+	let session: Session;
+
+	if (sessionData) {
+		session = JSON.parse(sessionData);
+	} else {
+		// CREATE NEW SESSION (Game ID Room)
+		console.log(`Creating new session for Game ID: ${sessionId}`);
+
+		const useMock = c.env.USE_MOCK_REALTIME === "true";
+
+		if (useMock) {
+			console.log("[Mock Mode] Skipping RealtimeKit meet creation");
+			meetingId = `mock-meeting-${sessionId}`; // Unique mock ID
+		} else {
+			try {
+				// Create a meeting in RealtimeKit with Game ID as name/title
+				// biome-ignore lint/suspicious/noExplicitAny: API response is untyped
+				const meeting: any = await callRealtimeKit("/meetings", "POST", c.env, {
+					// Trying 'name' again as per user request.
+					// If it fails, we might need to remove it or use metadata.
+					name: sessionId,
+				});
+				console.log("RealtimeKit Meeting Created:", meeting);
+				meetingId = meeting.data.id;
+			} catch (e) {
+				console.error(
+					"Failed to create RealtimeKit meeting (Create-on-Join):",
+					e,
+				);
+				// Retry without name if 422? No, let's just fall back to mock or no-meeting for now.
+				// Or better: try creating without name if name failed?
+				// For now, logging error and mock fallback.
+				console.warn("Using MOCK session due to API failure");
+				meetingId = `mock-meeting-${sessionId}`;
+			}
+		}
+
+		if (!meetingId) {
+			return c.text("Failed to generate meeting ID", 500);
+		}
+
+		session = {
+			sessionId,
+			meetingId,
+			users: [],
+			createdAt: Date.now(),
+		};
+
+		// Save mapping
+		await c.env.VC_SESSIONS.put(`game:${sessionId}`, meetingId);
+	}
 
 	if (session.users.length >= 5) {
 		return c.text("Session is full (max 5 users)", 403);
@@ -164,7 +251,7 @@ app.post("/sessions/:id/join", async (c) => {
 	if (!existingUser) {
 		session.users.push({ userId, joinedAt: Date.now(), iconUrl });
 		await c.env.VC_SESSIONS.put(
-			`session:${sessionId}`,
+			`session:${session.meetingId}`, // Save to session:meetingId
 			JSON.stringify(session),
 		);
 	}
@@ -172,26 +259,32 @@ app.post("/sessions/:id/join", async (c) => {
 	// Generate RealtimeKit Token
 	let realtimeToken: string | undefined;
 	if (session.meetingId) {
-		try {
-			// biome-ignore lint/suspicious/noExplicitAny: API response is untyped
-			const participant: any = await callRealtimeKit(
-				`/meetings/${session.meetingId}/participants`,
-				"POST",
-				c.env,
-				{
-					name: userId,
-					custom_participant_id: userId,
-					preset_name: "group_call_participant",
-					// Role/preset might be required. Assuming 'participant' or default.
-				},
-			);
-			console.log("RealtimeKit Participant:", participant);
-			realtimeToken = participant.data.token; // Check actual response field
-		} catch (e) {
-			console.error("Failed to add participant to RealtimeKit:", e);
-			// Fallback
-			console.warn("Using MOCK token due to API failure");
+		const useMock = c.env.USE_MOCK_REALTIME === "true";
+		if (useMock) {
+			console.log("[Mock Mode] Skipping RealtimeKit participant creation");
 			realtimeToken = "mock-token";
+		} else {
+			try {
+				// biome-ignore lint/suspicious/noExplicitAny: API response is untyped
+				const participant: any = await callRealtimeKit(
+					`/meetings/${session.meetingId}/participants`,
+					"POST",
+					c.env,
+					{
+						name: userId,
+						custom_participant_id: userId,
+						preset_name: "group_call_participant",
+						// Role/preset might be required. Assuming 'participant' or default.
+					},
+				);
+				console.log("RealtimeKit Participant:", participant);
+				realtimeToken = participant.data.token; // Check actual response field
+			} catch (e) {
+				console.error("Failed to add participant to RealtimeKit:", e);
+				// Fallback
+				console.warn("Using MOCK token due to API failure");
+				realtimeToken = "mock-token";
+			}
 		}
 	}
 

@@ -6,7 +6,12 @@ export const useRealtime = () => {
 	const [isConnected, setIsConnected] = useState(false);
 	const [isMicMuted, setIsMicMuted] = useState(true);
 
+	// Mock state for development
+	const [isMock, setIsMock] = useState(false);
+
 	useEffect(() => {
+		if (isMock) return;
+
 		if (!client) {
 			setIsConnected(false);
 			return;
@@ -55,10 +60,18 @@ export const useRealtime = () => {
 				eventSource.removeListener("*", handleUpdate);
 			}
 		};
-	}, [client]);
+	}, [client, isMock]);
 
 	const join = useCallback(
 		async (token: string, appId?: string) => {
+			if (token === "mock-token") {
+				console.log("[Mock Mode] Simulating voice connection");
+				setIsMock(true);
+				setIsConnected(true);
+				setIsMicMuted(false);
+				return;
+			}
+
 			try {
 				// biome-ignore lint/suspicious/noExplicitAny: debugging
 				const config: any = {
@@ -82,12 +95,22 @@ export const useRealtime = () => {
 	);
 
 	const leave = useCallback(async () => {
+		if (isMock) {
+			console.log("[Mock Mode] Leaving session");
+			setIsConnected(false);
+			setIsMock(false);
+			return;
+		}
 		if (client) {
 			await client.leave();
 		}
-	}, [client]);
+	}, [client, isMock]);
 
 	const toggleMic = useCallback(async () => {
+		if (isMock) {
+			setIsMicMuted((prev) => !prev);
+			return;
+		}
 		// biome-ignore lint/suspicious/noExplicitAny: library types issue
 		const c = client as any;
 		if (c?.self?.media) {
@@ -97,7 +120,7 @@ export const useRealtime = () => {
 				await c.self.media.enableAudio();
 			}
 		}
-	}, [client]);
+	}, [client, isMock]);
 
 	return {
 		join,

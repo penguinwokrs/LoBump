@@ -16,9 +16,6 @@ vi.mock("./useRealtime", () => ({
 }));
 
 describe("VoiceChat", () => {
-	// Ensure userId is present for tests involving reload/navigation
-	vi.spyOn(Storage.prototype, "getItem").mockReturnValue("test-user");
-
 	it("renders login form initially", () => {
 		render(
 			<MemoryRouter>
@@ -27,10 +24,11 @@ describe("VoiceChat", () => {
 		);
 		expect(screen.getByText("Voice Chat")).toBeInTheDocument();
 		expect(screen.getByLabelText("User ID")).toBeInTheDocument();
-		expect(screen.getByLabelText("Session ID")).toBeInTheDocument();
+		expect(screen.getByLabelText("Game ID")).toBeInTheDocument();
 	});
 
 	it("Create New button is disabled without User ID", () => {
+		vi.spyOn(Storage.prototype, "getItem").mockReturnValue(null);
 		render(
 			<MemoryRouter>
 				<VoiceChat />
@@ -50,14 +48,13 @@ describe("VoiceChat", () => {
 		fireEvent.change(userInput, { target: { value: "test-user" } });
 		expect(userInput.value).toBe("test-user");
 
-		const sessionInput = screen.getByLabelText(
-			"Session ID",
-		) as HTMLInputElement;
+		const sessionInput = screen.getByLabelText("Game ID") as HTMLInputElement;
 		fireEvent.change(sessionInput, { target: { value: "test-session" } });
 		expect(sessionInput.value).toBe("test-session");
 	});
 
-	it.skip("simulates joining a session", async () => {
+	it("simulates joining a session", async () => {
+		vi.spyOn(Storage.prototype, "getItem").mockReturnValue("test-user");
 		// Mock fetch
 		global.fetch = vi.fn().mockResolvedValue({
 			ok: true,
@@ -84,7 +81,7 @@ describe("VoiceChat", () => {
 		const userInput = screen.getByLabelText("User ID");
 		fireEvent.change(userInput, { target: { value: "test-user" } });
 
-		const sessionInput = screen.getByLabelText("Session ID");
+		const sessionInput = screen.getByLabelText("Game ID");
 		fireEvent.change(sessionInput, { target: { value: "session-123" } });
 
 		const joinBtn = screen.getByText("Join Session");
