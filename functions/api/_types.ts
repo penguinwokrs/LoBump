@@ -2,6 +2,7 @@ export type Bindings = {
 	VC_SESSIONS: KVNamespace;
 	RIOT_CLIENT_ID: string;
 	RIOT_CLIENT_SECRET: string;
+	RIOT_GAME_API_KEY: string;
 	REALTIME_ORG_ID: string;
 	REALTIME_API_KEY: string;
 	REALTIME_KIT_APP_ID: string;

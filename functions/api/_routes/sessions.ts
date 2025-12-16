@@ -1,5 +1,10 @@
 import { Hono } from "hono";
 import { callRealtimeKit } from "../_lib/realtime";
+import {
+	getAccountByRiotId,
+	getProfileIconUrl,
+	getSummonerByPuuid,
+} from "../_lib/riot";
 import type { Bindings, Session } from "../_types";
 
 const app = new Hono<{ Bindings: Bindings }>();
@@ -70,6 +75,34 @@ app.post("/:id/join", async (c) => {
 
 	if (summonerId.length > 32) {
 		return c.text("Summoner ID is too long (max 32 chars)", 400);
+	}
+
+	// Validate Summoner ID via Riot API
+	// 1. Check if API Key exists
+	const apiKey = c.env.RIOT_GAME_API_KEY;
+	let validIconUrl = iconUrl;
+
+	if (apiKey) {
+		// Strict validation requested
+		console.log(`[Join] Validating SummonerID: ${summonerId}`);
+		const account = await getAccountByRiotId(summonerId, apiKey);
+
+		if (!account) {
+			return c.text("Summoner not found (Riot ID invalid)", 404);
+		}
+
+		console.log(`[Join] Found Account: ${account.gameName}#${account.tagLine}`);
+
+		// 2. Fetch Summoner to get Icon
+		const summoner = await getSummonerByPuuid(account.puuid, apiKey);
+		if (summoner) {
+			validIconUrl = getProfileIconUrl(summoner.profileIconId);
+			console.log(`[Join] Fetched Icon URL: ${validIconUrl}`);
+		} else {
+			console.warn("[Join] Could not fetch summoner details for icon");
+		}
+	} else {
+		console.warn("[Join] RIOT_GAME_API_KEY missing, skipping validation");
 	}
 
 	// Try fetching existing session via Mapping
@@ -152,7 +185,11 @@ app.post("/:id/join", async (c) => {
 			return c.text("Session is full (max 5 users)", 403);
 		}
 
-		session.users.push({ summonerId, joinedAt: Date.now(), iconUrl });
+		session.users.push({
+			summonerId,
+			joinedAt: Date.now(),
+			iconUrl: validIconUrl,
+		});
 		await c.env.VC_SESSIONS.put(
 			`session:${session.meetingId}`, // Save to session:meetingId
 			JSON.stringify(session),
