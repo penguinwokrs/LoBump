@@ -1,0 +1,59 @@
+name: Generate Client
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'generate_typespec.py'
+      - 'riot_openapi.json'
+      - 'client/typespec/**'
+      - 'client/orval.config.ts'
+  pull_request:
+    paths:
+      - 'generate_typespec.py'
+      - 'riot_openapi.json'
+      - 'client/typespec/**'
+      - 'client/orval.config.ts'
+  workflow_dispatch:
+
+jobs:
+  check-generated:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+            version: 10.x
+            run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate TypeSpec
+        run: python3 generate_typespec.py
+
+      - name: Generate Client
+        run: pnpm gen:api
+
+      - name: Check for unsaved changes
+        run: |
+          if [[ -n $(git status --porcelain client/generated client/typespec) ]]; then
+            echo "Generated code is out of sync. Please run 'python3 generate_typespec.py' and 'pnpm gen:api' and commit the changes."
+            git status
+            git diff client/generated client/typespec
+            exit 1
+          fi
