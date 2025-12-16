@@ -17,7 +17,8 @@ export const VoiceChat = () => {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
 
-	const { join, leave, toggleMic, isMicMuted, isConnected } = useRealtime();
+	const { join, leave, toggleMic, isMicMuted, isConnected, peers } =
+		useRealtime();
 
 	useEffect(() => {
 		if (userId) {
@@ -108,6 +109,7 @@ export const VoiceChat = () => {
 				onErrorClose={() => setError("")}
 				onToggleMic={toggleMic}
 				onLeave={handleLeave}
+				peers={peers}
 			/>
 		);
 	}

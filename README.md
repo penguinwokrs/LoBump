@@ -37,6 +37,39 @@ graph TD
 -   **Realtime**: Cloudflare RealtimeKit (WebRTC Audio).
 -   **Auth**: Riot Games (OAuth 2.0).
 
+## RealtimeKit Connection Flow
+
+Steps to establish a voice connection:
+
+```mermaid
+sequenceDiagram
+    participant U as User (Frontend)
+    participant A as API (/api/sessions)
+    participant R as RealtimeKit API
+    participant W as WebSocket (Voice)
+
+    U->>A: POST /join {userId, gameId}
+    A->>A: Check KV for existing MeetingID
+    alt New Meeting
+        A->>R: POST /meetings (Create)
+        R-->>A: Meeting ID
+        A->>A: Store GameID -> MeetingID in KV
+    else Existing Meeting
+        A->>A: Retrieve MeetingID from KV
+    end
+
+    A->>R: POST /meetings/:id/participants
+    R-->>A: Participant Token
+    A-->>U: { session, realtime: { token, appId } }
+
+    U->>W: Connect (using Token)
+    W-->>U: Connected (Ready to Talk)
+```
+
+## References
+
+- [Introduction to Voice Conferencing - Cloudflare RealtimeKit Docs](https://docs.realtime.cloudflare.com/guides/voice-conf/intro-voice-conf)
+
 ## Features
 
 -   **Game ID Rooms**: Join or create voice rooms simply by entering a Game ID.

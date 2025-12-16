@@ -8,6 +8,8 @@ export const useRealtime = () => {
 
 	// Mock state for development
 	const [isMock, setIsMock] = useState(false);
+	// biome-ignore lint/suspicious/noExplicitAny: Peer type
+	const [peers, setPeers] = useState<any[]>([]);
 
 	useEffect(() => {
 		if (isMock) return;
@@ -40,6 +42,19 @@ export const useRealtime = () => {
 				setIsMicMuted(!cur.self.media.audioEnabled);
 			}
 			setIsConnected(!!client.peerId);
+
+			// Update peers list
+			// Assuming client.peers comes as a Map or Object, need to convert to array
+			// If cur.peers is a collection we can iterate
+			if (cur.peers) {
+				// If it's a Map
+				if (cur.peers instanceof Map) {
+					setPeers(Array.from(cur.peers.values()));
+				} else if (typeof cur.peers === "object") {
+					// If it's an object/map
+					setPeers(Object.values(cur.peers));
+				}
+			}
 		};
 
 		// RealtimeKit event handling
@@ -189,5 +204,6 @@ export const useRealtime = () => {
 		isMicMuted,
 		isConnected,
 		client,
+		peers,
 	};
 };

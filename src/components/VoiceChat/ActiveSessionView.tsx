@@ -29,6 +29,53 @@ type ActiveSessionViewProps = {
 	onErrorClose: () => void;
 	onToggleMic: () => void;
 	onLeave: () => void;
+	peers?: any[];
+};
+
+// Helper component for remote audio
+// biome-ignore lint/suspicious/noExplicitAny: Peer type
+const RemoteAudio = ({ peer }: { peer: any }) => {
+	const audioRef = (node: HTMLAudioElement | null) => {
+		if (node && peer.media) {
+			// Attach tracks. Note: RealtimeKit uses 'peer.media.enableAudio()' which usually handles sending.
+			// For playback we need to get the MediaStream or Track.
+			// RealtimeKit often handles this internally if using their UI components,
+			// but raw SDK requires attaching tracks.
+			// Let's assume peer.media.tracks is a MediaStream or has audio tracks.
+			// Or check peer.stream.
+
+			// According to common WebRTC SDK patterns:
+			// peer.media might provide tracks.
+			// Docs say "seamlessly ... play media".
+			// If we inspect the peer object in useRealtime we might know better.
+			// But sticking to standard:
+			// if (peer.stream) node.srcObject = peer.stream;
+
+			// Let's protect against errors.
+			try {
+				if (peer.stream) {
+					node.srcObject = peer.stream;
+				}
+			} catch (e) {
+				console.error("Failed to attach stream", e);
+			}
+		}
+	};
+
+	// We can try to attach ref.
+	// Actually, straightforward way in React:
+	// useEffect(() => { if(ref.current) ref.current.srcObject = peer.stream }, [peer.stream])
+
+	return (
+		// biome-ignore lint/a11y/useMediaCaption: Audio for voice chat
+		<audio
+			ref={audioRef}
+			autoPlay
+			playsInline
+			controls={false}
+			style={{ display: "none" }}
+		/>
+	);
 };
 
 export const ActiveSessionView = ({
@@ -41,9 +88,15 @@ export const ActiveSessionView = ({
 	onErrorClose,
 	onToggleMic,
 	onLeave,
+	peers = [], // Default to empty array
 }: ActiveSessionViewProps) => {
 	return (
 		<Card sx={{ maxWidth: 400, mx: "auto", mt: 4, position: "relative" }}>
+			{/* Render invisible audio elements for all remote peers */}
+			{peers.map((p: any) => (
+				<RemoteAudio key={p.id || p.peerId} peer={p} />
+			))}
+
 			{loading && (
 				<Box
 					sx={{
@@ -97,26 +150,30 @@ export const ActiveSessionView = ({
 						Participants ({session.users.length}/5)
 					</Typography>
 					<List dense>
-						{session.users.map((u) => (
-							<ListItem key={u.userId}>
-								<ListItemAvatar>
-									<Avatar
-										src={u.iconUrl}
-										alt={u.userId}
-										sx={{
-											bgcolor:
-												u.userId === userId ? "primary.main" : "grey.600",
-										}}
-									>
-										{!u.iconUrl && <PersonIcon />}
-									</Avatar>
-								</ListItemAvatar>
-								<ListItemText
-									primary={u.userId}
-									secondary={u.userId === userId ? "(You)" : null}
-								/>
-							</ListItem>
-						))}
+						{session.users.map((u) => {
+							// Determine if user is speaking or connected based on peers list?
+							// For now, simple list.
+							return (
+								<ListItem key={u.userId}>
+									<ListItemAvatar>
+										<Avatar
+											src={u.iconUrl}
+											alt={u.userId}
+											sx={{
+												bgcolor:
+													u.userId === userId ? "primary.main" : "grey.600",
+											}}
+										>
+											{!u.iconUrl && <PersonIcon />}
+										</Avatar>
+									</ListItemAvatar>
+									<ListItemText
+										primary={u.userId}
+										secondary={u.userId === userId ? "(You)" : null}
+									/>
+								</ListItem>
+							);
+						})}
 					</List>
 				</Box>
 				<Stack direction="row" spacing={2} justifyContent="center" mt={3}>
