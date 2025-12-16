@@ -24,7 +24,7 @@ export const VoiceChat = () => {
 		}
 	}, [userId]);
 
-	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	// biome-ignore lint/correctness/useExhaustiveDependencies: Only run once on mount when params exist
 	useEffect(() => {
 		if (routeSessionId && userId && !currentSession) {
 			setSessionId(routeSessionId);
