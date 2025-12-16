@@ -145,7 +145,7 @@ def main():
             f.write(f"using TypeSpec.Http;\n")
             f.write(f"using TypeSpec.Rest;\n\n")
             
-            f.write(f"namespace {ns_name};\n\n")
+            f.write(f"namespace RiotApi.{ns_name};\n\n")
             
             # Models
             for model_full_name, schema in content['models'].items():
@@ -237,11 +237,20 @@ def main():
                 
                 f.write("}\n")
     
-    # Generate main.tsp
     with open(os.path.join(OUTPUT_DIR, 'main.tsp'), 'w') as f:
-        f.write("import \"@typespec/http\";\n\n") 
+        f.write("import \"@typespec/http\";\n")
+        f.write("import \"@typespec/rest\";\n")
+        f.write("import \"@typespec/openapi3\";\n\n") 
+        
         for prefix in sorted(namespaces.keys()):
             f.write(f"import \"./{prefix}.tsp\";\n")
+            
+        f.write("\n")
+        f.write("using TypeSpec.Http;\n")
+        f.write("using TypeSpec.Rest;\n\n")
+        
+        f.write("@service\n")
+        f.write("namespace RiotApi;\n")
 
 if __name__ == '__main__':
     main()

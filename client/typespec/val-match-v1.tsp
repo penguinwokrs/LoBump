@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace ValMatchV1;
+namespace RiotApi.ValMatchV1;
 
 model MatchDto {
   matchInfo: MatchInfoDto;

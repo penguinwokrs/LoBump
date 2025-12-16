@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace LeagueExpV4;
+namespace RiotApi.LeagueExpV4;
 
 model LeagueEntryDTO {
   leagueId: string;

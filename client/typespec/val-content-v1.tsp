@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace ValContentV1;
+namespace RiotApi.ValContentV1;
 
 model ContentDto {
   version: string;

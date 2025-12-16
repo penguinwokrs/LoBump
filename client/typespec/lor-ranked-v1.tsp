@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace LorRankedV1;
+namespace RiotApi.LorRankedV1;
 
 model LeaderboardDto {
   players: PlayerDto[];

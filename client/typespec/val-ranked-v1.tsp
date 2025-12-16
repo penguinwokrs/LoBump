@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace ValRankedV1;
+namespace RiotApi.ValRankedV1;
 
 model LeaderboardDto {
   shard: string;

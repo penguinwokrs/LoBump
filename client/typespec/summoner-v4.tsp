@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace SummonerV4;
+namespace RiotApi.SummonerV4;
 
 model SummonerDTO {
   profileIconId: int32;

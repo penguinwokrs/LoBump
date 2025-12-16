@@ -1,4 +1,6 @@
 import "@typespec/http";
+import "@typespec/rest";
+import "@typespec/openapi3";
 
 import "./account-v1.tsp";
 import "./champion-mastery-v4.tsp";
@@ -31,3 +33,9 @@ import "./val-content-v1.tsp";
 import "./val-match-v1.tsp";
 import "./val-ranked-v1.tsp";
 import "./val-status-v1.tsp";
+
+using TypeSpec.Http;
+using TypeSpec.Rest;
+
+@service
+namespace RiotApi;

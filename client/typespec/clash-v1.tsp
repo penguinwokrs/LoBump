@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace ClashV1;
+namespace RiotApi.ClashV1;
 
 model PlayerDto {
   puuid: string;

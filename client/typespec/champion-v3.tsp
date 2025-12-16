@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace ChampionV3;
+namespace RiotApi.ChampionV3;
 
 model ChampionInfo {
   maxNewPlayerLevel: int32;

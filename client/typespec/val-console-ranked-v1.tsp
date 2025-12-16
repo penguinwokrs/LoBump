@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace ValConsoleRankedV1;
+namespace RiotApi.ValConsoleRankedV1;
 
 model LeaderboardDto {
   actId: string;

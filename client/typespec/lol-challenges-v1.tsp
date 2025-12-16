@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace LolChallengesV1;
+namespace RiotApi.LolChallengesV1;
 
 model ChallengeConfigInfoDto {
   id: int64;

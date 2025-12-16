@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace LolRsoMatchV1;
+namespace RiotApi.LolRsoMatchV1;
 
 model MatchDto {
 }

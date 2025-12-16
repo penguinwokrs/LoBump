@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace TftSummonerV1;
+namespace RiotApi.TftSummonerV1;
 
 model SummonerDTO {
   puuid: string;

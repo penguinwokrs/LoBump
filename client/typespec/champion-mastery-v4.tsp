@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace ChampionMasteryV4;
+namespace RiotApi.ChampionMasteryV4;
 
 model ChampionMasteryDto {
   puuid: string;

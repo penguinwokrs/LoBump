@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace LorInventoryV1;
+namespace RiotApi.LorInventoryV1;
 
 model CardDto {
   code: string;

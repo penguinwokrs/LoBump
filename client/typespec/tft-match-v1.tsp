@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace TftMatchV1;
+namespace RiotApi.TftMatchV1;
 
 model MatchDto {
   metadata: MetadataDto;

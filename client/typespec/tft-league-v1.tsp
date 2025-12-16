@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace TftLeagueV1;
+namespace RiotApi.TftLeagueV1;
 
 model LeagueEntryDTO {
   puuid?: string;

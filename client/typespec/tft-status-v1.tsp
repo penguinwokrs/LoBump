@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace TftStatusV1;
+namespace RiotApi.TftStatusV1;
 
 model PlatformDataDto {
   id: string;

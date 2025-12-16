@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace AccountV1;
+namespace RiotApi.AccountV1;
 
 model AccountDto {
   puuid: string;

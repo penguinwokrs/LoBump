@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace SpectatorV5;
+namespace RiotApi.SpectatorV5;
 
 model CurrentGameInfo {
   gameId: int64;

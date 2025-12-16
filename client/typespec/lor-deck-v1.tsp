@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace LorDeckV1;
+namespace RiotApi.LorDeckV1;
 
 model DeckDto {
   id: string;

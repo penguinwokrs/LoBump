@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace TournamentV5;
+namespace RiotApi.TournamentV5;
 
 model TournamentCodeParametersV5 {
   allowedParticipants?: string[];

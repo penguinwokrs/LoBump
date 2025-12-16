@@ -4,7 +4,7 @@ import "@typespec/rest";
 using TypeSpec.Http;
 using TypeSpec.Rest;
 
-namespace MatchV5;
+namespace RiotApi.MatchV5;
 
 model ReplayDTO {
   total: int32;
