@@ -17,7 +17,9 @@
 		"preview": "vite preview",
 		"test": "vitest run",
 		"test:watch": "vitest",
-		"type-check": "tsc --noEmit"
+		"type-check": "tsc --noEmit",
+		"gen:api": "tsp compile client/typespec && orval --config client/orval.config.ts",
+		"gen:all": "python3 generate_typespec.py && pnpm gen:api"
 	},
 	"dependencies": {
 		"@cloudflare/realtimekit": "^1.2.1",
@@ -27,6 +29,7 @@
 		"@fontsource/roboto": "^5.2.9",
 		"@mui/icons-material": "^6.1.10",
 		"@mui/material": "^6.1.10",
+		"axios": "^1.13.2",
 		"hono": "^4.11.1",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
@@ -43,6 +46,9 @@
 		"@types/node": "^24.10.1",
 		"@types/react": "^19.2.5",
 		"@types/react-dom": "^19.2.3",
+		"@typespec/compiler": "^1.7.1",
+		"@typespec/http": "^1.7.0",
+		"@typespec/openapi3": "^1.7.0",
 		"@vitejs/plugin-react": "^5.1.1",
 		"concurrently": "^9.2.1",
 		"eslint": "^9.39.1",
@@ -51,6 +57,7 @@
 		"globals": "^16.5.0",
 		"jsdom": "^27.3.0",
 		"lefthook": "^2.0.12",
+		"orval": "^7.17.0",
 		"typescript": "~5.9.3",
 		"typescript-eslint": "^8.46.4",
 		"vite": "^7.2.4",
