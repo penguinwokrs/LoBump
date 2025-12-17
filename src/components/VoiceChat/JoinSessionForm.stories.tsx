@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, within } from "@storybook/test";
+import { within } from "@testing-library/react";
+import { expect } from "vitest";
 import { JoinSessionForm } from "./JoinSessionForm";
 
 const meta: Meta<typeof JoinSessionForm> = {
