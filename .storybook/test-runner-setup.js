@@ -5,5 +5,4 @@
 // Custom matchers or utilities can be added here
 // For example, you can add custom Playwright helpers
 
-// Global timeout for all tests
-const TEST_TIMEOUT = 15000;
+// Note: Global timeout is configured in test-runner-jest.config.js
