@@ -4,3164 +4,2779 @@
  * (title)
  * OpenAPI spec version: 0.0.0
  */
-
-import type { AxiosRequestConfig, AxiosResponse } from "axios";
-import * as axios from "axios";
+import * as axios from 'axios';
+import type {
+  AxiosRequestConfig,
+  AxiosResponse
+} from 'axios';
 
 export interface AccountV1AccountDto {
-	puuid: string;
-	gameName?: string;
-	tagLine?: string;
+  puuid: string;
+  gameName?: string;
+  tagLine?: string;
 }
 
 export interface AccountV1AccountRegionDTO {
-	puuid: string;
-	game: string;
-	region: string;
+  puuid: string;
+  game: string;
+  region: string;
 }
 
 export interface AccountV1ActiveShardDto {
-	puuid: string;
-	game: string;
-	activeShard: string;
+  puuid: string;
+  game: string;
+  activeShard: string;
 }
 
 export interface ChampionMasteryV4ChampionMasteryDto {
-	puuid: string;
-	championPointsUntilNextLevel: number;
-	chestGranted?: boolean;
-	championId: number;
-	lastPlayTime: number;
-	championLevel: number;
-	championPoints: number;
-	championPointsSinceLastLevel: number;
-	markRequiredForNextLevel: number;
-	championSeasonMilestone: number;
-	nextSeasonMilestone: ChampionMasteryV4NextSeasonMilestonesDto;
-	tokensEarned: number;
-	milestoneGrades?: string[];
+  puuid: string;
+  championPointsUntilNextLevel: number;
+  chestGranted?: boolean;
+  championId: number;
+  lastPlayTime: number;
+  championLevel: number;
+  championPoints: number;
+  championPointsSinceLastLevel: number;
+  markRequiredForNextLevel: number;
+  championSeasonMilestone: number;
+  nextSeasonMilestone: ChampionMasteryV4NextSeasonMilestonesDto;
+  tokensEarned: number;
+  milestoneGrades?: string[];
 }
 
-export type ChampionMasteryV4NextSeasonMilestonesDtoRequireGradeCounts = {
-	[key: string]: number;
-};
+export type ChampionMasteryV4NextSeasonMilestonesDtoRequireGradeCounts = {[key: string]: number};
 
 export interface ChampionMasteryV4NextSeasonMilestonesDto {
-	requireGradeCounts: ChampionMasteryV4NextSeasonMilestonesDtoRequireGradeCounts;
-	rewardMarks: number;
-	bonus: boolean;
-	rewardConfig?: ChampionMasteryV4RewardConfigDto;
-	totalGamesRequires: number;
+  requireGradeCounts: ChampionMasteryV4NextSeasonMilestonesDtoRequireGradeCounts;
+  rewardMarks: number;
+  bonus: boolean;
+  rewardConfig?: ChampionMasteryV4RewardConfigDto;
+  totalGamesRequires: number;
 }
 
 export interface ChampionMasteryV4RewardConfigDto {
-	rewardValue: string;
-	rewardType: string;
-	maximumReward: number;
+  rewardValue: string;
+  rewardType: string;
+  maximumReward: number;
 }
 
 export interface ChampionV3ChampionInfo {
-	maxNewPlayerLevel: number;
-	freeChampionIdsForNewPlayers: number[];
-	freeChampionIds: number[];
+  maxNewPlayerLevel: number;
+  freeChampionIdsForNewPlayers: number[];
+  freeChampionIds: number[];
 }
 
 export interface ClashV1PlayerDto {
-	puuid: string;
-	teamId?: string;
-	position: string;
-	role: string;
+  puuid: string;
+  teamId?: string;
+  position: string;
+  role: string;
 }
 
 export interface ClashV1TeamDto {
-	id: string;
-	tournamentId: number;
-	name: string;
-	iconId: number;
-	tier: number;
-	captain: string;
-	abbreviation: string;
-	players: ClashV1PlayerDto[];
+  id: string;
+  tournamentId: number;
+  name: string;
+  iconId: number;
+  tier: number;
+  captain: string;
+  abbreviation: string;
+  players: ClashV1PlayerDto[];
 }
 
 export interface ClashV1TournamentDto {
-	id: number;
-	themeId: number;
-	nameKey: string;
-	nameKeySecondary: string;
-	schedule: ClashV1TournamentPhaseDto[];
+  id: number;
+  themeId: number;
+  nameKey: string;
+  nameKeySecondary: string;
+  schedule: ClashV1TournamentPhaseDto[];
 }
 
 export interface ClashV1TournamentPhaseDto {
-	id: number;
-	registrationTime: number;
-	startTime: number;
-	cancelled: boolean;
+  id: number;
+  registrationTime: number;
+  startTime: number;
+  cancelled: boolean;
 }
 
 export interface LeagueExpV4LeagueEntryDTO {
-	leagueId: string;
-	summonerId?: string;
-	puuid: string;
-	queueType: string;
-	tier: string;
-	rank: string;
-	leaguePoints: number;
-	wins: number;
-	losses: number;
-	hotStreak: boolean;
-	veteran: boolean;
-	freshBlood: boolean;
-	inactive: boolean;
-	miniSeries?: LeagueExpV4MiniSeriesDTO;
+  leagueId: string;
+  summonerId?: string;
+  puuid: string;
+  queueType: string;
+  tier: string;
+  rank: string;
+  leaguePoints: number;
+  wins: number;
+  losses: number;
+  hotStreak: boolean;
+  veteran: boolean;
+  freshBlood: boolean;
+  inactive: boolean;
+  miniSeries?: LeagueExpV4MiniSeriesDTO;
 }
 
 export interface LeagueExpV4MiniSeriesDTO {
-	losses: number;
-	progress: string;
-	target: number;
-	wins: number;
+  losses: number;
+  progress: string;
+  target: number;
+  wins: number;
 }
 
 export interface LeagueV4LeagueEntryDTO {
-	leagueId?: string;
-	puuid: string;
-	queueType: string;
-	tier?: string;
-	rank?: string;
-	leaguePoints: number;
-	wins: number;
-	losses: number;
-	hotStreak: boolean;
-	veteran: boolean;
-	freshBlood: boolean;
-	inactive: boolean;
-	miniSeries?: LeagueV4MiniSeriesDTO;
-	summonerId?: string;
+  leagueId?: string;
+  puuid: string;
+  queueType: string;
+  tier?: string;
+  rank?: string;
+  leaguePoints: number;
+  wins: number;
+  losses: number;
+  hotStreak: boolean;
+  veteran: boolean;
+  freshBlood: boolean;
+  inactive: boolean;
+  miniSeries?: LeagueV4MiniSeriesDTO;
+  summonerId?: string;
 }
 
 export interface LeagueV4LeagueItemDTO {
-	freshBlood: boolean;
-	wins: number;
-	miniSeries?: LeagueV4MiniSeriesDTO;
-	inactive: boolean;
-	veteran: boolean;
-	hotStreak: boolean;
-	rank: string;
-	leaguePoints: number;
-	losses: number;
-	puuid: string;
-	summonerId?: string;
+  freshBlood: boolean;
+  wins: number;
+  miniSeries?: LeagueV4MiniSeriesDTO;
+  inactive: boolean;
+  veteran: boolean;
+  hotStreak: boolean;
+  rank: string;
+  leaguePoints: number;
+  losses: number;
+  puuid: string;
+  summonerId?: string;
 }
 
 export interface LeagueV4LeagueListDTO {
-	leagueId?: string;
-	entries: LeagueV4LeagueItemDTO[];
-	tier: string;
-	name?: string;
-	queue?: string;
+  leagueId?: string;
+  entries: LeagueV4LeagueItemDTO[];
+  tier: string;
+  name?: string;
+  queue?: string;
 }
 
 export interface LeagueV4MiniSeriesDTO {
-	losses: number;
-	progress: string;
-	target: number;
-	wins: number;
+  losses: number;
+  progress: string;
+  target: number;
+  wins: number;
 }
 
 export interface LolChallengesV1ApexPlayerInfoDto {
-	puuid: string;
-	value: number;
-	position: number;
+  puuid: string;
+  value: number;
+  position: number;
 }
 
-export type LolChallengesV1ChallengeConfigInfoDtoLocalizedNames = {
-	[key: string]: { [key: string]: string };
-};
+export type LolChallengesV1ChallengeConfigInfoDtoLocalizedNames = {[key: string]: {[key: string]: string}};
 
-export type LolChallengesV1ChallengeConfigInfoDtoThresholds = {
-	[key: string]: number;
-};
+export type LolChallengesV1ChallengeConfigInfoDtoThresholds = {[key: string]: number};
 
 export interface LolChallengesV1ChallengeConfigInfoDto {
-	id: number;
-	localizedNames: LolChallengesV1ChallengeConfigInfoDtoLocalizedNames;
-	state: string;
-	tracking?: string;
-	startTimestamp?: number;
-	endTimestamp?: number;
-	leaderboard: boolean;
-	thresholds: LolChallengesV1ChallengeConfigInfoDtoThresholds;
+  id: number;
+  localizedNames: LolChallengesV1ChallengeConfigInfoDtoLocalizedNames;
+  state: string;
+  tracking?: string;
+  startTimestamp?: number;
+  endTimestamp?: number;
+  leaderboard: boolean;
+  thresholds: LolChallengesV1ChallengeConfigInfoDtoThresholds;
 }
 
 export interface LolChallengesV1ChallengeInfoDto {
-	percentile: number;
-	playersInLevel?: number;
-	achievedTime?: number;
-	value: number;
-	challengeId: number;
-	level: string;
-	position?: number;
+  percentile: number;
+  playersInLevel?: number;
+  achievedTime?: number;
+  value: number;
+  challengeId: number;
+  level: string;
+  position?: number;
 }
 
 export interface LolChallengesV1ChallengePointDto {
-	level: string;
-	current: number;
-	max: number;
-	percentile?: number;
+  level: string;
+  current: number;
+  max: number;
+  percentile?: number;
 }
 
-export interface LolChallengesV1Level {
-	[key: string]: unknown;
-}
+export interface LolChallengesV1Level { [key: string]: unknown }
 
 export interface LolChallengesV1PlayerClientPreferencesDto {
-	bannerAccent?: string;
-	title?: string;
-	challengeIds?: number[];
-	crestBorder?: string;
-	prestigeCrestBorderLevel?: number;
+  bannerAccent?: string;
+  title?: string;
+  challengeIds?: number[];
+  crestBorder?: string;
+  prestigeCrestBorderLevel?: number;
 }
 
-export type LolChallengesV1PlayerInfoDtoCategoryPoints = {
-	[key: string]: LolChallengesV1ChallengePointDto;
-};
+export type LolChallengesV1PlayerInfoDtoCategoryPoints = {[key: string]: LolChallengesV1ChallengePointDto};
 
 export interface LolChallengesV1PlayerInfoDto {
-	challenges: LolChallengesV1ChallengeInfoDto[];
-	preferences: LolChallengesV1PlayerClientPreferencesDto;
-	totalPoints: LolChallengesV1ChallengePointDto;
-	categoryPoints: LolChallengesV1PlayerInfoDtoCategoryPoints;
+  challenges: LolChallengesV1ChallengeInfoDto[];
+  preferences: LolChallengesV1PlayerClientPreferencesDto;
+  totalPoints: LolChallengesV1ChallengePointDto;
+  categoryPoints: LolChallengesV1PlayerInfoDtoCategoryPoints;
 }
 
-export interface LolChallengesV1State {
-	[key: string]: unknown;
-}
+export interface LolChallengesV1State { [key: string]: unknown }
 
-export interface LolChallengesV1Tracking {
-	[key: string]: unknown;
-}
+export interface LolChallengesV1Tracking { [key: string]: unknown }
 
-export interface LolRsoMatchV1MatchDto {
-	[key: string]: unknown;
-}
+export interface LolRsoMatchV1MatchDto { [key: string]: unknown }
 
-export interface LolRsoMatchV1TimelineDto {
-	[key: string]: unknown;
-}
+export interface LolRsoMatchV1TimelineDto { [key: string]: unknown }
 
 export interface LolStatusV4ContentDto {
-	locale: string;
-	content: string;
+  locale: string;
+  content: string;
 }
 
 export interface LolStatusV4PlatformDataDto {
-	id: string;
-	name: string;
-	locales: string[];
-	maintenances: LolStatusV4StatusDto[];
-	incidents: LolStatusV4StatusDto[];
+  id: string;
+  name: string;
+  locales: string[];
+  maintenances: LolStatusV4StatusDto[];
+  incidents: LolStatusV4StatusDto[];
 }
 
 export interface LolStatusV4StatusDto {
-	id: number;
-	maintenance_status?: string;
-	incident_severity?: string;
-	titles: LolStatusV4ContentDto[];
-	updates: LolStatusV4UpdateDto[];
-	created_at: string;
-	archive_at?: string;
-	updated_at?: string;
-	platforms: string[];
+  id: number;
+  maintenance_status?: string;
+  incident_severity?: string;
+  titles: LolStatusV4ContentDto[];
+  updates: LolStatusV4UpdateDto[];
+  created_at: string;
+  archive_at?: string;
+  updated_at?: string;
+  platforms: string[];
 }
 
 export interface LolStatusV4UpdateDto {
-	id: number;
-	author: string;
-	publish: boolean;
-	publish_locations: string[];
-	translations: LolStatusV4ContentDto[];
-	created_at: string;
-	updated_at: string;
+  id: number;
+  author: string;
+  publish: boolean;
+  publish_locations: string[];
+  translations: LolStatusV4ContentDto[];
+  created_at: string;
+  updated_at: string;
 }
 
 export interface LorDeckV1DeckDto {
-	id: string;
-	name: string;
-	code: string;
+  id: string;
+  name: string;
+  code: string;
 }
 
 export interface LorDeckV1NewDeckDto {
-	name: string;
-	code: string;
+  name: string;
+  code: string;
 }
 
 export interface LorInventoryV1CardDto {
-	code: string;
-	count: string;
+  code: string;
+  count: string;
 }
 
 export interface LorMatchV1InfoDto {
-	game_mode: string;
-	game_type: string;
-	game_start_time_utc: string;
-	game_version: string;
-	game_format: string;
-	players: LorMatchV1PlayerDto[];
-	total_turn_count: number;
+  game_mode: string;
+  game_type: string;
+  game_start_time_utc: string;
+  game_version: string;
+  game_format: string;
+  players: LorMatchV1PlayerDto[];
+  total_turn_count: number;
 }
 
 export interface LorMatchV1MatchDto {
-	metadata: LorMatchV1MetadataDto;
-	info: LorMatchV1InfoDto;
+  metadata: LorMatchV1MetadataDto;
+  info: LorMatchV1InfoDto;
 }
 
 export interface LorMatchV1MetadataDto {
-	data_version: string;
-	match_id: string;
-	participants: string[];
+  data_version: string;
+  match_id: string;
+  participants: string[];
 }
 
 export interface LorMatchV1PlayerDto {
-	puuid: string;
-	deck_id: string;
-	deck_code: string;
-	factions: string[];
-	game_outcome: string;
-	order_of_play: number;
+  puuid: string;
+  deck_id: string;
+  deck_code: string;
+  factions: string[];
+  game_outcome: string;
+  order_of_play: number;
 }
 
 export interface LorRankedV1LeaderboardDto {
-	players: LorRankedV1PlayerDto[];
+  players: LorRankedV1PlayerDto[];
 }
 
 export interface LorRankedV1PlayerDto {
-	name: string;
-	rank: number;
-	lp: number;
+  name: string;
+  rank: number;
+  lp: number;
 }
 
 export interface LorStatusV1ContentDto {
-	locale: string;
-	content: string;
+  locale: string;
+  content: string;
 }
 
 export interface LorStatusV1PlatformDataDto {
-	id: string;
-	name: string;
-	locales: string[];
-	maintenances: LorStatusV1StatusDto[];
-	incidents: LorStatusV1StatusDto[];
+  id: string;
+  name: string;
+  locales: string[];
+  maintenances: LorStatusV1StatusDto[];
+  incidents: LorStatusV1StatusDto[];
 }
 
 export interface LorStatusV1StatusDto {
-	id: number;
-	maintenance_status: string;
-	incident_severity: string;
-	titles: LorStatusV1ContentDto[];
-	updates: LorStatusV1UpdateDto[];
-	created_at: string;
-	archive_at: string;
-	updated_at: string;
-	platforms: string[];
+  id: number;
+  maintenance_status: string;
+  incident_severity: string;
+  titles: LorStatusV1ContentDto[];
+  updates: LorStatusV1UpdateDto[];
+  created_at: string;
+  archive_at: string;
+  updated_at: string;
+  platforms: string[];
 }
 
 export interface LorStatusV1UpdateDto {
-	id: number;
-	author: string;
-	publish: boolean;
-	publish_locations: string[];
-	translations: LorStatusV1ContentDto[];
-	created_at: string;
-	updated_at: string;
+  id: number;
+  author: string;
+  publish: boolean;
+  publish_locations: string[];
+  translations: LorStatusV1ContentDto[];
+  created_at: string;
+  updated_at: string;
 }
 
 export interface MatchV5BanDto {
-	championId: number;
-	pickTurn: number;
+  championId: number;
+  pickTurn: number;
 }
 
 export interface MatchV5ChallengesDto {
-	"12AssistStreakCount"?: number;
-	baronBuffGoldAdvantageOverThreshold?: number;
-	controlWardTimeCoverageInRiverOrEnemyHalf?: number;
-	earliestBaron?: number;
-	earliestDragonTakedown?: number;
-	earliestElderDragon?: number;
-	earlyLaningPhaseGoldExpAdvantage?: number;
-	fasterSupportQuestCompletion?: number;
-	fastestLegendary?: number;
-	hadAfkTeammate?: number;
-	highestChampionDamage?: number;
-	highestCrowdControlScore?: number;
-	highestWardKills?: number;
-	junglerKillsEarlyJungle?: number;
-	killsOnLanersEarlyJungleAsJungler?: number;
-	laningPhaseGoldExpAdvantage?: number;
-	legendaryCount?: number;
-	maxCsAdvantageOnLaneOpponent?: number;
-	maxLevelLeadLaneOpponent?: number;
-	mostWardsDestroyedOneSweeper?: number;
-	mythicItemUsed?: number;
-	playedChampSelectPosition?: number;
-	soloTurretsLategame?: number;
-	takedownsFirst25Minutes?: number;
-	teleportTakedowns?: number;
-	thirdInhibitorDestroyedTime?: number;
-	threeWardsOneSweeperCount?: number;
-	visionScoreAdvantageLaneOpponent?: number;
-	InfernalScalePickup?: number;
-	fistBumpParticipation?: number;
-	voidMonsterKill?: number;
-	abilityUses?: number;
-	acesBefore15Minutes?: number;
-	alliedJungleMonsterKills?: number;
-	baronTakedowns?: number;
-	blastConeOppositeOpponentCount?: number;
-	bountyGold?: number;
-	buffsStolen?: number;
-	completeSupportQuestInTime?: number;
-	controlWardsPlaced?: number;
-	damagePerMinute?: number;
-	damageTakenOnTeamPercentage?: number;
-	dancedWithRiftHerald?: number;
-	deathsByEnemyChamps?: number;
-	dodgeSkillShotsSmallWindow?: number;
-	doubleAces?: number;
-	dragonTakedowns?: number;
-	legendaryItemUsed?: number[];
-	effectiveHealAndShielding?: number;
-	elderDragonKillsWithOpposingSoul?: number;
-	elderDragonMultikills?: number;
-	enemyChampionImmobilizations?: number;
-	enemyJungleMonsterKills?: number;
-	epicMonsterKillsNearEnemyJungler?: number;
-	epicMonsterKillsWithin30SecondsOfSpawn?: number;
-	epicMonsterSteals?: number;
-	epicMonsterStolenWithoutSmite?: number;
-	firstTurretKilled?: number;
-	firstTurretKilledTime?: number;
-	flawlessAces?: number;
-	fullTeamTakedown?: number;
-	gameLength?: number;
-	getTakedownsInAllLanesEarlyJungleAsLaner?: number;
-	goldPerMinute?: number;
-	hadOpenNexus?: number;
-	immobilizeAndKillWithAlly?: number;
-	initialBuffCount?: number;
-	initialCrabCount?: number;
-	jungleCsBefore10Minutes?: number;
-	junglerTakedownsNearDamagedEpicMonster?: number;
-	kda?: number;
-	killAfterHiddenWithAlly?: number;
-	killedChampTookFullTeamDamageSurvived?: number;
-	killingSprees?: number;
-	killParticipation?: number;
-	killsNearEnemyTurret?: number;
-	killsOnOtherLanesEarlyJungleAsLaner?: number;
-	killsOnRecentlyHealedByAramPack?: number;
-	killsUnderOwnTurret?: number;
-	killsWithHelpFromEpicMonster?: number;
-	knockEnemyIntoTeamAndKill?: number;
-	kTurretsDestroyedBeforePlatesFall?: number;
-	landSkillShotsEarlyGame?: number;
-	laneMinionsFirst10Minutes?: number;
-	lostAnInhibitor?: number;
-	maxKillDeficit?: number;
-	mejaisFullStackInTime?: number;
-	moreEnemyJungleThanOpponent?: number;
-	multiKillOneSpell?: number;
-	multikills?: number;
-	multikillsAfterAggressiveFlash?: number;
-	multiTurretRiftHeraldCount?: number;
-	outerTurretExecutesBefore10Minutes?: number;
-	outnumberedKills?: number;
-	outnumberedNexusKill?: number;
-	perfectDragonSoulsTaken?: number;
-	perfectGame?: number;
-	pickKillWithAlly?: number;
-	poroExplosions?: number;
-	quickCleanse?: number;
-	quickFirstTurret?: number;
-	quickSoloKills?: number;
-	riftHeraldTakedowns?: number;
-	saveAllyFromDeath?: number;
-	scuttleCrabKills?: number;
-	shortestTimeToAceFromFirstTakedown?: number;
-	skillshotsDodged?: number;
-	skillshotsHit?: number;
-	snowballsHit?: number;
-	soloBaronKills?: number;
-	SWARM_DefeatAatrox?: number;
-	SWARM_DefeatBriar?: number;
-	SWARM_DefeatMiniBosses?: number;
-	SWARM_EvolveWeapon?: number;
-	SWARM_Have3Passives?: number;
-	SWARM_KillEnemy?: number;
-	SWARM_PickupGold?: number;
-	SWARM_ReachLevel50?: number;
-	SWARM_Survive15Min?: number;
-	SWARM_WinWith5EvolvedWeapons?: number;
-	soloKills?: number;
-	stealthWardsPlaced?: number;
-	survivedSingleDigitHpCount?: number;
-	survivedThreeImmobilizesInFight?: number;
-	takedownOnFirstTurret?: number;
-	takedowns?: number;
-	takedownsAfterGainingLevelAdvantage?: number;
-	takedownsBeforeJungleMinionSpawn?: number;
-	takedownsFirstXMinutes?: number;
-	takedownsInAlcove?: number;
-	takedownsInEnemyFountain?: number;
-	teamBaronKills?: number;
-	teamDamagePercentage?: number;
-	teamElderDragonKills?: number;
-	teamRiftHeraldKills?: number;
-	tookLargeDamageSurvived?: number;
-	turretPlatesTaken?: number;
-	turretsTakenWithRiftHerald?: number;
-	turretTakedowns?: number;
-	twentyMinionsIn3SecondsCount?: number;
-	twoWardsOneSweeperCount?: number;
-	unseenRecalls?: number;
-	visionScorePerMinute?: number;
-	wardsGuarded?: number;
-	wardTakedowns?: number;
-	wardTakedownsBefore20M?: number;
-	HealFromMapSources?: number;
+  '12AssistStreakCount'?: number;
+  baronBuffGoldAdvantageOverThreshold?: number;
+  controlWardTimeCoverageInRiverOrEnemyHalf?: number;
+  earliestBaron?: number;
+  earliestDragonTakedown?: number;
+  earliestElderDragon?: number;
+  earlyLaningPhaseGoldExpAdvantage?: number;
+  fasterSupportQuestCompletion?: number;
+  fastestLegendary?: number;
+  hadAfkTeammate?: number;
+  highestChampionDamage?: number;
+  highestCrowdControlScore?: number;
+  highestWardKills?: number;
+  junglerKillsEarlyJungle?: number;
+  killsOnLanersEarlyJungleAsJungler?: number;
+  laningPhaseGoldExpAdvantage?: number;
+  legendaryCount?: number;
+  maxCsAdvantageOnLaneOpponent?: number;
+  maxLevelLeadLaneOpponent?: number;
+  mostWardsDestroyedOneSweeper?: number;
+  mythicItemUsed?: number;
+  playedChampSelectPosition?: number;
+  soloTurretsLategame?: number;
+  takedownsFirst25Minutes?: number;
+  teleportTakedowns?: number;
+  thirdInhibitorDestroyedTime?: number;
+  threeWardsOneSweeperCount?: number;
+  visionScoreAdvantageLaneOpponent?: number;
+  InfernalScalePickup?: number;
+  fistBumpParticipation?: number;
+  voidMonsterKill?: number;
+  abilityUses?: number;
+  acesBefore15Minutes?: number;
+  alliedJungleMonsterKills?: number;
+  baronTakedowns?: number;
+  blastConeOppositeOpponentCount?: number;
+  bountyGold?: number;
+  buffsStolen?: number;
+  completeSupportQuestInTime?: number;
+  controlWardsPlaced?: number;
+  damagePerMinute?: number;
+  damageTakenOnTeamPercentage?: number;
+  dancedWithRiftHerald?: number;
+  deathsByEnemyChamps?: number;
+  dodgeSkillShotsSmallWindow?: number;
+  doubleAces?: number;
+  dragonTakedowns?: number;
+  legendaryItemUsed?: number[];
+  effectiveHealAndShielding?: number;
+  elderDragonKillsWithOpposingSoul?: number;
+  elderDragonMultikills?: number;
+  enemyChampionImmobilizations?: number;
+  enemyJungleMonsterKills?: number;
+  epicMonsterKillsNearEnemyJungler?: number;
+  epicMonsterKillsWithin30SecondsOfSpawn?: number;
+  epicMonsterSteals?: number;
+  epicMonsterStolenWithoutSmite?: number;
+  firstTurretKilled?: number;
+  firstTurretKilledTime?: number;
+  flawlessAces?: number;
+  fullTeamTakedown?: number;
+  gameLength?: number;
+  getTakedownsInAllLanesEarlyJungleAsLaner?: number;
+  goldPerMinute?: number;
+  hadOpenNexus?: number;
+  immobilizeAndKillWithAlly?: number;
+  initialBuffCount?: number;
+  initialCrabCount?: number;
+  jungleCsBefore10Minutes?: number;
+  junglerTakedownsNearDamagedEpicMonster?: number;
+  kda?: number;
+  killAfterHiddenWithAlly?: number;
+  killedChampTookFullTeamDamageSurvived?: number;
+  killingSprees?: number;
+  killParticipation?: number;
+  killsNearEnemyTurret?: number;
+  killsOnOtherLanesEarlyJungleAsLaner?: number;
+  killsOnRecentlyHealedByAramPack?: number;
+  killsUnderOwnTurret?: number;
+  killsWithHelpFromEpicMonster?: number;
+  knockEnemyIntoTeamAndKill?: number;
+  kTurretsDestroyedBeforePlatesFall?: number;
+  landSkillShotsEarlyGame?: number;
+  laneMinionsFirst10Minutes?: number;
+  lostAnInhibitor?: number;
+  maxKillDeficit?: number;
+  mejaisFullStackInTime?: number;
+  moreEnemyJungleThanOpponent?: number;
+  multiKillOneSpell?: number;
+  multikills?: number;
+  multikillsAfterAggressiveFlash?: number;
+  multiTurretRiftHeraldCount?: number;
+  outerTurretExecutesBefore10Minutes?: number;
+  outnumberedKills?: number;
+  outnumberedNexusKill?: number;
+  perfectDragonSoulsTaken?: number;
+  perfectGame?: number;
+  pickKillWithAlly?: number;
+  poroExplosions?: number;
+  quickCleanse?: number;
+  quickFirstTurret?: number;
+  quickSoloKills?: number;
+  riftHeraldTakedowns?: number;
+  saveAllyFromDeath?: number;
+  scuttleCrabKills?: number;
+  shortestTimeToAceFromFirstTakedown?: number;
+  skillshotsDodged?: number;
+  skillshotsHit?: number;
+  snowballsHit?: number;
+  soloBaronKills?: number;
+  SWARM_DefeatAatrox?: number;
+  SWARM_DefeatBriar?: number;
+  SWARM_DefeatMiniBosses?: number;
+  SWARM_EvolveWeapon?: number;
+  SWARM_Have3Passives?: number;
+  SWARM_KillEnemy?: number;
+  SWARM_PickupGold?: number;
+  SWARM_ReachLevel50?: number;
+  SWARM_Survive15Min?: number;
+  SWARM_WinWith5EvolvedWeapons?: number;
+  soloKills?: number;
+  stealthWardsPlaced?: number;
+  survivedSingleDigitHpCount?: number;
+  survivedThreeImmobilizesInFight?: number;
+  takedownOnFirstTurret?: number;
+  takedowns?: number;
+  takedownsAfterGainingLevelAdvantage?: number;
+  takedownsBeforeJungleMinionSpawn?: number;
+  takedownsFirstXMinutes?: number;
+  takedownsInAlcove?: number;
+  takedownsInEnemyFountain?: number;
+  teamBaronKills?: number;
+  teamDamagePercentage?: number;
+  teamElderDragonKills?: number;
+  teamRiftHeraldKills?: number;
+  tookLargeDamageSurvived?: number;
+  turretPlatesTaken?: number;
+  turretsTakenWithRiftHerald?: number;
+  turretTakedowns?: number;
+  twentyMinionsIn3SecondsCount?: number;
+  twoWardsOneSweeperCount?: number;
+  unseenRecalls?: number;
+  visionScorePerMinute?: number;
+  wardsGuarded?: number;
+  wardTakedowns?: number;
+  wardTakedownsBefore20M?: number;
+  HealFromMapSources?: number;
 }
 
 export interface MatchV5ChampionStatsDto {
-	abilityHaste?: number;
-	abilityPower: number;
-	armor: number;
-	armorPen: number;
-	armorPenPercent: number;
-	attackDamage: number;
-	attackSpeed: number;
-	bonusArmorPenPercent: number;
-	bonusMagicPenPercent: number;
-	ccReduction: number;
-	cooldownReduction: number;
-	health: number;
-	healthMax: number;
-	healthRegen: number;
-	lifesteal: number;
-	magicPen: number;
-	magicPenPercent: number;
-	magicResist: number;
-	movementSpeed: number;
-	omnivamp?: number;
-	physicalVamp?: number;
-	power: number;
-	powerMax: number;
-	powerRegen: number;
-	spellVamp: number;
+  abilityHaste?: number;
+  abilityPower: number;
+  armor: number;
+  armorPen: number;
+  armorPenPercent: number;
+  attackDamage: number;
+  attackSpeed: number;
+  bonusArmorPenPercent: number;
+  bonusMagicPenPercent: number;
+  ccReduction: number;
+  cooldownReduction: number;
+  health: number;
+  healthMax: number;
+  healthRegen: number;
+  lifesteal: number;
+  magicPen: number;
+  magicPenPercent: number;
+  magicResist: number;
+  movementSpeed: number;
+  omnivamp?: number;
+  physicalVamp?: number;
+  power: number;
+  powerMax: number;
+  powerRegen: number;
+  spellVamp: number;
 }
 
 export interface MatchV5DamageStatsDto {
-	magicDamageDone: number;
-	magicDamageDoneToChampions: number;
-	magicDamageTaken: number;
-	physicalDamageDone: number;
-	physicalDamageDoneToChampions: number;
-	physicalDamageTaken: number;
-	totalDamageDone: number;
-	totalDamageDoneToChampions: number;
-	totalDamageTaken: number;
-	trueDamageDone: number;
-	trueDamageDoneToChampions: number;
-	trueDamageTaken: number;
+  magicDamageDone: number;
+  magicDamageDoneToChampions: number;
+  magicDamageTaken: number;
+  physicalDamageDone: number;
+  physicalDamageDoneToChampions: number;
+  physicalDamageTaken: number;
+  totalDamageDone: number;
+  totalDamageDoneToChampions: number;
+  totalDamageTaken: number;
+  trueDamageDone: number;
+  trueDamageDoneToChampions: number;
+  trueDamageTaken: number;
 }
 
 export interface MatchV5EventsTimeLineDto {
-	timestamp: number;
-	realTimestamp?: number;
-	type: string;
-	itemId?: number;
-	participantId?: number;
-	levelUpType?: string;
-	skillSlot?: number;
-	creatorId?: number;
-	wardType?: string;
-	level?: number;
-	assistingParticipantIds?: number[];
-	bounty?: number;
-	killStreakLength?: number;
-	killerId?: number;
-	position?: MatchV5PositionDto;
-	victimDamageDealt?: MatchV5MatchTimelineVictimDamage[];
-	victimDamageReceived?: MatchV5MatchTimelineVictimDamage[];
-	victimId?: number;
-	killType?: string;
-	laneType?: string;
-	teamId?: number;
-	multiKillLength?: number;
-	killerTeamId?: number;
-	monsterType?: string;
-	monsterSubType?: string;
-	buildingType?: string;
-	towerType?: string;
-	afterId?: number;
-	beforeId?: number;
-	goldGain?: number;
-	gameId?: number;
-	winningTeam?: number;
-	transformType?: string;
-	name?: string;
-	shutdownBounty?: number;
-	actualStartTime?: number;
-	featType?: number;
-	featValue?: number;
+  timestamp: number;
+  realTimestamp?: number;
+  type: string;
+  itemId?: number;
+  participantId?: number;
+  levelUpType?: string;
+  skillSlot?: number;
+  creatorId?: number;
+  wardType?: string;
+  level?: number;
+  assistingParticipantIds?: number[];
+  bounty?: number;
+  killStreakLength?: number;
+  killerId?: number;
+  position?: MatchV5PositionDto;
+  victimDamageDealt?: MatchV5MatchTimelineVictimDamage[];
+  victimDamageReceived?: MatchV5MatchTimelineVictimDamage[];
+  victimId?: number;
+  killType?: string;
+  laneType?: string;
+  teamId?: number;
+  multiKillLength?: number;
+  killerTeamId?: number;
+  monsterType?: string;
+  monsterSubType?: string;
+  buildingType?: string;
+  towerType?: string;
+  afterId?: number;
+  beforeId?: number;
+  goldGain?: number;
+  gameId?: number;
+  winningTeam?: number;
+  transformType?: string;
+  name?: string;
+  shutdownBounty?: number;
+  actualStartTime?: number;
+  featType?: number;
+  featValue?: number;
 }
 
 export interface MatchV5FeatDto {
-	featState?: number;
+  featState?: number;
 }
 
 export interface MatchV5FeatsDto {
-	EPIC_MONSTER_KILL?: MatchV5FeatDto;
-	FIRST_BLOOD?: MatchV5FeatDto;
-	FIRST_TURRET?: MatchV5FeatDto;
+  EPIC_MONSTER_KILL?: MatchV5FeatDto;
+  FIRST_BLOOD?: MatchV5FeatDto;
+  FIRST_TURRET?: MatchV5FeatDto;
 }
 
-export type MatchV5FramesTimeLineDtoParticipantFrames = {
-	[key: string]: MatchV5ParticipantFrameDto;
-};
+export type MatchV5FramesTimeLineDtoParticipantFrames = {[key: string]: MatchV5ParticipantFrameDto};
 
 export interface MatchV5FramesTimeLineDto {
-	events: MatchV5EventsTimeLineDto[];
-	participantFrames?: MatchV5FramesTimeLineDtoParticipantFrames;
-	timestamp: number;
+  events: MatchV5EventsTimeLineDto[];
+  participantFrames?: MatchV5FramesTimeLineDtoParticipantFrames;
+  timestamp: number;
 }
 
 export interface MatchV5InfoDto {
-	endOfGameResult?: string;
-	gameCreation: number;
-	gameDuration: number;
-	gameEndTimestamp?: number;
-	gameId: number;
-	gameMode: string;
-	gameName: string;
-	gameStartTimestamp: number;
-	gameType: string;
-	gameVersion: string;
-	mapId: number;
-	participants: MatchV5ParticipantDto[];
-	platformId: string;
-	queueId: number;
-	teams: MatchV5TeamDto[];
-	tournamentCode?: string;
-	gameModeMutators?: string[];
+  endOfGameResult?: string;
+  gameCreation: number;
+  gameDuration: number;
+  gameEndTimestamp?: number;
+  gameId: number;
+  gameMode: string;
+  gameName: string;
+  gameStartTimestamp: number;
+  gameType: string;
+  gameVersion: string;
+  mapId: number;
+  participants: MatchV5ParticipantDto[];
+  platformId: string;
+  queueId: number;
+  teams: MatchV5TeamDto[];
+  tournamentCode?: string;
+  gameModeMutators?: string[];
 }
 
 export interface MatchV5InfoTimeLineDto {
-	endOfGameResult?: string;
-	frameInterval: number;
-	gameId?: number;
-	participants?: MatchV5ParticipantTimeLineDto[];
-	frames: MatchV5FramesTimeLineDto[];
+  endOfGameResult?: string;
+  frameInterval: number;
+  gameId?: number;
+  participants?: MatchV5ParticipantTimeLineDto[];
+  frames: MatchV5FramesTimeLineDto[];
 }
 
 export interface MatchV5MatchDto {
-	metadata: MatchV5MetadataDto;
-	info: MatchV5InfoDto;
+  metadata: MatchV5MetadataDto;
+  info: MatchV5InfoDto;
 }
 
 export interface MatchV5MatchTimelineVictimDamage {
-	basic: boolean;
-	magicDamage: number;
-	name: string;
-	participantId: number;
-	physicalDamage: number;
-	spellName: string;
-	spellSlot: number;
-	trueDamage: number;
-	type: string;
+  basic: boolean;
+  magicDamage: number;
+  name: string;
+  participantId: number;
+  physicalDamage: number;
+  spellName: string;
+  spellSlot: number;
+  trueDamage: number;
+  type: string;
 }
 
 export interface MatchV5MetadataDto {
-	dataVersion: string;
-	matchId: string;
-	participants: string[];
+  dataVersion: string;
+  matchId: string;
+  participants: string[];
 }
 
 export interface MatchV5MetadataTimeLineDto {
-	dataVersion: string;
-	matchId: string;
-	participants: string[];
+  dataVersion: string;
+  matchId: string;
+  participants: string[];
 }
 
 export interface MatchV5MissionsDto {
-	playerScore0?: number;
-	playerScore1?: number;
-	playerScore2?: number;
-	playerScore3?: number;
-	playerScore4?: number;
-	playerScore5?: number;
-	playerScore6?: number;
-	playerScore7?: number;
-	playerScore8?: number;
-	playerScore9?: number;
-	playerScore10?: number;
-	playerScore11?: number;
+  playerScore0?: number;
+  playerScore1?: number;
+  playerScore2?: number;
+  playerScore3?: number;
+  playerScore4?: number;
+  playerScore5?: number;
+  playerScore6?: number;
+  playerScore7?: number;
+  playerScore8?: number;
+  playerScore9?: number;
+  playerScore10?: number;
+  playerScore11?: number;
 }
 
 export interface MatchV5ObjectiveDto {
-	first: boolean;
-	kills: number;
+  first: boolean;
+  kills: number;
 }
 
 export interface MatchV5ObjectivesDto {
-	baron: MatchV5ObjectiveDto;
-	champion: MatchV5ObjectiveDto;
-	dragon: MatchV5ObjectiveDto;
-	horde?: MatchV5ObjectiveDto;
-	inhibitor: MatchV5ObjectiveDto;
-	riftHerald: MatchV5ObjectiveDto;
-	tower: MatchV5ObjectiveDto;
-	atakhan?: MatchV5ObjectiveDto;
+  baron: MatchV5ObjectiveDto;
+  champion: MatchV5ObjectiveDto;
+  dragon: MatchV5ObjectiveDto;
+  horde?: MatchV5ObjectiveDto;
+  inhibitor: MatchV5ObjectiveDto;
+  riftHerald: MatchV5ObjectiveDto;
+  tower: MatchV5ObjectiveDto;
+  atakhan?: MatchV5ObjectiveDto;
 }
 
 export interface MatchV5ParticipantDto {
-	allInPings?: number;
-	assistMePings?: number;
-	assists: number;
-	baronKills: number;
-	bountyLevel?: number;
-	champExperience: number;
-	champLevel: number;
-	championId: number;
-	championName: string;
-	commandPings?: number;
-	championTransform: number;
-	consumablesPurchased: number;
-	challenges?: MatchV5ChallengesDto;
-	damageDealtToBuildings?: number;
-	damageDealtToObjectives: number;
-	damageDealtToTurrets: number;
-	damageSelfMitigated: number;
-	deaths: number;
-	detectorWardsPlaced: number;
-	doubleKills: number;
-	dragonKills: number;
-	eligibleForProgression?: boolean;
-	enemyMissingPings?: number;
-	enemyVisionPings?: number;
-	firstBloodAssist: boolean;
-	firstBloodKill: boolean;
-	firstTowerAssist: boolean;
-	firstTowerKill: boolean;
-	gameEndedInEarlySurrender: boolean;
-	gameEndedInSurrender: boolean;
-	holdPings?: number;
-	getBackPings?: number;
-	goldEarned: number;
-	goldSpent: number;
-	individualPosition: string;
-	inhibitorKills: number;
-	inhibitorTakedowns?: number;
-	inhibitorsLost?: number;
-	item0: number;
-	item1: number;
-	item2: number;
-	item3: number;
-	item4: number;
-	item5: number;
-	item6: number;
-	itemsPurchased: number;
-	killingSprees: number;
-	kills: number;
-	lane: string;
-	largestCriticalStrike: number;
-	largestKillingSpree: number;
-	largestMultiKill: number;
-	longestTimeSpentLiving: number;
-	magicDamageDealt: number;
-	magicDamageDealtToChampions: number;
-	magicDamageTaken: number;
-	missions?: MatchV5MissionsDto;
-	neutralMinionsKilled: number;
-	needVisionPings?: number;
-	nexusKills: number;
-	nexusTakedowns?: number;
-	nexusLost?: number;
-	objectivesStolen: number;
-	objectivesStolenAssists: number;
-	onMyWayPings?: number;
-	participantId: number;
-	playerScore0?: number;
-	playerScore1?: number;
-	playerScore2?: number;
-	playerScore3?: number;
-	playerScore4?: number;
-	playerScore5?: number;
-	playerScore6?: number;
-	playerScore7?: number;
-	playerScore8?: number;
-	playerScore9?: number;
-	playerScore10?: number;
-	playerScore11?: number;
-	pentaKills: number;
-	perks: MatchV5PerksDto;
-	physicalDamageDealt: number;
-	physicalDamageDealtToChampions: number;
-	physicalDamageTaken: number;
-	placement?: number;
-	playerAugment1?: number;
-	playerAugment2?: number;
-	playerAugment3?: number;
-	playerAugment4?: number;
-	playerSubteamId?: number;
-	pushPings?: number;
-	profileIcon: number;
-	puuid: string;
-	quadraKills: number;
-	riotIdGameName?: string;
-	riotIdTagline?: string;
-	role: string;
-	sightWardsBoughtInGame: number;
-	spell1Casts: number;
-	spell2Casts: number;
-	spell3Casts: number;
-	spell4Casts: number;
-	subteamPlacement?: number;
-	summoner1Casts: number;
-	summoner1Id: number;
-	summoner2Casts: number;
-	summoner2Id: number;
-	summonerId: string;
-	summonerLevel: number;
-	summonerName: string;
-	teamEarlySurrendered: boolean;
-	teamId: number;
-	teamPosition: string;
-	timeCCingOthers: number;
-	timePlayed: number;
-	totalAllyJungleMinionsKilled?: number;
-	totalDamageDealt: number;
-	totalDamageDealtToChampions: number;
-	totalDamageShieldedOnTeammates: number;
-	totalDamageTaken: number;
-	totalEnemyJungleMinionsKilled?: number;
-	totalHeal: number;
-	totalHealsOnTeammates: number;
-	totalMinionsKilled: number;
-	totalTimeCCDealt: number;
-	totalTimeSpentDead: number;
-	totalUnitsHealed: number;
-	tripleKills: number;
-	trueDamageDealt: number;
-	trueDamageDealtToChampions: number;
-	trueDamageTaken: number;
-	turretKills: number;
-	turretTakedowns?: number;
-	turretsLost?: number;
-	unrealKills: number;
-	visionScore: number;
-	visionClearedPings?: number;
-	visionWardsBoughtInGame: number;
-	wardsKilled: number;
-	wardsPlaced: number;
-	win: boolean;
-	baitPings?: number;
-	dangerPings?: number;
-	basicPings?: number;
-	playerAugment5?: number;
-	playerAugment6?: number;
-	riotIdName?: string;
-	retreatPings?: number;
-	championSkinId?: number;
-	damageDealtToEpicMonsters?: number;
+  allInPings?: number;
+  assistMePings?: number;
+  assists: number;
+  baronKills: number;
+  bountyLevel?: number;
+  champExperience: number;
+  champLevel: number;
+  championId: number;
+  championName: string;
+  commandPings?: number;
+  championTransform: number;
+  consumablesPurchased: number;
+  challenges?: MatchV5ChallengesDto;
+  damageDealtToBuildings?: number;
+  damageDealtToObjectives: number;
+  damageDealtToTurrets: number;
+  damageSelfMitigated: number;
+  deaths: number;
+  detectorWardsPlaced: number;
+  doubleKills: number;
+  dragonKills: number;
+  eligibleForProgression?: boolean;
+  enemyMissingPings?: number;
+  enemyVisionPings?: number;
+  firstBloodAssist: boolean;
+  firstBloodKill: boolean;
+  firstTowerAssist: boolean;
+  firstTowerKill: boolean;
+  gameEndedInEarlySurrender: boolean;
+  gameEndedInSurrender: boolean;
+  holdPings?: number;
+  getBackPings?: number;
+  goldEarned: number;
+  goldSpent: number;
+  individualPosition: string;
+  inhibitorKills: number;
+  inhibitorTakedowns?: number;
+  inhibitorsLost?: number;
+  item0: number;
+  item1: number;
+  item2: number;
+  item3: number;
+  item4: number;
+  item5: number;
+  item6: number;
+  itemsPurchased: number;
+  killingSprees: number;
+  kills: number;
+  lane: string;
+  largestCriticalStrike: number;
+  largestKillingSpree: number;
+  largestMultiKill: number;
+  longestTimeSpentLiving: number;
+  magicDamageDealt: number;
+  magicDamageDealtToChampions: number;
+  magicDamageTaken: number;
+  missions?: MatchV5MissionsDto;
+  neutralMinionsKilled: number;
+  needVisionPings?: number;
+  nexusKills: number;
+  nexusTakedowns?: number;
+  nexusLost?: number;
+  objectivesStolen: number;
+  objectivesStolenAssists: number;
+  onMyWayPings?: number;
+  participantId: number;
+  playerScore0?: number;
+  playerScore1?: number;
+  playerScore2?: number;
+  playerScore3?: number;
+  playerScore4?: number;
+  playerScore5?: number;
+  playerScore6?: number;
+  playerScore7?: number;
+  playerScore8?: number;
+  playerScore9?: number;
+  playerScore10?: number;
+  playerScore11?: number;
+  pentaKills: number;
+  perks: MatchV5PerksDto;
+  physicalDamageDealt: number;
+  physicalDamageDealtToChampions: number;
+  physicalDamageTaken: number;
+  placement?: number;
+  playerAugment1?: number;
+  playerAugment2?: number;
+  playerAugment3?: number;
+  playerAugment4?: number;
+  playerSubteamId?: number;
+  pushPings?: number;
+  profileIcon: number;
+  puuid: string;
+  quadraKills: number;
+  riotIdGameName?: string;
+  riotIdTagline?: string;
+  role: string;
+  sightWardsBoughtInGame: number;
+  spell1Casts: number;
+  spell2Casts: number;
+  spell3Casts: number;
+  spell4Casts: number;
+  subteamPlacement?: number;
+  summoner1Casts: number;
+  summoner1Id: number;
+  summoner2Casts: number;
+  summoner2Id: number;
+  summonerId: string;
+  summonerLevel: number;
+  summonerName: string;
+  teamEarlySurrendered: boolean;
+  teamId: number;
+  teamPosition: string;
+  timeCCingOthers: number;
+  timePlayed: number;
+  totalAllyJungleMinionsKilled?: number;
+  totalDamageDealt: number;
+  totalDamageDealtToChampions: number;
+  totalDamageShieldedOnTeammates: number;
+  totalDamageTaken: number;
+  totalEnemyJungleMinionsKilled?: number;
+  totalHeal: number;
+  totalHealsOnTeammates: number;
+  totalMinionsKilled: number;
+  totalTimeCCDealt: number;
+  totalTimeSpentDead: number;
+  totalUnitsHealed: number;
+  tripleKills: number;
+  trueDamageDealt: number;
+  trueDamageDealtToChampions: number;
+  trueDamageTaken: number;
+  turretKills: number;
+  turretTakedowns?: number;
+  turretsLost?: number;
+  unrealKills: number;
+  visionScore: number;
+  visionClearedPings?: number;
+  visionWardsBoughtInGame: number;
+  wardsKilled: number;
+  wardsPlaced: number;
+  win: boolean;
+  baitPings?: number;
+  dangerPings?: number;
+  basicPings?: number;
+  playerAugment5?: number;
+  playerAugment6?: number;
+  riotIdName?: string;
+  retreatPings?: number;
+  championSkinId?: number;
+  damageDealtToEpicMonsters?: number;
 }
 
 export interface MatchV5ParticipantFrameDto {
-	championStats: MatchV5ChampionStatsDto;
-	currentGold: number;
-	damageStats: MatchV5DamageStatsDto;
-	goldPerSecond: number;
-	jungleMinionsKilled: number;
-	level: number;
-	minionsKilled: number;
-	participantId: number;
-	position: MatchV5PositionDto;
-	timeEnemySpentControlled: number;
-	totalGold: number;
-	xp: number;
+  championStats: MatchV5ChampionStatsDto;
+  currentGold: number;
+  damageStats: MatchV5DamageStatsDto;
+  goldPerSecond: number;
+  jungleMinionsKilled: number;
+  level: number;
+  minionsKilled: number;
+  participantId: number;
+  position: MatchV5PositionDto;
+  timeEnemySpentControlled: number;
+  totalGold: number;
+  xp: number;
 }
 
 export interface MatchV5ParticipantFramesDto {
-	"1-9": MatchV5ParticipantFrameDto;
+  '1-9': MatchV5ParticipantFrameDto;
 }
 
 export interface MatchV5ParticipantTimeLineDto {
-	participantId: number;
-	puuid: string;
+  participantId: number;
+  puuid: string;
 }
 
 export interface MatchV5PerkStatsDto {
-	defense: number;
-	flex: number;
-	offense: number;
+  defense: number;
+  flex: number;
+  offense: number;
 }
 
 export interface MatchV5PerkStyleDto {
-	description: string;
-	selections: MatchV5PerkStyleSelectionDto[];
-	style: number;
+  description: string;
+  selections: MatchV5PerkStyleSelectionDto[];
+  style: number;
 }
 
 export interface MatchV5PerkStyleSelectionDto {
-	perk: number;
-	var1: number;
-	var2: number;
-	var3: number;
+  perk: number;
+  var1: number;
+  var2: number;
+  var3: number;
 }
 
 export interface MatchV5PerksDto {
-	statPerks: MatchV5PerkStatsDto;
-	styles: MatchV5PerkStyleDto[];
+  statPerks: MatchV5PerkStatsDto;
+  styles: MatchV5PerkStyleDto[];
 }
 
 export interface MatchV5PositionDto {
-	x: number;
-	y: number;
+  x: number;
+  y: number;
 }
 
 export interface MatchV5ReplayDTO {
-	total: number;
-	matchFileURLs: string[];
+  total: number;
+  matchFileURLs: string[];
 }
 
 export interface MatchV5TeamDto {
-	bans: MatchV5BanDto[];
-	objectives: MatchV5ObjectivesDto;
-	teamId: number;
-	win: boolean;
-	feats?: MatchV5FeatsDto;
+  bans: MatchV5BanDto[];
+  objectives: MatchV5ObjectivesDto;
+  teamId: number;
+  win: boolean;
+  feats?: MatchV5FeatsDto;
 }
 
 export interface MatchV5TimelineDto {
-	metadata: MatchV5MetadataTimeLineDto;
-	info: MatchV5InfoTimeLineDto;
+  metadata: MatchV5MetadataTimeLineDto;
+  info: MatchV5InfoTimeLineDto;
 }
 
 export interface RiftboundContentV1CardArtDTO {
-	thumbnailURL: string;
-	fullURL: string;
-	artist: string;
+  thumbnailURL: string;
+  fullURL: string;
+  artist: string;
 }
 
 export interface RiftboundContentV1CardDTO {
-	id: string;
-	collectorNumber: number;
-	set: string;
-	name: string;
-	description: string;
-	type: string;
-	rarity: string;
-	faction: string;
-	stats: RiftboundContentV1CardStatsDTO;
-	keywords: string[];
-	art: RiftboundContentV1CardArtDTO;
-	flavorText: string;
-	tags: string[];
+  id: string;
+  collectorNumber: number;
+  set: string;
+  name: string;
+  description: string;
+  type: string;
+  rarity: string;
+  faction: string;
+  stats: RiftboundContentV1CardStatsDTO;
+  keywords: string[];
+  art: RiftboundContentV1CardArtDTO;
+  flavorText: string;
+  tags: string[];
 }
 
 export interface RiftboundContentV1CardStatsDTO {
-	energy: number;
-	might: number;
-	cost: number;
-	power: number;
+  energy: number;
+  might: number;
+  cost: number;
+  power: number;
 }
 
 export interface RiftboundContentV1RiftboundContentDTO {
-	game: string;
-	version: string;
-	lastUpdated: string;
-	sets: RiftboundContentV1SetDTO[];
+  game: string;
+  version: string;
+  lastUpdated: string;
+  sets: RiftboundContentV1SetDTO[];
 }
 
 export interface RiftboundContentV1SetDTO {
-	id: string;
-	name: string;
-	cards: RiftboundContentV1CardDTO[];
+  id: string;
+  name: string;
+  cards: RiftboundContentV1CardDTO[];
 }
 
 export interface SpectatorTftV5BannedChampion {
-	pickTurn: number;
-	championId: number;
-	teamId: number;
+  pickTurn: number;
+  championId: number;
+  teamId: number;
 }
 
 export interface SpectatorTftV5CurrentGameInfo {
-	gameId: number;
-	gameType: string;
-	gameStartTime: number;
-	mapId: number;
-	gameLength: number;
-	platformId: string;
-	gameMode: string;
-	bannedChampions: SpectatorTftV5BannedChampion[];
-	gameQueueConfigId?: number;
-	observers: SpectatorTftV5Observer;
-	participants: SpectatorTftV5CurrentGameParticipant[];
+  gameId: number;
+  gameType: string;
+  gameStartTime: number;
+  mapId: number;
+  gameLength: number;
+  platformId: string;
+  gameMode: string;
+  bannedChampions: SpectatorTftV5BannedChampion[];
+  gameQueueConfigId?: number;
+  observers: SpectatorTftV5Observer;
+  participants: SpectatorTftV5CurrentGameParticipant[];
 }
 
 export interface SpectatorTftV5CurrentGameParticipant {
-	championId: number;
-	perks?: SpectatorTftV5Perks;
-	profileIconId: number;
-	teamId: number;
-	puuid?: string;
-	spell1Id: number;
-	spell2Id: number;
-	gameCustomizationObjects: SpectatorTftV5GameCustomizationObject[];
-	riotId?: string;
+  championId: number;
+  perks?: SpectatorTftV5Perks;
+  profileIconId: number;
+  teamId: number;
+  puuid?: string;
+  spell1Id: number;
+  spell2Id: number;
+  gameCustomizationObjects: SpectatorTftV5GameCustomizationObject[];
+  riotId?: string;
 }
 
 export interface SpectatorTftV5GameCustomizationObject {
-	category: string;
-	content: string;
+  category: string;
+  content: string;
 }
 
 export interface SpectatorTftV5Observer {
-	encryptionKey: string;
+  encryptionKey: string;
 }
 
 export interface SpectatorTftV5Perks {
-	perkIds: number[];
-	perkStyle: number;
-	perkSubStyle: number;
+  perkIds: number[];
+  perkStyle: number;
+  perkSubStyle: number;
 }
 
 export interface SpectatorV5BannedChampion {
-	pickTurn: number;
-	championId: number;
-	teamId: number;
+  pickTurn: number;
+  championId: number;
+  teamId: number;
 }
 
 export interface SpectatorV5CurrentGameInfo {
-	gameId: number;
-	gameType: string;
-	gameStartTime: number;
-	mapId: number;
-	gameLength: number;
-	platformId: string;
-	gameMode: string;
-	bannedChampions: SpectatorV5BannedChampion[];
-	gameQueueConfigId?: number;
-	observers: SpectatorV5Observer;
-	participants: SpectatorV5CurrentGameParticipant[];
+  gameId: number;
+  gameType: string;
+  gameStartTime: number;
+  mapId: number;
+  gameLength: number;
+  platformId: string;
+  gameMode: string;
+  bannedChampions: SpectatorV5BannedChampion[];
+  gameQueueConfigId?: number;
+  observers: SpectatorV5Observer;
+  participants: SpectatorV5CurrentGameParticipant[];
 }
 
 export interface SpectatorV5CurrentGameParticipant {
-	championId: number;
-	perks?: SpectatorV5Perks;
-	profileIconId: number;
-	bot: boolean;
-	teamId: number;
-	puuid?: string;
-	spell1Id: number;
-	spell2Id: number;
-	gameCustomizationObjects: SpectatorV5GameCustomizationObject[];
-	riotId?: string;
+  championId: number;
+  perks?: SpectatorV5Perks;
+  profileIconId: number;
+  bot: boolean;
+  teamId: number;
+  puuid?: string;
+  spell1Id: number;
+  spell2Id: number;
+  gameCustomizationObjects: SpectatorV5GameCustomizationObject[];
+  riotId?: string;
 }
 
 export interface SpectatorV5GameCustomizationObject {
-	category: string;
-	content: string;
+  category: string;
+  content: string;
 }
 
 export interface SpectatorV5Observer {
-	encryptionKey: string;
+  encryptionKey: string;
 }
 
 export interface SpectatorV5Perks {
-	perkIds: number[];
-	perkStyle: number;
-	perkSubStyle: number;
+  perkIds: number[];
+  perkStyle: number;
+  perkSubStyle: number;
 }
 
 export interface SummonerV4SummonerDTO {
-	profileIconId: number;
-	revisionDate: number;
-	puuid: string;
-	summonerLevel: number;
-	id?: string;
+  profileIconId: number;
+  revisionDate: number;
+  puuid: string;
+  summonerLevel: number;
+  id?: string;
 }
 
 export interface TftLeagueV1LeagueEntryDTO {
-	puuid?: string;
-	leagueId?: string;
-	queueType: string;
-	ratedTier?: string;
-	ratedRating?: number;
-	tier?: string;
-	rank?: string;
-	leaguePoints?: number;
-	wins: number;
-	losses: number;
-	hotStreak?: boolean;
-	veteran?: boolean;
-	freshBlood?: boolean;
-	inactive?: boolean;
-	miniSeries?: TftLeagueV1MiniSeriesDTO;
+  puuid?: string;
+  leagueId?: string;
+  queueType: string;
+  ratedTier?: string;
+  ratedRating?: number;
+  tier?: string;
+  rank?: string;
+  leaguePoints?: number;
+  wins: number;
+  losses: number;
+  hotStreak?: boolean;
+  veteran?: boolean;
+  freshBlood?: boolean;
+  inactive?: boolean;
+  miniSeries?: TftLeagueV1MiniSeriesDTO;
 }
 
 export interface TftLeagueV1LeagueItemDTO {
-	freshBlood: boolean;
-	wins: number;
-	miniSeries?: TftLeagueV1MiniSeriesDTO;
-	inactive: boolean;
-	veteran: boolean;
-	hotStreak: boolean;
-	rank: string;
-	leaguePoints: number;
-	losses: number;
-	puuid: string;
+  freshBlood: boolean;
+  wins: number;
+  miniSeries?: TftLeagueV1MiniSeriesDTO;
+  inactive: boolean;
+  veteran: boolean;
+  hotStreak: boolean;
+  rank: string;
+  leaguePoints: number;
+  losses: number;
+  puuid: string;
 }
 
 export interface TftLeagueV1LeagueListDTO {
-	leagueId?: string;
-	entries: TftLeagueV1LeagueItemDTO[];
-	tier: string;
-	name?: string;
-	queue?: string;
+  leagueId?: string;
+  entries: TftLeagueV1LeagueItemDTO[];
+  tier: string;
+  name?: string;
+  queue?: string;
 }
 
 export interface TftLeagueV1MiniSeriesDTO {
-	losses: number;
-	progress: string;
-	target: number;
-	wins: number;
+  losses: number;
+  progress: string;
+  target: number;
+  wins: number;
 }
 
 export interface TftLeagueV1TopRatedLadderEntryDto {
-	puuid: string;
-	ratedTier: string;
-	ratedRating: number;
-	wins: number;
-	previousUpdateLadderPosition: number;
+  puuid: string;
+  ratedTier: string;
+  ratedRating: number;
+  wins: number;
+  previousUpdateLadderPosition: number;
 }
 
 export interface TftMatchV1CompanionDto {
-	content_ID: string;
-	item_ID: number;
-	skin_ID: number;
-	species: string;
+  content_ID: string;
+  item_ID: number;
+  skin_ID: number;
+  species: string;
 }
 
 export interface TftMatchV1InfoDto {
-	endOfGameResult?: string;
-	gameCreation?: number;
-	gameId?: number;
-	game_datetime: number;
-	game_length: number;
-	game_version: string;
-	game_variation?: string;
-	mapId?: number;
-	participants: TftMatchV1ParticipantDto[];
-	queue_id: number;
-	queueId?: number;
-	tft_game_type?: string;
-	tft_set_core_name?: string;
-	tft_set_number: number;
+  endOfGameResult?: string;
+  gameCreation?: number;
+  gameId?: number;
+  game_datetime: number;
+  game_length: number;
+  game_version: string;
+  game_variation?: string;
+  mapId?: number;
+  participants: TftMatchV1ParticipantDto[];
+  queue_id: number;
+  queueId?: number;
+  tft_game_type?: string;
+  tft_set_core_name?: string;
+  tft_set_number: number;
 }
 
 export interface TftMatchV1MatchDto {
-	metadata: TftMatchV1MetadataDto;
-	info: TftMatchV1InfoDto;
+  metadata: TftMatchV1MetadataDto;
+  info: TftMatchV1InfoDto;
 }
 
 export interface TftMatchV1MetadataDto {
-	data_version: string;
-	match_id: string;
-	participants: string[];
+  data_version: string;
+  match_id: string;
+  participants: string[];
 }
 
-export type TftMatchV1ParticipantDtoSkillTree = { [key: string]: number };
+export type TftMatchV1ParticipantDtoSkillTree = {[key: string]: number};
 
 export interface TftMatchV1ParticipantDto {
-	companion: TftMatchV1CompanionDto;
-	gold_left: number;
-	last_round: number;
-	level: number;
-	placement: number;
-	players_eliminated: number;
-	puuid: string;
-	riotIdGameName?: string;
-	riotIdTagline?: string;
-	time_eliminated: number;
-	total_damage_to_players: number;
-	traits: TftMatchV1TraitDto[];
-	units: TftMatchV1UnitDto[];
-	win?: boolean;
-	augments?: string[];
-	partner_group_id?: number;
-	missions?: TftMatchV1ParticipantMissionsDto;
-	skill_tree?: TftMatchV1ParticipantDtoSkillTree;
-	pve_score?: number;
-	pve_wonrun?: boolean;
+  companion: TftMatchV1CompanionDto;
+  gold_left: number;
+  last_round: number;
+  level: number;
+  placement: number;
+  players_eliminated: number;
+  puuid: string;
+  riotIdGameName?: string;
+  riotIdTagline?: string;
+  time_eliminated: number;
+  total_damage_to_players: number;
+  traits: TftMatchV1TraitDto[];
+  units: TftMatchV1UnitDto[];
+  win?: boolean;
+  augments?: string[];
+  partner_group_id?: number;
+  missions?: TftMatchV1ParticipantMissionsDto;
+  skill_tree?: TftMatchV1ParticipantDtoSkillTree;
+  pve_score?: number;
+  pve_wonrun?: boolean;
 }
 
 export interface TftMatchV1ParticipantMissionsDto {
-	Assists?: number;
-	DamageDealt?: number;
-	DamageDealtToObjectives?: number;
-	DamageDealtToTurrets?: number;
-	DamageTaken?: number;
-	DoubleKills?: number;
-	GoldEarned?: number;
-	GoldSpent?: number;
-	InhibitorsDestroyed?: number;
-	Kills?: number;
-	LargestKillingSpree?: number;
-	LargestMultiKill?: number;
-	MagicDamageDealt?: number;
-	MagicDamageDealtToChampions?: number;
-	NeutralMinionsKilledTeamJungle?: number;
-	PhysicalDamageDealt?: number;
-	PhysicalDamageTaken?: number;
-	PlayerScore0?: number;
-	PlayerScore1?: number;
-	PlayerScore2?: number;
-	PlayerScore3?: number;
-	PlayerScore4?: number;
-	PlayerScore5?: number;
-	PlayerScore6?: number;
-	PlayerScore9?: number;
-	PlayerScore10?: number;
-	PlayerScore11?: number;
-	QuadraKills?: number;
-	Spell1Casts?: number;
-	Spell2Casts?: number;
-	Spell3Casts?: number;
-	Spell4Casts?: number;
-	SummonerSpell1Casts?: number;
-	TimeCCOthers?: number;
-	TotalMinionsKilled?: number;
-	TrueDamageDealtToChampions?: number;
-	UnrealKills?: number;
-	VisionScore?: number;
-	WardsKilled?: number;
-	Deaths?: number;
-	KillingSprees?: number;
-	MagicDamageTaken?: number;
-	PentaKills?: number;
-	PhysicalDamageDealtToChampions?: number;
-	TotalDamageDealtToChampions?: number;
-	TripleKills?: number;
-	TrueDamageDealt?: number;
-	TrueDamageTaken?: number;
+  Assists?: number;
+  DamageDealt?: number;
+  DamageDealtToObjectives?: number;
+  DamageDealtToTurrets?: number;
+  DamageTaken?: number;
+  DoubleKills?: number;
+  GoldEarned?: number;
+  GoldSpent?: number;
+  InhibitorsDestroyed?: number;
+  Kills?: number;
+  LargestKillingSpree?: number;
+  LargestMultiKill?: number;
+  MagicDamageDealt?: number;
+  MagicDamageDealtToChampions?: number;
+  NeutralMinionsKilledTeamJungle?: number;
+  PhysicalDamageDealt?: number;
+  PhysicalDamageTaken?: number;
+  PlayerScore0?: number;
+  PlayerScore1?: number;
+  PlayerScore2?: number;
+  PlayerScore3?: number;
+  PlayerScore4?: number;
+  PlayerScore5?: number;
+  PlayerScore6?: number;
+  PlayerScore9?: number;
+  PlayerScore10?: number;
+  PlayerScore11?: number;
+  QuadraKills?: number;
+  Spell1Casts?: number;
+  Spell2Casts?: number;
+  Spell3Casts?: number;
+  Spell4Casts?: number;
+  SummonerSpell1Casts?: number;
+  TimeCCOthers?: number;
+  TotalMinionsKilled?: number;
+  TrueDamageDealtToChampions?: number;
+  UnrealKills?: number;
+  VisionScore?: number;
+  WardsKilled?: number;
+  Deaths?: number;
+  KillingSprees?: number;
+  MagicDamageTaken?: number;
+  PentaKills?: number;
+  PhysicalDamageDealtToChampions?: number;
+  TotalDamageDealtToChampions?: number;
+  TripleKills?: number;
+  TrueDamageDealt?: number;
+  TrueDamageTaken?: number;
 }
 
 export interface TftMatchV1TraitDto {
-	name: string;
-	num_units: number;
-	style?: number;
-	tier_current: number;
-	tier_total?: number;
+  name: string;
+  num_units: number;
+  style?: number;
+  tier_current: number;
+  tier_total?: number;
 }
 
 export interface TftMatchV1UnitDto {
-	items?: number[];
-	character_id: string;
-	itemNames?: string[];
-	chosen?: string;
-	name: string;
-	rarity: number;
-	tier: number;
+  items?: number[];
+  character_id: string;
+  itemNames?: string[];
+  chosen?: string;
+  name: string;
+  rarity: number;
+  tier: number;
 }
 
 export interface TftStatusV1ContentDto {
-	locale: string;
-	content: string;
+  locale: string;
+  content: string;
 }
 
 export interface TftStatusV1PlatformDataDto {
-	id: string;
-	name: string;
-	locales: string[];
-	maintenances: TftStatusV1StatusDto[];
-	incidents: TftStatusV1StatusDto[];
+  id: string;
+  name: string;
+  locales: string[];
+  maintenances: TftStatusV1StatusDto[];
+  incidents: TftStatusV1StatusDto[];
 }
 
 export interface TftStatusV1StatusDto {
-	id: number;
-	maintenance_status: string;
-	incident_severity: string;
-	titles: TftStatusV1ContentDto[];
-	updates: TftStatusV1UpdateDto[];
-	created_at: string;
-	archive_at: string;
-	updated_at: string;
-	platforms: string[];
+  id: number;
+  maintenance_status: string;
+  incident_severity: string;
+  titles: TftStatusV1ContentDto[];
+  updates: TftStatusV1UpdateDto[];
+  created_at: string;
+  archive_at: string;
+  updated_at: string;
+  platforms: string[];
 }
 
 export interface TftStatusV1UpdateDto {
-	id: number;
-	author: string;
-	publish: boolean;
-	publish_locations: string[];
-	translations: TftStatusV1ContentDto[];
-	created_at: string;
-	updated_at: string;
+  id: number;
+  author: string;
+  publish: boolean;
+  publish_locations: string[];
+  translations: TftStatusV1ContentDto[];
+  created_at: string;
+  updated_at: string;
 }
 
 export interface TftSummonerV1SummonerDTO {
-	puuid: string;
-	profileIconId: number;
-	revisionDate: number;
-	summonerLevel: number;
-	id?: string;
+  puuid: string;
+  profileIconId: number;
+  revisionDate: number;
+  summonerLevel: number;
+  id?: string;
 }
 
 export interface TournamentStubV5LobbyEventV5DTO {
-	timestamp: string;
-	eventType: string;
-	puuid: string;
+  timestamp: string;
+  eventType: string;
+  puuid: string;
 }
 
 export interface TournamentStubV5LobbyEventV5DTOWrapper {
-	eventList: TournamentStubV5LobbyEventV5DTO[];
+  eventList: TournamentStubV5LobbyEventV5DTO[];
 }
 
 export interface TournamentStubV5ProviderRegistrationParametersV5 {
-	region: string;
-	url: string;
+  region: string;
+  url: string;
 }
 
 export interface TournamentStubV5TournamentCodeParametersV5 {
-	allowedParticipants?: string[];
-	metadata?: string;
-	teamSize: number;
-	pickType: string;
-	mapType: string;
-	spectatorType: string;
-	enoughPlayers: boolean;
+  allowedParticipants?: string[];
+  metadata?: string;
+  teamSize: number;
+  pickType: string;
+  mapType: string;
+  spectatorType: string;
+  enoughPlayers: boolean;
 }
 
 export interface TournamentStubV5TournamentCodeV5DTO {
-	code: string;
-	lobbyName: string;
-	metaData: string;
-	password: string;
-	teamSize: number;
-	providerId: number;
-	pickType: string;
-	tournamentId: number;
-	id: number;
-	region: string;
-	map: string;
-	participants: string[];
+  code: string;
+  lobbyName: string;
+  metaData: string;
+  password: string;
+  teamSize: number;
+  providerId: number;
+  pickType: string;
+  tournamentId: number;
+  id: number;
+  region: string;
+  map: string;
+  participants: string[];
 }
 
 export interface TournamentStubV5TournamentRegistrationParametersV5 {
-	providerId: number;
-	name?: string;
+  providerId: number;
+  name?: string;
 }
 
 export interface TournamentV5LobbyEventV5DTO {
-	timestamp: string;
-	eventType: string;
-	puuid: string;
+  timestamp: string;
+  eventType: string;
+  puuid: string;
 }
 
 export interface TournamentV5LobbyEventV5DTOWrapper {
-	eventList: TournamentV5LobbyEventV5DTO[];
+  eventList: TournamentV5LobbyEventV5DTO[];
 }
 
 export interface TournamentV5ProviderRegistrationParametersV5 {
-	region: string;
-	url: string;
+  region: string;
+  url: string;
 }
 
 export interface TournamentV5TournamentCodeParametersV5 {
-	allowedParticipants?: string[];
-	metadata?: string;
-	teamSize: number;
-	pickType: string;
-	mapType: string;
-	spectatorType: string;
-	enoughPlayers: boolean;
+  allowedParticipants?: string[];
+  metadata?: string;
+  teamSize: number;
+  pickType: string;
+  mapType: string;
+  spectatorType: string;
+  enoughPlayers: boolean;
 }
 
 export interface TournamentV5TournamentCodeUpdateParametersV5 {
-	allowedParticipants?: string[];
-	pickType: string;
-	mapType: string;
-	spectatorType: string;
+  allowedParticipants?: string[];
+  pickType: string;
+  mapType: string;
+  spectatorType: string;
 }
 
 export interface TournamentV5TournamentCodeV5DTO {
-	id: number;
-	providerId: number;
-	tournamentId: number;
-	code: string;
-	region: string;
-	map: string;
-	teamSize: number;
-	spectators: string;
-	pickType: string;
-	lobbyName: string;
-	password: string;
-	metaData: string;
-	participants: string[];
+  id: number;
+  providerId: number;
+  tournamentId: number;
+  code: string;
+  region: string;
+  map: string;
+  teamSize: number;
+  spectators: string;
+  pickType: string;
+  lobbyName: string;
+  password: string;
+  metaData: string;
+  participants: string[];
 }
 
 export interface TournamentV5TournamentGamesV5 {
-	startTime: number;
-	winningTeam: TournamentV5TournamentTeamV5[];
-	losingTeam: TournamentV5TournamentTeamV5[];
-	shortCode: string;
-	metaData?: string;
-	gameId: number;
-	gameName: string;
-	gameType: string;
-	gameMap: number;
-	gameMode: string;
-	region: string;
+  startTime: number;
+  winningTeam: TournamentV5TournamentTeamV5[];
+  losingTeam: TournamentV5TournamentTeamV5[];
+  shortCode: string;
+  metaData?: string;
+  gameId: number;
+  gameName: string;
+  gameType: string;
+  gameMap: number;
+  gameMode: string;
+  region: string;
 }
 
 export interface TournamentV5TournamentRegistrationParametersV5 {
-	providerId: number;
-	name?: string;
+  providerId: number;
+  name?: string;
 }
 
 export interface TournamentV5TournamentTeamV5 {
-	puuid: string;
+  puuid: string;
 }
 
 export interface ValConsoleMatchV1AbilityCastsDto {
-	grenadeCasts: number;
-	ability1Casts: number;
-	ability2Casts: number;
-	ultimateCasts: number;
+  grenadeCasts: number;
+  ability1Casts: number;
+  ability2Casts: number;
+  ultimateCasts: number;
 }
 
 export interface ValConsoleMatchV1AbilityDto {
-	grenadeEffects?: string;
-	ability1Effects?: string;
-	ability2Effects?: string;
-	ultimateEffects?: string;
+  grenadeEffects?: string;
+  ability1Effects?: string;
+  ability2Effects?: string;
+  ultimateEffects?: string;
 }
 
 export interface ValConsoleMatchV1CoachDto {
-	puuid: string;
-	teamId: string;
+  puuid: string;
+  teamId: string;
 }
 
 export interface ValConsoleMatchV1DamageDto {
-	receiver: string;
-	damage: number;
-	legshots: number;
-	bodyshots: number;
-	headshots: number;
+  receiver: string;
+  damage: number;
+  legshots: number;
+  bodyshots: number;
+  headshots: number;
 }
 
 export interface ValConsoleMatchV1EconomyDto {
-	loadoutValue: number;
-	weapon: string;
-	armor: string;
-	remaining: number;
-	spent: number;
+  loadoutValue: number;
+  weapon: string;
+  armor: string;
+  remaining: number;
+  spent: number;
 }
 
 export interface ValConsoleMatchV1FinishingDamageDto {
-	damageType: string;
-	damageItem: string;
-	isSecondaryFireMode: boolean;
+  damageType: string;
+  damageItem: string;
+  isSecondaryFireMode: boolean;
 }
 
 export interface ValConsoleMatchV1KillDto {
-	timeSinceGameStartMillis: number;
-	timeSinceRoundStartMillis: number;
-	killer: string;
-	victim: string;
-	victimLocation: ValConsoleMatchV1LocationDto;
-	assistants: string[];
-	playerLocations: ValConsoleMatchV1PlayerLocationsDto[];
-	finishingDamage: ValConsoleMatchV1FinishingDamageDto;
+  timeSinceGameStartMillis: number;
+  timeSinceRoundStartMillis: number;
+  killer: string;
+  victim: string;
+  victimLocation: ValConsoleMatchV1LocationDto;
+  assistants: string[];
+  playerLocations: ValConsoleMatchV1PlayerLocationsDto[];
+  finishingDamage: ValConsoleMatchV1FinishingDamageDto;
 }
 
 export interface ValConsoleMatchV1LocationDto {
-	x: number;
-	y: number;
+  x: number;
+  y: number;
 }
 
 export interface ValConsoleMatchV1MatchDto {
-	matchInfo: ValConsoleMatchV1MatchInfoDto;
-	players: ValConsoleMatchV1PlayerDto[];
-	coaches: ValConsoleMatchV1CoachDto[];
-	teams?: ValConsoleMatchV1TeamDto[];
-	roundResults?: ValConsoleMatchV1RoundResultDto[];
+  matchInfo: ValConsoleMatchV1MatchInfoDto;
+  players: ValConsoleMatchV1PlayerDto[];
+  coaches: ValConsoleMatchV1CoachDto[];
+  teams?: ValConsoleMatchV1TeamDto[];
+  roundResults?: ValConsoleMatchV1RoundResultDto[];
 }
 
 export interface ValConsoleMatchV1MatchInfoDto {
-	matchId: string;
-	mapId: string;
-	gameLengthMillis?: number;
-	gameStartMillis: number;
-	provisioningFlowId: string;
-	isCompleted: boolean;
-	customGameName: string;
-	queueId: string;
-	gameMode: string;
-	isRanked: boolean;
-	seasonId: string;
+  matchId: string;
+  mapId: string;
+  gameLengthMillis?: number;
+  gameStartMillis: number;
+  provisioningFlowId: string;
+  isCompleted: boolean;
+  customGameName: string;
+  queueId: string;
+  gameMode: string;
+  isRanked: boolean;
+  seasonId: string;
 }
 
 export interface ValConsoleMatchV1MatchlistDto {
-	puuid: string;
-	history: ValConsoleMatchV1MatchlistEntryDto[];
+  puuid: string;
+  history: ValConsoleMatchV1MatchlistEntryDto[];
 }
 
 export interface ValConsoleMatchV1MatchlistEntryDto {
-	matchId: string;
-	gameStartTimeMillis: number;
-	queueId: string;
+  matchId: string;
+  gameStartTimeMillis: number;
+  queueId: string;
 }
 
 export interface ValConsoleMatchV1PlayerDto {
-	puuid: string;
-	gameName: string;
-	tagLine: string;
-	teamId: string;
-	partyId: string;
-	characterId?: string;
-	stats?: ValConsoleMatchV1PlayerStatsDto;
-	competitiveTier: number;
-	playerCard: string;
-	playerTitle: string;
+  puuid: string;
+  gameName: string;
+  tagLine: string;
+  teamId: string;
+  partyId: string;
+  characterId?: string;
+  stats?: ValConsoleMatchV1PlayerStatsDto;
+  competitiveTier: number;
+  playerCard: string;
+  playerTitle: string;
 }
 
 export interface ValConsoleMatchV1PlayerLocationsDto {
-	puuid: string;
-	viewRadians: number;
-	location: ValConsoleMatchV1LocationDto;
+  puuid: string;
+  viewRadians: number;
+  location: ValConsoleMatchV1LocationDto;
 }
 
 export interface ValConsoleMatchV1PlayerRoundStatsDto {
-	puuid: string;
-	kills: ValConsoleMatchV1KillDto[];
-	damage: ValConsoleMatchV1DamageDto[];
-	score: number;
-	economy: ValConsoleMatchV1EconomyDto;
-	ability: ValConsoleMatchV1AbilityDto;
+  puuid: string;
+  kills: ValConsoleMatchV1KillDto[];
+  damage: ValConsoleMatchV1DamageDto[];
+  score: number;
+  economy: ValConsoleMatchV1EconomyDto;
+  ability: ValConsoleMatchV1AbilityDto;
 }
 
 export interface ValConsoleMatchV1PlayerStatsDto {
-	score: number;
-	roundsPlayed: number;
-	kills: number;
-	deaths: number;
-	assists: number;
-	playtimeMillis: number;
-	abilityCasts?: ValConsoleMatchV1AbilityCastsDto;
+  score: number;
+  roundsPlayed: number;
+  kills: number;
+  deaths: number;
+  assists: number;
+  playtimeMillis: number;
+  abilityCasts?: ValConsoleMatchV1AbilityCastsDto;
 }
 
 export interface ValConsoleMatchV1RecentMatchesDto {
-	currentTime: number;
-	matchIds: string[];
+  currentTime: number;
+  matchIds: string[];
 }
 
 export interface ValConsoleMatchV1RoundResultDto {
-	roundNum: number;
-	roundResult: string;
-	roundCeremony: string;
-	winningTeam: string;
-	bombPlanter?: string;
-	bombDefuser?: string;
-	plantRoundTime: number;
-	plantPlayerLocations?: ValConsoleMatchV1PlayerLocationsDto[];
-	plantLocation: ValConsoleMatchV1LocationDto;
-	plantSite: string;
-	defuseRoundTime: number;
-	defusePlayerLocations?: ValConsoleMatchV1PlayerLocationsDto[];
-	defuseLocation: ValConsoleMatchV1LocationDto;
-	playerStats: ValConsoleMatchV1PlayerRoundStatsDto[];
-	roundResultCode: string;
+  roundNum: number;
+  roundResult: string;
+  roundCeremony: string;
+  winningTeam: string;
+  bombPlanter?: string;
+  bombDefuser?: string;
+  plantRoundTime: number;
+  plantPlayerLocations?: ValConsoleMatchV1PlayerLocationsDto[];
+  plantLocation: ValConsoleMatchV1LocationDto;
+  plantSite: string;
+  defuseRoundTime: number;
+  defusePlayerLocations?: ValConsoleMatchV1PlayerLocationsDto[];
+  defuseLocation: ValConsoleMatchV1LocationDto;
+  playerStats: ValConsoleMatchV1PlayerRoundStatsDto[];
+  roundResultCode: string;
 }
 
 export interface ValConsoleMatchV1TeamDto {
-	teamId: string;
-	won: boolean;
-	roundsPlayed: number;
-	roundsWon: number;
-	numPoints: number;
+  teamId: string;
+  won: boolean;
+  roundsPlayed: number;
+  roundsWon: number;
+  numPoints: number;
 }
 
 export interface ValConsoleRankedV1LeaderboardDto {
-	actId: string;
-	totalPlayers: number;
-	query?: string;
-	shard: string;
-	players: ValConsoleRankedV1PlayerDto[];
-	tierDetails?: ValConsoleRankedV1TierDto[];
+  actId: string;
+  totalPlayers: number;
+  query?: string;
+  shard: string;
+  players: ValConsoleRankedV1PlayerDto[];
+  tierDetails?: ValConsoleRankedV1TierDto[];
 }
 
 export interface ValConsoleRankedV1PlayerDto {
-	puuid?: string;
-	gameName?: string;
-	tagLine?: string;
-	leaderboardRank: number;
-	rankedRating: number;
-	numberOfWins: number;
+  puuid?: string;
+  gameName?: string;
+  tagLine?: string;
+  leaderboardRank: number;
+  rankedRating: number;
+  numberOfWins: number;
 }
 
-export interface ValConsoleRankedV1TierDto {
-	[key: string]: unknown;
-}
+export interface ValConsoleRankedV1TierDto { [key: string]: unknown }
 
 export interface ValContentV1ActDto {
-	name: string;
-	localizedNames?: ValContentV1LocalizedNamesDto;
-	id: string;
-	isActive: boolean;
-	parentId?: string;
-	type?: string;
+  name: string;
+  localizedNames?: ValContentV1LocalizedNamesDto;
+  id: string;
+  isActive: boolean;
+  parentId?: string;
+  type?: string;
 }
 
 export interface ValContentV1ContentDto {
-	version: string;
-	characters: ValContentV1ContentItemDto[];
-	maps: ValContentV1ContentItemDto[];
-	chromas: ValContentV1ContentItemDto[];
-	skins: ValContentV1ContentItemDto[];
-	skinLevels: ValContentV1ContentItemDto[];
-	equips: ValContentV1ContentItemDto[];
-	gameModes: ValContentV1ContentItemDto[];
-	sprays: ValContentV1ContentItemDto[];
-	sprayLevels: ValContentV1ContentItemDto[];
-	charms: ValContentV1ContentItemDto[];
-	charmLevels: ValContentV1ContentItemDto[];
-	playerCards: ValContentV1ContentItemDto[];
-	playerTitles: ValContentV1ContentItemDto[];
-	acts: ValContentV1ActDto[];
-	ceremonies?: ValContentV1ContentItemDto[];
-	totems?: ValContentV1ContentItemDto[];
+  version: string;
+  characters: ValContentV1ContentItemDto[];
+  maps: ValContentV1ContentItemDto[];
+  chromas: ValContentV1ContentItemDto[];
+  skins: ValContentV1ContentItemDto[];
+  skinLevels: ValContentV1ContentItemDto[];
+  equips: ValContentV1ContentItemDto[];
+  gameModes: ValContentV1ContentItemDto[];
+  sprays: ValContentV1ContentItemDto[];
+  sprayLevels: ValContentV1ContentItemDto[];
+  charms: ValContentV1ContentItemDto[];
+  charmLevels: ValContentV1ContentItemDto[];
+  playerCards: ValContentV1ContentItemDto[];
+  playerTitles: ValContentV1ContentItemDto[];
+  acts: ValContentV1ActDto[];
+  ceremonies?: ValContentV1ContentItemDto[];
+  totems?: ValContentV1ContentItemDto[];
 }
 
 export interface ValContentV1ContentItemDto {
-	name: string;
-	localizedNames?: ValContentV1LocalizedNamesDto;
-	id: string;
-	assetName: string;
-	assetPath?: string;
+  name: string;
+  localizedNames?: ValContentV1LocalizedNamesDto;
+  id: string;
+  assetName: string;
+  assetPath?: string;
 }
 
 export interface ValContentV1LocalizedNamesDto {
-	"ar-AE": string;
-	"de-DE": string;
-	"en-GB"?: string;
-	"en-US": string;
-	"es-ES": string;
-	"es-MX": string;
-	"fr-FR": string;
-	"id-ID": string;
-	"it-IT": string;
-	"ja-JP": string;
-	"ko-KR": string;
-	"pl-PL": string;
-	"pt-BR": string;
-	"ru-RU": string;
-	"th-TH": string;
-	"tr-TR": string;
-	"vi-VN": string;
-	"zh-CN": string;
-	"zh-TW": string;
+  'ar-AE': string;
+  'de-DE': string;
+  'en-GB'?: string;
+  'en-US': string;
+  'es-ES': string;
+  'es-MX': string;
+  'fr-FR': string;
+  'id-ID': string;
+  'it-IT': string;
+  'ja-JP': string;
+  'ko-KR': string;
+  'pl-PL': string;
+  'pt-BR': string;
+  'ru-RU': string;
+  'th-TH': string;
+  'tr-TR': string;
+  'vi-VN': string;
+  'zh-CN': string;
+  'zh-TW': string;
 }
 
 export interface ValMatchV1AbilityCastsDto {
-	grenadeCasts: number;
-	ability1Casts: number;
-	ability2Casts: number;
-	ultimateCasts: number;
+  grenadeCasts: number;
+  ability1Casts: number;
+  ability2Casts: number;
+  ultimateCasts: number;
 }
 
 export interface ValMatchV1AbilityDto {
-	grenadeEffects?: string;
-	ability1Effects?: string;
-	ability2Effects?: string;
-	ultimateEffects?: string;
+  grenadeEffects?: string;
+  ability1Effects?: string;
+  ability2Effects?: string;
+  ultimateEffects?: string;
 }
 
 export interface ValMatchV1CoachDto {
-	puuid: string;
-	teamId: string;
+  puuid: string;
+  teamId: string;
 }
 
 export interface ValMatchV1DamageDto {
-	receiver: string;
-	damage: number;
-	legshots: number;
-	bodyshots: number;
-	headshots: number;
+  receiver: string;
+  damage: number;
+  legshots: number;
+  bodyshots: number;
+  headshots: number;
 }
 
 export interface ValMatchV1EconomyDto {
-	loadoutValue: number;
-	weapon: string;
-	armor: string;
-	remaining: number;
-	spent: number;
+  loadoutValue: number;
+  weapon: string;
+  armor: string;
+  remaining: number;
+  spent: number;
 }
 
 export interface ValMatchV1FinishingDamageDto {
-	damageType: string;
-	damageItem: string;
-	isSecondaryFireMode: boolean;
+  damageType: string;
+  damageItem: string;
+  isSecondaryFireMode: boolean;
 }
 
 export interface ValMatchV1KillDto {
-	timeSinceGameStartMillis: number;
-	timeSinceRoundStartMillis: number;
-	killer: string;
-	victim: string;
-	victimLocation: ValMatchV1LocationDto;
-	assistants: string[];
-	playerLocations: ValMatchV1PlayerLocationsDto[];
-	finishingDamage: ValMatchV1FinishingDamageDto;
+  timeSinceGameStartMillis: number;
+  timeSinceRoundStartMillis: number;
+  killer: string;
+  victim: string;
+  victimLocation: ValMatchV1LocationDto;
+  assistants: string[];
+  playerLocations: ValMatchV1PlayerLocationsDto[];
+  finishingDamage: ValMatchV1FinishingDamageDto;
 }
 
 export interface ValMatchV1LocationDto {
-	x: number;
-	y: number;
+  x: number;
+  y: number;
 }
 
 export interface ValMatchV1MatchDto {
-	matchInfo: ValMatchV1MatchInfoDto;
-	players: ValMatchV1PlayerDto[];
-	coaches: ValMatchV1CoachDto[];
-	teams?: ValMatchV1TeamDto[];
-	roundResults?: ValMatchV1RoundResultDto[];
+  matchInfo: ValMatchV1MatchInfoDto;
+  players: ValMatchV1PlayerDto[];
+  coaches: ValMatchV1CoachDto[];
+  teams?: ValMatchV1TeamDto[];
+  roundResults?: ValMatchV1RoundResultDto[];
 }
 
-export type ValMatchV1MatchInfoDtoPremierMatchInfo = { [key: string]: unknown };
+export type ValMatchV1MatchInfoDtoPremierMatchInfo = {[key: string]: unknown};
 
 export interface ValMatchV1MatchInfoDto {
-	matchId: string;
-	mapId: string;
-	gameVersion: string;
-	gameLengthMillis?: number;
-	region: string;
-	gameStartMillis: number;
-	provisioningFlowId: string;
-	isCompleted: boolean;
-	customGameName: string;
-	queueId: string;
-	gameMode: string;
-	isRanked: boolean;
-	seasonId: string;
-	premierMatchInfo: ValMatchV1MatchInfoDtoPremierMatchInfo;
+  matchId: string;
+  mapId: string;
+  gameVersion: string;
+  gameLengthMillis?: number;
+  region: string;
+  gameStartMillis: number;
+  provisioningFlowId: string;
+  isCompleted: boolean;
+  customGameName: string;
+  queueId: string;
+  gameMode: string;
+  isRanked: boolean;
+  seasonId: string;
+  premierMatchInfo: ValMatchV1MatchInfoDtoPremierMatchInfo;
 }
 
 export interface ValMatchV1MatchlistDto {
-	puuid: string;
-	history: ValMatchV1MatchlistEntryDto[];
+  puuid: string;
+  history: ValMatchV1MatchlistEntryDto[];
 }
 
 export interface ValMatchV1MatchlistEntryDto {
-	matchId: string;
-	gameStartTimeMillis: number;
-	queueId: string;
+  matchId: string;
+  gameStartTimeMillis: number;
+  queueId: string;
 }
 
 export interface ValMatchV1PlayerDto {
-	puuid: string;
-	gameName: string;
-	tagLine: string;
-	teamId: string;
-	partyId: string;
-	characterId?: string;
-	stats?: ValMatchV1PlayerStatsDto;
-	competitiveTier: number;
-	isObserver: boolean;
-	playerCard: string;
-	playerTitle: string;
-	accountLevel: number;
+  puuid: string;
+  gameName: string;
+  tagLine: string;
+  teamId: string;
+  partyId: string;
+  characterId?: string;
+  stats?: ValMatchV1PlayerStatsDto;
+  competitiveTier: number;
+  isObserver: boolean;
+  playerCard: string;
+  playerTitle: string;
+  accountLevel: number;
 }
 
 export interface ValMatchV1PlayerLocationsDto {
-	puuid: string;
-	viewRadians: number;
-	location: ValMatchV1LocationDto;
+  puuid: string;
+  viewRadians: number;
+  location: ValMatchV1LocationDto;
 }
 
 export interface ValMatchV1PlayerRoundStatsDto {
-	puuid: string;
-	kills: ValMatchV1KillDto[];
-	damage: ValMatchV1DamageDto[];
-	score: number;
-	economy: ValMatchV1EconomyDto;
-	ability: ValMatchV1AbilityDto;
+  puuid: string;
+  kills: ValMatchV1KillDto[];
+  damage: ValMatchV1DamageDto[];
+  score: number;
+  economy: ValMatchV1EconomyDto;
+  ability: ValMatchV1AbilityDto;
 }
 
 export interface ValMatchV1PlayerStatsDto {
-	score: number;
-	roundsPlayed: number;
-	kills: number;
-	deaths: number;
-	assists: number;
-	playtimeMillis: number;
-	abilityCasts?: ValMatchV1AbilityCastsDto;
+  score: number;
+  roundsPlayed: number;
+  kills: number;
+  deaths: number;
+  assists: number;
+  playtimeMillis: number;
+  abilityCasts?: ValMatchV1AbilityCastsDto;
 }
 
 export interface ValMatchV1RecentMatchesDto {
-	currentTime: number;
-	matchIds: string[];
+  currentTime: number;
+  matchIds: string[];
 }
 
 export interface ValMatchV1RoundResultDto {
-	roundNum: number;
-	roundResult: string;
-	roundCeremony: string;
-	winningTeam: string;
-	winningTeamRole: string;
-	bombPlanter?: string;
-	bombDefuser?: string;
-	plantRoundTime: number;
-	plantPlayerLocations?: ValMatchV1PlayerLocationsDto[];
-	plantLocation: ValMatchV1LocationDto;
-	plantSite: string;
-	defuseRoundTime: number;
-	defusePlayerLocations?: ValMatchV1PlayerLocationsDto[];
-	defuseLocation: ValMatchV1LocationDto;
-	playerStats: ValMatchV1PlayerRoundStatsDto[];
-	roundResultCode: string;
+  roundNum: number;
+  roundResult: string;
+  roundCeremony: string;
+  winningTeam: string;
+  winningTeamRole: string;
+  bombPlanter?: string;
+  bombDefuser?: string;
+  plantRoundTime: number;
+  plantPlayerLocations?: ValMatchV1PlayerLocationsDto[];
+  plantLocation: ValMatchV1LocationDto;
+  plantSite: string;
+  defuseRoundTime: number;
+  defusePlayerLocations?: ValMatchV1PlayerLocationsDto[];
+  defuseLocation: ValMatchV1LocationDto;
+  playerStats: ValMatchV1PlayerRoundStatsDto[];
+  roundResultCode: string;
 }
 
 export interface ValMatchV1TeamDto {
-	teamId: string;
-	won: boolean;
-	roundsPlayed: number;
-	roundsWon: number;
-	numPoints: number;
+  teamId: string;
+  won: boolean;
+  roundsPlayed: number;
+  roundsWon: number;
+  numPoints: number;
 }
 
-export type ValRankedV1LeaderboardDtoTierDetails = {
-	[key: string]: ValRankedV1TierDetailDto;
-};
+export type ValRankedV1LeaderboardDtoTierDetails = {[key: string]: ValRankedV1TierDetailDto};
 
 export interface ValRankedV1LeaderboardDto {
-	shard: string;
-	actId: string;
-	totalPlayers: number;
-	players: ValRankedV1PlayerDto[];
-	immortalStartingPage?: number;
-	immortalStartingIndex?: number;
-	topTierRRThreshold?: number;
-	tierDetails?: ValRankedV1LeaderboardDtoTierDetails;
-	startIndex?: number;
-	query?: string;
+  shard: string;
+  actId: string;
+  totalPlayers: number;
+  players: ValRankedV1PlayerDto[];
+  immortalStartingPage?: number;
+  immortalStartingIndex?: number;
+  topTierRRThreshold?: number;
+  tierDetails?: ValRankedV1LeaderboardDtoTierDetails;
+  startIndex?: number;
+  query?: string;
 }
 
 export interface ValRankedV1PlayerDto {
-	puuid?: string;
-	gameName?: string;
-	tagLine?: string;
-	leaderboardRank: number;
-	rankedRating: number;
-	numberOfWins: number;
-	competitiveTier?: number;
-	prefix?: string;
+  puuid?: string;
+  gameName?: string;
+  tagLine?: string;
+  leaderboardRank: number;
+  rankedRating: number;
+  numberOfWins: number;
+  competitiveTier?: number;
+  prefix?: string;
 }
 
 export interface ValRankedV1TierDetailDto {
-	rankedRatingThreshold: number;
-	startingPage: number;
-	startingIndex: number;
+  rankedRatingThreshold: number;
+  startingPage: number;
+  startingIndex: number;
 }
 
 export interface ValStatusV1ContentDto {
-	locale: string;
-	content: string;
+  locale: string;
+  content: string;
 }
 
 export interface ValStatusV1PlatformDataDto {
-	id: string;
-	name: string;
-	locales: string[];
-	maintenances: ValStatusV1StatusDto[];
-	incidents: ValStatusV1StatusDto[];
+  id: string;
+  name: string;
+  locales: string[];
+  maintenances: ValStatusV1StatusDto[];
+  incidents: ValStatusV1StatusDto[];
 }
 
 export interface ValStatusV1StatusDto {
-	id: number;
-	maintenance_status: string;
-	incident_severity: string;
-	titles: ValStatusV1ContentDto[];
-	updates: ValStatusV1UpdateDto[];
-	created_at: string;
-	archive_at: string;
-	updated_at: string;
-	platforms: string[];
+  id: number;
+  maintenance_status: string;
+  incident_severity: string;
+  titles: ValStatusV1ContentDto[];
+  updates: ValStatusV1UpdateDto[];
+  created_at: string;
+  archive_at: string;
+  updated_at: string;
+  platforms: string[];
 }
 
 export interface ValStatusV1UpdateDto {
-	id: number;
-	author: string;
-	publish: boolean;
-	publish_locations: string[];
-	translations: ValStatusV1ContentDto[];
-	created_at: string;
-	updated_at: string;
+  id: number;
+  author: string;
+  publish: boolean;
+  publish_locations: string[];
+  translations: ValStatusV1ContentDto[];
+  created_at: string;
+  updated_at: string;
 }
 
-export type LolChallengesV1ServiceGetAllChallengePercentiles200 = {
-	[key: string]: { [key: string]: number };
-};
+export type LolChallengesV1ServiceGetAllChallengePercentiles200 = {[key: string]: {[key: string]: number}};
 
 export type LolChallengesV1ServiceGetChallengeLeaderboardsParams = {
-	limit?: number;
+limit?: number;
 };
 
-export type LolChallengesV1ServiceGetChallengePercentiles200 = {
-	[key: string]: number;
-};
+export type LolChallengesV1ServiceGetChallengePercentiles200 = {[key: string]: number};
 
 export type ChampionMasteryV4ServiceGetTopChampionMasteriesByPUUIDParams = {
-	count?: number;
+count?: number;
 };
 
 export type LeagueExpV4ServiceGetLeagueEntriesParams = {
-	page?: number;
+page?: number;
 };
 
 export type LeagueV4ServiceGetLeagueEntriesParams = {
-	page?: number;
+page?: number;
 };
 
 export type MatchV5ServiceGetMatchIdsByPUUIDParams = {
-	startTime?: number;
-	endTime?: number;
-	queue?: number;
-	type?: string;
-	start?: number;
-	count?: number;
+startTime?: number;
+endTime?: number;
+queue?: number;
+type?: string;
+start?: number;
+count?: number;
 };
 
 export type LolRsoMatchV1ServiceGetMatchIdsParams = {
-	count?: number;
-	start?: number;
-	type?: string;
-	queue?: number;
-	endTime?: number;
-	startTime?: number;
+count?: number;
+start?: number;
+type?: string;
+queue?: number;
+endTime?: number;
+startTime?: number;
 };
 
 export type TournamentStubV5ServiceCreateTournamentCodeParams = {
-	count?: number;
-	tournamentId: number;
+count?: number;
+tournamentId: number;
 };
 
 export type TournamentV5ServiceCreateTournamentCodeParams = {
-	tournamentId: number;
-	count?: number;
+tournamentId: number;
+count?: number;
 };
 
 export type RiftboundContentV1ServiceGetContentParams = {
-	locale?: string;
+locale?: string;
 };
 
 export type TftLeagueV1ServiceGetChallengerLeagueParams = {
-	queue?: string;
+queue?: string;
 };
 
 export type TftLeagueV1ServiceGetLeagueEntriesParams = {
-	queue?: string;
-	page?: number;
+queue?: string;
+page?: number;
 };
 
 export type TftLeagueV1ServiceGetGrandmasterLeagueParams = {
-	queue?: string;
+queue?: string;
 };
 
 export type TftLeagueV1ServiceGetMasterLeagueParams = {
-	queue?: string;
+queue?: string;
 };
 
 export type TftMatchV1ServiceGetMatchIdsByPUUIDParams = {
-	start?: number;
-	endTime?: number;
-	startTime?: number;
-	count?: number;
+start?: number;
+endTime?: number;
+startTime?: number;
+count?: number;
 };
 
 export type ValConsoleRankedV1ServiceGetLeaderboardParams = {
-	platformType: string;
-	startIndex?: number;
-	size?: number;
+platformType: string;
+startIndex?: number;
+size?: number;
 };
 
 export type ValContentV1ServiceGetContentParams = {
-	locale?: string;
+locale?: string;
 };
 
 export type ValConsoleMatchV1ServiceGetMatchlistParams = {
-	platformType: string;
+platformType: string;
 };
 
 export type ValRankedV1ServiceGetLeaderboardParams = {
-	size?: number;
-	startIndex?: number;
+size?: number;
+startIndex?: number;
 };
 
 export const getTitle = () => {
-	const lolChallengesV1ServiceGetAllChallengeConfigs = <
-		TData = AxiosResponse<LolChallengesV1ChallengeConfigInfoDto[]>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/challenges/v1/challenges/config`, options);
-	};
-
-	const lolChallengesV1ServiceGetAllChallengePercentiles = <
-		TData = AxiosResponse<LolChallengesV1ServiceGetAllChallengePercentiles200>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/challenges/v1/challenges/percentiles`,
-			options,
-		);
-	};
-
-	const lolChallengesV1ServiceGetChallengeConfigs = <
-		TData = AxiosResponse<LolChallengesV1ChallengeConfigInfoDto>,
-	>(
-		challengeId: number,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/challenges/v1/challenges/${challengeId}/config`,
-			options,
-		);
-	};
-
-	const lolChallengesV1ServiceGetChallengeLeaderboards = <
-		TData = AxiosResponse<LolChallengesV1ApexPlayerInfoDto[]>,
-	>(
-		challengeId: number,
-		level: string,
-		params?: LolChallengesV1ServiceGetChallengeLeaderboardsParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/challenges/v1/challenges/${challengeId}/leaderboards/by-level/${level}`,
-			{
-				...options,
-				params: { ...params, ...options?.params },
-			},
-		);
-	};
-
-	const lolChallengesV1ServiceGetChallengePercentiles = <
-		TData = AxiosResponse<LolChallengesV1ServiceGetChallengePercentiles200>,
-	>(
-		challengeId: number,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/challenges/v1/challenges/${challengeId}/percentiles`,
-			options,
-		);
-	};
-
-	const lolChallengesV1ServiceGetPlayerData = <
-		TData = AxiosResponse<LolChallengesV1PlayerInfoDto>,
-	>(
-		puuid: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/challenges/v1/player-data/${puuid}`,
-			options,
-		);
-	};
-
-	const championMasteryV4ServiceGetAllChampionMasteriesByPUUID = <
-		TData = AxiosResponse<ChampionMasteryV4ChampionMasteryDto[]>,
-	>(
-		encryptedPUUID: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/champion-mastery/v4/champion-masteries/by-puuid/${encryptedPUUID}`,
-			options,
-		);
-	};
-
-	const championMasteryV4ServiceGetChampionMasteryByPUUID = <
-		TData = AxiosResponse<ChampionMasteryV4ChampionMasteryDto>,
-	>(
-		encryptedPUUID: string,
-		championId: number,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/champion-mastery/v4/champion-masteries/by-puuid/${encryptedPUUID}/by-champion/${championId}`,
-			options,
-		);
-	};
-
-	const championMasteryV4ServiceGetTopChampionMasteriesByPUUID = <
-		TData = AxiosResponse<ChampionMasteryV4ChampionMasteryDto[]>,
-	>(
-		encryptedPUUID: string,
-		params?: ChampionMasteryV4ServiceGetTopChampionMasteriesByPUUIDParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/champion-mastery/v4/champion-masteries/by-puuid/${encryptedPUUID}/top`,
-			{
-				...options,
-				params: { ...params, ...options?.params },
-			},
-		);
-	};
-
-	const championMasteryV4ServiceGetChampionMasteryScoreByPUUID = <
-		TData = AxiosResponse<number>,
-	>(
-		encryptedPUUID: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/champion-mastery/v4/scores/by-puuid/${encryptedPUUID}`,
-			options,
-		);
-	};
-
-	const clashV1ServiceGetPlayersByPUUID = <
-		TData = AxiosResponse<ClashV1PlayerDto[]>,
-	>(
-		puuid: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/clash/v1/players/by-puuid/${puuid}`,
-			options,
-		);
-	};
-
-	const clashV1ServiceGetTeamById = <TData = AxiosResponse<ClashV1TeamDto>>(
-		teamId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/clash/v1/teams/${teamId}`, options);
-	};
-
-	const clashV1ServiceGetTournaments = <
-		TData = AxiosResponse<ClashV1TournamentDto[]>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/clash/v1/tournaments`, options);
-	};
-
-	const clashV1ServiceGetTournamentByTeam = <
-		TData = AxiosResponse<ClashV1TournamentDto>,
-	>(
-		teamId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/clash/v1/tournaments/by-team/${teamId}`,
-			options,
-		);
-	};
-
-	const clashV1ServiceGetTournamentById = <
-		TData = AxiosResponse<ClashV1TournamentDto>,
-	>(
-		tournamentId: number,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/clash/v1/tournaments/${tournamentId}`,
-			options,
-		);
-	};
-
-	const leagueExpV4ServiceGetLeagueEntries = <
-		TData = AxiosResponse<LeagueExpV4LeagueEntryDTO[]>,
-	>(
-		queue: string,
-		tier: string,
-		division: string,
-		params?: LeagueExpV4ServiceGetLeagueEntriesParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/league-exp/v4/entries/${queue}/${tier}/${division}`,
-			{
-				...options,
-				params: { ...params, ...options?.params },
-			},
-		);
-	};
-
-	const leagueV4ServiceGetChallengerLeague = <
-		TData = AxiosResponse<LeagueV4LeagueListDTO>,
-	>(
-		queue: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/league/v4/challengerleagues/by-queue/${queue}`,
-			options,
-		);
-	};
-
-	const leagueV4ServiceGetLeagueEntriesByPUUID = <
-		TData = AxiosResponse<LeagueV4LeagueEntryDTO[]>,
-	>(
-		encryptedPUUID: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/league/v4/entries/by-puuid/${encryptedPUUID}`,
-			options,
-		);
-	};
-
-	const leagueV4ServiceGetLeagueEntries = <
-		TData = AxiosResponse<LeagueV4LeagueEntryDTO[]>,
-	>(
-		queue: string,
-		tier: string,
-		division: string,
-		params?: LeagueV4ServiceGetLeagueEntriesParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/league/v4/entries/${queue}/${tier}/${division}`,
-			{
-				...options,
-				params: { ...params, ...options?.params },
-			},
-		);
-	};
-
-	const leagueV4ServiceGetGrandmasterLeague = <
-		TData = AxiosResponse<LeagueV4LeagueListDTO>,
-	>(
-		queue: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/league/v4/grandmasterleagues/by-queue/${queue}`,
-			options,
-		);
-	};
-
-	const leagueV4ServiceGetLeagueById = <
-		TData = AxiosResponse<LeagueV4LeagueListDTO>,
-	>(
-		leagueId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/league/v4/leagues/${leagueId}`, options);
-	};
-
-	const leagueV4ServiceGetMasterLeague = <
-		TData = AxiosResponse<LeagueV4LeagueListDTO>,
-	>(
-		queue: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/league/v4/masterleagues/by-queue/${queue}`,
-			options,
-		);
-	};
-
-	const matchV5ServiceGetMatchIdsByPUUID = <TData = AxiosResponse<string[]>>(
-		puuid: string,
-		params?: MatchV5ServiceGetMatchIdsByPUUIDParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/match/v5/matches/by-puuid/${puuid}/ids`, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const matchV5ServiceGetReplay = <TData = AxiosResponse<MatchV5ReplayDTO>>(
-		puuid: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/match/v5/matches/by-puuid/${puuid}/replays`,
-			options,
-		);
-	};
-
-	const matchV5ServiceGetMatch = <TData = AxiosResponse<MatchV5MatchDto>>(
-		matchId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/match/v5/matches/${matchId}`, options);
-	};
-
-	const matchV5ServiceGetTimeline = <TData = AxiosResponse<MatchV5TimelineDto>>(
-		matchId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/match/v5/matches/${matchId}/timeline`,
-			options,
-		);
-	};
-
-	const championV3ServiceGetChampionInfo = <
-		TData = AxiosResponse<ChampionV3ChampionInfo>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/platform/v3/champion-rotations`, options);
-	};
-
-	const lolRsoMatchV1ServiceGetMatchIds = <TData = AxiosResponse<string[]>>(
-		params?: LolRsoMatchV1ServiceGetMatchIdsParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/rso-match/v1/matches/ids`, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const lolRsoMatchV1ServiceGetMatch = <TData = AxiosResponse<MatchV5MatchDto>>(
-		matchId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/rso-match/v1/matches/${matchId}`, options);
-	};
-
-	const lolRsoMatchV1ServiceGetTimeline = <
-		TData = AxiosResponse<MatchV5TimelineDto>,
-	>(
-		matchId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/rso-match/v1/matches/${matchId}/timeline`,
-			options,
-		);
-	};
-
-	const spectatorTftV5ServiceGetCurrentGameInfoByPuuid = <
-		TData = AxiosResponse<SpectatorTftV5CurrentGameInfo>,
-	>(
-		encryptedPUUID: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/spectator/tft/v5/active-games/by-puuid/${encryptedPUUID}`,
-			options,
-		);
-	};
-
-	const spectatorV5ServiceGetCurrentGameInfoByPuuid = <
-		TData = AxiosResponse<SpectatorV5CurrentGameInfo>,
-	>(
-		encryptedPUUID: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/spectator/v5/active-games/by-summoner/${encryptedPUUID}`,
-			options,
-		);
-	};
-
-	const lolStatusV4ServiceGetPlatformData = <
-		TData = AxiosResponse<LolStatusV4PlatformDataDto>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/status/v4/platform-data`, options);
-	};
-
-	const summonerV4ServiceGetByPUUID = <
-		TData = AxiosResponse<SummonerV4SummonerDTO>,
-	>(
-		encryptedPUUID: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/summoner/v4/summoners/by-puuid/${encryptedPUUID}`,
-			options,
-		);
-	};
-
-	const summonerV4ServiceGetByAccessToken = <
-		TData = AxiosResponse<SummonerV4SummonerDTO>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lol/summoner/v4/summoners/me`, options);
-	};
-
-	const tournamentStubV5ServiceCreateTournamentCode = <
-		TData = AxiosResponse<string[]>,
-	>(
-		params: TournamentStubV5ServiceCreateTournamentCodeParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.post(`/lol/tournament-stub/v5/codes`, undefined, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const tournamentStubV5ServiceGetTournamentCode = <
-		TData = AxiosResponse<TournamentStubV5TournamentCodeV5DTO>,
-	>(
-		tournamentCode: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/tournament-stub/v5/codes/${tournamentCode}`,
-			options,
-		);
-	};
-
-	const tournamentStubV5ServiceGetLobbyEventsByCode = <
-		TData = AxiosResponse<TournamentStubV5LobbyEventV5DTOWrapper>,
-	>(
-		tournamentCode: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/tournament-stub/v5/lobby-events/by-code/${tournamentCode}`,
-			options,
-		);
-	};
-
-	const tournamentStubV5ServiceRegisterProviderData = <
-		TData = AxiosResponse<number>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.post(
-			`/lol/tournament-stub/v5/providers`,
-			undefined,
-			options,
-		);
-	};
-
-	const tournamentStubV5ServiceRegisterTournament = <
-		TData = AxiosResponse<number>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.post(
-			`/lol/tournament-stub/v5/tournaments`,
-			undefined,
-			options,
-		);
-	};
-
-	const tournamentV5ServiceCreateTournamentCode = <
-		TData = AxiosResponse<string[]>,
-	>(
-		params: TournamentV5ServiceCreateTournamentCodeParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.post(`/lol/tournament/v5/codes`, undefined, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const tournamentV5ServiceGetTournamentCode = <
-		TData = AxiosResponse<TournamentV5TournamentCodeV5DTO>,
-	>(
-		tournamentCode: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/tournament/v5/codes/${tournamentCode}`,
-			options,
-		);
-	};
-
-	const tournamentV5ServiceUpdateCode = <TData = AxiosResponse<void>>(
-		tournamentCode: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.put(
-			`/lol/tournament/v5/codes/${tournamentCode}`,
-			undefined,
-			options,
-		);
-	};
-
-	const tournamentV5ServiceGetGames = <
-		TData = AxiosResponse<TournamentV5TournamentGamesV5[]>,
-	>(
-		tournamentCode: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/tournament/v5/games/by-code/${tournamentCode}`,
-			options,
-		);
-	};
-
-	const tournamentV5ServiceGetLobbyEventsByCode = <
-		TData = AxiosResponse<TournamentV5LobbyEventV5DTOWrapper>,
-	>(
-		tournamentCode: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lol/tournament/v5/lobby-events/by-code/${tournamentCode}`,
-			options,
-		);
-	};
-
-	const tournamentV5ServiceRegisterProviderData = <
-		TData = AxiosResponse<number>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.post(
-			`/lol/tournament/v5/providers`,
-			undefined,
-			options,
-		);
-	};
-
-	const tournamentV5ServiceRegisterTournament = <TData = AxiosResponse<number>>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.post(
-			`/lol/tournament/v5/tournaments`,
-			undefined,
-			options,
-		);
-	};
-
-	const lorDeckV1ServiceGetDecks = <TData = AxiosResponse<LorDeckV1DeckDto[]>>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lor/deck/v1/decks/me`, options);
-	};
-
-	const lorDeckV1ServiceCreateDeck = <TData = AxiosResponse<string>>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.post(`/lor/deck/v1/decks/me`, undefined, {
-			responseType: "text",
-			...options,
-		});
-	};
-
-	const lorInventoryV1ServiceGetCards = <
-		TData = AxiosResponse<LorInventoryV1CardDto[]>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lor/inventory/v1/cards/me`, options);
-	};
-
-	const lorMatchV1ServiceGetMatchIdsByPUUID = <TData = AxiosResponse<string[]>>(
-		puuid: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/lor/match/v1/matches/by-puuid/${puuid}/ids`,
-			options,
-		);
-	};
-
-	const lorMatchV1ServiceGetMatch = <TData = AxiosResponse<LorMatchV1MatchDto>>(
-		matchId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lor/match/v1/matches/${matchId}`, options);
-	};
-
-	const lorRankedV1ServiceGetLeaderboards = <
-		TData = AxiosResponse<LorRankedV1LeaderboardDto>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lor/ranked/v1/leaderboards`, options);
-	};
-
-	const lorStatusV1ServiceGetPlatformData = <
-		TData = AxiosResponse<LorStatusV1PlatformDataDto>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/lor/status/v1/platform-data`, options);
-	};
-
-	const riftboundContentV1ServiceGetContent = <
-		TData = AxiosResponse<RiftboundContentV1RiftboundContentDTO>,
-	>(
-		params?: RiftboundContentV1ServiceGetContentParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/riftbound/content/v1/contents`, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const accountV1ServiceGetByPuuid = <
-		TData = AxiosResponse<AccountV1AccountDto>,
-	>(
-		puuid: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/riot/account/v1/accounts/by-puuid/${puuid}`,
-			options,
-		);
-	};
-
-	const accountV1ServiceGetByRiotId = <
-		TData = AxiosResponse<AccountV1AccountDto>,
-	>(
-		gameName: string,
-		tagLine: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}`,
-			options,
-		);
-	};
-
-	const accountV1ServiceGetByAccessToken = <
-		TData = AxiosResponse<AccountV1AccountDto>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/riot/account/v1/accounts/me`, options);
-	};
-
-	const accountV1ServiceGetActiveShard = <
-		TData = AxiosResponse<AccountV1ActiveShardDto>,
-	>(
-		game: string,
-		puuid: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/riot/account/v1/active-shards/by-game/${game}/by-puuid/${puuid}`,
-			options,
-		);
-	};
-
-	const accountV1ServiceGetActiveRegion = <
-		TData = AxiosResponse<AccountV1AccountRegionDTO>,
-	>(
-		game: string,
-		puuid: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/riot/account/v1/region/by-game/${game}/by-puuid/${puuid}`,
-			options,
-		);
-	};
-
-	const tftLeagueV1ServiceGetLeagueEntriesByPUUID = <
-		TData = AxiosResponse<TftLeagueV1LeagueEntryDTO[]>,
-	>(
-		puuid: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/tft/league/v1/by-puuid/${puuid}`, options);
-	};
-
-	const tftLeagueV1ServiceGetChallengerLeague = <
-		TData = AxiosResponse<TftLeagueV1LeagueListDTO>,
-	>(
-		params?: TftLeagueV1ServiceGetChallengerLeagueParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/tft/league/v1/challenger`, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const tftLeagueV1ServiceGetLeagueEntries = <
-		TData = AxiosResponse<TftLeagueV1LeagueEntryDTO[]>,
-	>(
-		tier: string,
-		division: string,
-		params?: TftLeagueV1ServiceGetLeagueEntriesParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/tft/league/v1/entries/${tier}/${division}`, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const tftLeagueV1ServiceGetGrandmasterLeague = <
-		TData = AxiosResponse<TftLeagueV1LeagueListDTO>,
-	>(
-		params?: TftLeagueV1ServiceGetGrandmasterLeagueParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/tft/league/v1/grandmaster`, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const tftLeagueV1ServiceGetLeagueById = <
-		TData = AxiosResponse<TftLeagueV1LeagueListDTO>,
-	>(
-		leagueId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/tft/league/v1/leagues/${leagueId}`, options);
-	};
-
-	const tftLeagueV1ServiceGetMasterLeague = <
-		TData = AxiosResponse<TftLeagueV1LeagueListDTO>,
-	>(
-		params?: TftLeagueV1ServiceGetMasterLeagueParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/tft/league/v1/master`, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const tftLeagueV1ServiceGetTopRatedLadder = <
-		TData = AxiosResponse<TftLeagueV1TopRatedLadderEntryDto[]>,
-	>(
-		queue: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/tft/league/v1/rated-ladders/${queue}/top`,
-			options,
-		);
-	};
-
-	const tftMatchV1ServiceGetMatchIdsByPUUID = <TData = AxiosResponse<string[]>>(
-		puuid: string,
-		params?: TftMatchV1ServiceGetMatchIdsByPUUIDParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/tft/match/v1/matches/by-puuid/${puuid}/ids`, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const tftMatchV1ServiceGetMatch = <TData = AxiosResponse<TftMatchV1MatchDto>>(
-		matchId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/tft/match/v1/matches/${matchId}`, options);
-	};
-
-	const tftStatusV1ServiceGetPlatformData = <
-		TData = AxiosResponse<TftStatusV1PlatformDataDto>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/tft/status/v1/platform-data`, options);
-	};
-
-	const tftSummonerV1ServiceGetByPUUID = <
-		TData = AxiosResponse<TftSummonerV1SummonerDTO>,
-	>(
-		encryptedPUUID: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/tft/summoner/v1/summoners/by-puuid/${encryptedPUUID}`,
-			options,
-		);
-	};
-
-	const tftSummonerV1ServiceGetByAccessToken = <
-		TData = AxiosResponse<TftSummonerV1SummonerDTO>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/tft/summoner/v1/summoners/me`, options);
-	};
-
-	const valConsoleRankedV1ServiceGetLeaderboard = <
-		TData = AxiosResponse<ValConsoleRankedV1LeaderboardDto>,
-	>(
-		actId: string,
-		params: ValConsoleRankedV1ServiceGetLeaderboardParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/val/console/ranked/v1/leaderboards/by-act/${actId}`,
-			{
-				...options,
-				params: { ...params, ...options?.params },
-			},
-		);
-	};
-
-	const valContentV1ServiceGetContent = <
-		TData = AxiosResponse<ValContentV1ContentDto>,
-	>(
-		params?: ValContentV1ServiceGetContentParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/val/content/v1/contents`, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const valConsoleMatchV1ServiceGetMatch = <
-		TData = AxiosResponse<ValConsoleMatchV1MatchDto>,
-	>(
-		matchId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/val/match/console/v1/matches/${matchId}`,
-			options,
-		);
-	};
-
-	const valConsoleMatchV1ServiceGetMatchlist = <
-		TData = AxiosResponse<ValConsoleMatchV1MatchlistDto>,
-	>(
-		puuid: string,
-		params: ValConsoleMatchV1ServiceGetMatchlistParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/val/match/console/v1/matchlists/by-puuid/${puuid}`,
-			{
-				...options,
-				params: { ...params, ...options?.params },
-			},
-		);
-	};
-
-	const valConsoleMatchV1ServiceGetRecent = <
-		TData = AxiosResponse<ValConsoleMatchV1RecentMatchesDto>,
-	>(
-		queue: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/val/match/console/v1/recent-matches/by-queue/${queue}`,
-			options,
-		);
-	};
-
-	const valMatchV1ServiceGetMatch = <TData = AxiosResponse<ValMatchV1MatchDto>>(
-		matchId: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/val/match/v1/matches/${matchId}`, options);
-	};
-
-	const valMatchV1ServiceGetMatchlist = <
-		TData = AxiosResponse<ValMatchV1MatchlistDto>,
-	>(
-		puuid: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/val/match/v1/matchlists/by-puuid/${puuid}`,
-			options,
-		);
-	};
-
-	const valMatchV1ServiceGetRecent = <
-		TData = AxiosResponse<ValMatchV1RecentMatchesDto>,
-	>(
-		queue: string,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(
-			`/val/match/v1/recent-matches/by-queue/${queue}`,
-			options,
-		);
-	};
-
-	const valRankedV1ServiceGetLeaderboard = <
-		TData = AxiosResponse<ValRankedV1LeaderboardDto>,
-	>(
-		actId: string,
-		params?: ValRankedV1ServiceGetLeaderboardParams,
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/val/ranked/v1/leaderboards/by-act/${actId}`, {
-			...options,
-			params: { ...params, ...options?.params },
-		});
-	};
-
-	const valStatusV1ServiceGetPlatformData = <
-		TData = AxiosResponse<ValStatusV1PlatformDataDto>,
-	>(
-		options?: AxiosRequestConfig,
-	): Promise<TData> => {
-		return axios.default.get(`/val/status/v1/platform-data`, options);
-	};
-
-	return {
-		lolChallengesV1ServiceGetAllChallengeConfigs,
-		lolChallengesV1ServiceGetAllChallengePercentiles,
-		lolChallengesV1ServiceGetChallengeConfigs,
-		lolChallengesV1ServiceGetChallengeLeaderboards,
-		lolChallengesV1ServiceGetChallengePercentiles,
-		lolChallengesV1ServiceGetPlayerData,
-		championMasteryV4ServiceGetAllChampionMasteriesByPUUID,
-		championMasteryV4ServiceGetChampionMasteryByPUUID,
-		championMasteryV4ServiceGetTopChampionMasteriesByPUUID,
-		championMasteryV4ServiceGetChampionMasteryScoreByPUUID,
-		clashV1ServiceGetPlayersByPUUID,
-		clashV1ServiceGetTeamById,
-		clashV1ServiceGetTournaments,
-		clashV1ServiceGetTournamentByTeam,
-		clashV1ServiceGetTournamentById,
-		leagueExpV4ServiceGetLeagueEntries,
-		leagueV4ServiceGetChallengerLeague,
-		leagueV4ServiceGetLeagueEntriesByPUUID,
-		leagueV4ServiceGetLeagueEntries,
-		leagueV4ServiceGetGrandmasterLeague,
-		leagueV4ServiceGetLeagueById,
-		leagueV4ServiceGetMasterLeague,
-		matchV5ServiceGetMatchIdsByPUUID,
-		matchV5ServiceGetReplay,
-		matchV5ServiceGetMatch,
-		matchV5ServiceGetTimeline,
-		championV3ServiceGetChampionInfo,
-		lolRsoMatchV1ServiceGetMatchIds,
-		lolRsoMatchV1ServiceGetMatch,
-		lolRsoMatchV1ServiceGetTimeline,
-		spectatorTftV5ServiceGetCurrentGameInfoByPuuid,
-		spectatorV5ServiceGetCurrentGameInfoByPuuid,
-		lolStatusV4ServiceGetPlatformData,
-		summonerV4ServiceGetByPUUID,
-		summonerV4ServiceGetByAccessToken,
-		tournamentStubV5ServiceCreateTournamentCode,
-		tournamentStubV5ServiceGetTournamentCode,
-		tournamentStubV5ServiceGetLobbyEventsByCode,
-		tournamentStubV5ServiceRegisterProviderData,
-		tournamentStubV5ServiceRegisterTournament,
-		tournamentV5ServiceCreateTournamentCode,
-		tournamentV5ServiceGetTournamentCode,
-		tournamentV5ServiceUpdateCode,
-		tournamentV5ServiceGetGames,
-		tournamentV5ServiceGetLobbyEventsByCode,
-		tournamentV5ServiceRegisterProviderData,
-		tournamentV5ServiceRegisterTournament,
-		lorDeckV1ServiceGetDecks,
-		lorDeckV1ServiceCreateDeck,
-		lorInventoryV1ServiceGetCards,
-		lorMatchV1ServiceGetMatchIdsByPUUID,
-		lorMatchV1ServiceGetMatch,
-		lorRankedV1ServiceGetLeaderboards,
-		lorStatusV1ServiceGetPlatformData,
-		riftboundContentV1ServiceGetContent,
-		accountV1ServiceGetByPuuid,
-		accountV1ServiceGetByRiotId,
-		accountV1ServiceGetByAccessToken,
-		accountV1ServiceGetActiveShard,
-		accountV1ServiceGetActiveRegion,
-		tftLeagueV1ServiceGetLeagueEntriesByPUUID,
-		tftLeagueV1ServiceGetChallengerLeague,
-		tftLeagueV1ServiceGetLeagueEntries,
-		tftLeagueV1ServiceGetGrandmasterLeague,
-		tftLeagueV1ServiceGetLeagueById,
-		tftLeagueV1ServiceGetMasterLeague,
-		tftLeagueV1ServiceGetTopRatedLadder,
-		tftMatchV1ServiceGetMatchIdsByPUUID,
-		tftMatchV1ServiceGetMatch,
-		tftStatusV1ServiceGetPlatformData,
-		tftSummonerV1ServiceGetByPUUID,
-		tftSummonerV1ServiceGetByAccessToken,
-		valConsoleRankedV1ServiceGetLeaderboard,
-		valContentV1ServiceGetContent,
-		valConsoleMatchV1ServiceGetMatch,
-		valConsoleMatchV1ServiceGetMatchlist,
-		valConsoleMatchV1ServiceGetRecent,
-		valMatchV1ServiceGetMatch,
-		valMatchV1ServiceGetMatchlist,
-		valMatchV1ServiceGetRecent,
-		valRankedV1ServiceGetLeaderboard,
-		valStatusV1ServiceGetPlatformData,
-	};
-};
-export type LolChallengesV1ServiceGetAllChallengeConfigsResult = AxiosResponse<
-	LolChallengesV1ChallengeConfigInfoDto[]
->;
-export type LolChallengesV1ServiceGetAllChallengePercentilesResult =
-	AxiosResponse<LolChallengesV1ServiceGetAllChallengePercentiles200>;
-export type LolChallengesV1ServiceGetChallengeConfigsResult =
-	AxiosResponse<LolChallengesV1ChallengeConfigInfoDto>;
-export type LolChallengesV1ServiceGetChallengeLeaderboardsResult =
-	AxiosResponse<LolChallengesV1ApexPlayerInfoDto[]>;
-export type LolChallengesV1ServiceGetChallengePercentilesResult =
-	AxiosResponse<LolChallengesV1ServiceGetChallengePercentiles200>;
-export type LolChallengesV1ServiceGetPlayerDataResult =
-	AxiosResponse<LolChallengesV1PlayerInfoDto>;
-export type ChampionMasteryV4ServiceGetAllChampionMasteriesByPUUIDResult =
-	AxiosResponse<ChampionMasteryV4ChampionMasteryDto[]>;
-export type ChampionMasteryV4ServiceGetChampionMasteryByPUUIDResult =
-	AxiosResponse<ChampionMasteryV4ChampionMasteryDto>;
-export type ChampionMasteryV4ServiceGetTopChampionMasteriesByPUUIDResult =
-	AxiosResponse<ChampionMasteryV4ChampionMasteryDto[]>;
-export type ChampionMasteryV4ServiceGetChampionMasteryScoreByPUUIDResult =
-	AxiosResponse<number>;
-export type ClashV1ServiceGetPlayersByPUUIDResult = AxiosResponse<
-	ClashV1PlayerDto[]
->;
-export type ClashV1ServiceGetTeamByIdResult = AxiosResponse<ClashV1TeamDto>;
-export type ClashV1ServiceGetTournamentsResult = AxiosResponse<
-	ClashV1TournamentDto[]
->;
-export type ClashV1ServiceGetTournamentByTeamResult =
-	AxiosResponse<ClashV1TournamentDto>;
-export type ClashV1ServiceGetTournamentByIdResult =
-	AxiosResponse<ClashV1TournamentDto>;
-export type LeagueExpV4ServiceGetLeagueEntriesResult = AxiosResponse<
-	LeagueExpV4LeagueEntryDTO[]
->;
-export type LeagueV4ServiceGetChallengerLeagueResult =
-	AxiosResponse<LeagueV4LeagueListDTO>;
-export type LeagueV4ServiceGetLeagueEntriesByPUUIDResult = AxiosResponse<
-	LeagueV4LeagueEntryDTO[]
->;
-export type LeagueV4ServiceGetLeagueEntriesResult = AxiosResponse<
-	LeagueV4LeagueEntryDTO[]
->;
-export type LeagueV4ServiceGetGrandmasterLeagueResult =
-	AxiosResponse<LeagueV4LeagueListDTO>;
-export type LeagueV4ServiceGetLeagueByIdResult =
-	AxiosResponse<LeagueV4LeagueListDTO>;
-export type LeagueV4ServiceGetMasterLeagueResult =
-	AxiosResponse<LeagueV4LeagueListDTO>;
-export type MatchV5ServiceGetMatchIdsByPUUIDResult = AxiosResponse<string[]>;
-export type MatchV5ServiceGetReplayResult = AxiosResponse<MatchV5ReplayDTO>;
-export type MatchV5ServiceGetMatchResult = AxiosResponse<MatchV5MatchDto>;
-export type MatchV5ServiceGetTimelineResult = AxiosResponse<MatchV5TimelineDto>;
-export type ChampionV3ServiceGetChampionInfoResult =
-	AxiosResponse<ChampionV3ChampionInfo>;
-export type LolRsoMatchV1ServiceGetMatchIdsResult = AxiosResponse<string[]>;
-export type LolRsoMatchV1ServiceGetMatchResult = AxiosResponse<MatchV5MatchDto>;
-export type LolRsoMatchV1ServiceGetTimelineResult =
-	AxiosResponse<MatchV5TimelineDto>;
-export type SpectatorTftV5ServiceGetCurrentGameInfoByPuuidResult =
-	AxiosResponse<SpectatorTftV5CurrentGameInfo>;
-export type SpectatorV5ServiceGetCurrentGameInfoByPuuidResult =
-	AxiosResponse<SpectatorV5CurrentGameInfo>;
-export type LolStatusV4ServiceGetPlatformDataResult =
-	AxiosResponse<LolStatusV4PlatformDataDto>;
-export type SummonerV4ServiceGetByPUUIDResult =
-	AxiosResponse<SummonerV4SummonerDTO>;
-export type SummonerV4ServiceGetByAccessTokenResult =
-	AxiosResponse<SummonerV4SummonerDTO>;
-export type TournamentStubV5ServiceCreateTournamentCodeResult = AxiosResponse<
-	string[]
->;
-export type TournamentStubV5ServiceGetTournamentCodeResult =
-	AxiosResponse<TournamentStubV5TournamentCodeV5DTO>;
-export type TournamentStubV5ServiceGetLobbyEventsByCodeResult =
-	AxiosResponse<TournamentStubV5LobbyEventV5DTOWrapper>;
-export type TournamentStubV5ServiceRegisterProviderDataResult =
-	AxiosResponse<number>;
-export type TournamentStubV5ServiceRegisterTournamentResult =
-	AxiosResponse<number>;
-export type TournamentV5ServiceCreateTournamentCodeResult = AxiosResponse<
-	string[]
->;
-export type TournamentV5ServiceGetTournamentCodeResult =
-	AxiosResponse<TournamentV5TournamentCodeV5DTO>;
-export type TournamentV5ServiceUpdateCodeResult = AxiosResponse<void>;
-export type TournamentV5ServiceGetGamesResult = AxiosResponse<
-	TournamentV5TournamentGamesV5[]
->;
-export type TournamentV5ServiceGetLobbyEventsByCodeResult =
-	AxiosResponse<TournamentV5LobbyEventV5DTOWrapper>;
-export type TournamentV5ServiceRegisterProviderDataResult =
-	AxiosResponse<number>;
-export type TournamentV5ServiceRegisterTournamentResult = AxiosResponse<number>;
-export type LorDeckV1ServiceGetDecksResult = AxiosResponse<LorDeckV1DeckDto[]>;
-export type LorDeckV1ServiceCreateDeckResult = AxiosResponse<string>;
-export type LorInventoryV1ServiceGetCardsResult = AxiosResponse<
-	LorInventoryV1CardDto[]
->;
-export type LorMatchV1ServiceGetMatchIdsByPUUIDResult = AxiosResponse<string[]>;
-export type LorMatchV1ServiceGetMatchResult = AxiosResponse<LorMatchV1MatchDto>;
-export type LorRankedV1ServiceGetLeaderboardsResult =
-	AxiosResponse<LorRankedV1LeaderboardDto>;
-export type LorStatusV1ServiceGetPlatformDataResult =
-	AxiosResponse<LorStatusV1PlatformDataDto>;
-export type RiftboundContentV1ServiceGetContentResult =
-	AxiosResponse<RiftboundContentV1RiftboundContentDTO>;
-export type AccountV1ServiceGetByPuuidResult =
-	AxiosResponse<AccountV1AccountDto>;
-export type AccountV1ServiceGetByRiotIdResult =
-	AxiosResponse<AccountV1AccountDto>;
-export type AccountV1ServiceGetByAccessTokenResult =
-	AxiosResponse<AccountV1AccountDto>;
-export type AccountV1ServiceGetActiveShardResult =
-	AxiosResponse<AccountV1ActiveShardDto>;
-export type AccountV1ServiceGetActiveRegionResult =
-	AxiosResponse<AccountV1AccountRegionDTO>;
-export type TftLeagueV1ServiceGetLeagueEntriesByPUUIDResult = AxiosResponse<
-	TftLeagueV1LeagueEntryDTO[]
->;
-export type TftLeagueV1ServiceGetChallengerLeagueResult =
-	AxiosResponse<TftLeagueV1LeagueListDTO>;
-export type TftLeagueV1ServiceGetLeagueEntriesResult = AxiosResponse<
-	TftLeagueV1LeagueEntryDTO[]
->;
-export type TftLeagueV1ServiceGetGrandmasterLeagueResult =
-	AxiosResponse<TftLeagueV1LeagueListDTO>;
-export type TftLeagueV1ServiceGetLeagueByIdResult =
-	AxiosResponse<TftLeagueV1LeagueListDTO>;
-export type TftLeagueV1ServiceGetMasterLeagueResult =
-	AxiosResponse<TftLeagueV1LeagueListDTO>;
-export type TftLeagueV1ServiceGetTopRatedLadderResult = AxiosResponse<
-	TftLeagueV1TopRatedLadderEntryDto[]
->;
-export type TftMatchV1ServiceGetMatchIdsByPUUIDResult = AxiosResponse<string[]>;
-export type TftMatchV1ServiceGetMatchResult = AxiosResponse<TftMatchV1MatchDto>;
-export type TftStatusV1ServiceGetPlatformDataResult =
-	AxiosResponse<TftStatusV1PlatformDataDto>;
-export type TftSummonerV1ServiceGetByPUUIDResult =
-	AxiosResponse<TftSummonerV1SummonerDTO>;
-export type TftSummonerV1ServiceGetByAccessTokenResult =
-	AxiosResponse<TftSummonerV1SummonerDTO>;
-export type ValConsoleRankedV1ServiceGetLeaderboardResult =
-	AxiosResponse<ValConsoleRankedV1LeaderboardDto>;
-export type ValContentV1ServiceGetContentResult =
-	AxiosResponse<ValContentV1ContentDto>;
-export type ValConsoleMatchV1ServiceGetMatchResult =
-	AxiosResponse<ValConsoleMatchV1MatchDto>;
-export type ValConsoleMatchV1ServiceGetMatchlistResult =
-	AxiosResponse<ValConsoleMatchV1MatchlistDto>;
-export type ValConsoleMatchV1ServiceGetRecentResult =
-	AxiosResponse<ValConsoleMatchV1RecentMatchesDto>;
-export type ValMatchV1ServiceGetMatchResult = AxiosResponse<ValMatchV1MatchDto>;
-export type ValMatchV1ServiceGetMatchlistResult =
-	AxiosResponse<ValMatchV1MatchlistDto>;
-export type ValMatchV1ServiceGetRecentResult =
-	AxiosResponse<ValMatchV1RecentMatchesDto>;
-export type ValRankedV1ServiceGetLeaderboardResult =
-	AxiosResponse<ValRankedV1LeaderboardDto>;
-export type ValStatusV1ServiceGetPlatformDataResult =
-	AxiosResponse<ValStatusV1PlatformDataDto>;
+const lolChallengesV1ServiceGetAllChallengeConfigs = <TData = AxiosResponse<LolChallengesV1ChallengeConfigInfoDto[]>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/challenges/v1/challenges/config`,options
+    );
+  }
+
+const lolChallengesV1ServiceGetAllChallengePercentiles = <TData = AxiosResponse<LolChallengesV1ServiceGetAllChallengePercentiles200>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/challenges/v1/challenges/percentiles`,options
+    );
+  }
+
+const lolChallengesV1ServiceGetChallengeConfigs = <TData = AxiosResponse<LolChallengesV1ChallengeConfigInfoDto>>(
+    challengeId: number, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/challenges/v1/challenges/${challengeId}/config`,options
+    );
+  }
+
+const lolChallengesV1ServiceGetChallengeLeaderboards = <TData = AxiosResponse<LolChallengesV1ApexPlayerInfoDto[]>>(
+    challengeId: number,
+    level: string,
+    params?: LolChallengesV1ServiceGetChallengeLeaderboardsParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/challenges/v1/challenges/${challengeId}/leaderboards/by-level/${level}`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const lolChallengesV1ServiceGetChallengePercentiles = <TData = AxiosResponse<LolChallengesV1ServiceGetChallengePercentiles200>>(
+    challengeId: number, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/challenges/v1/challenges/${challengeId}/percentiles`,options
+    );
+  }
+
+const lolChallengesV1ServiceGetPlayerData = <TData = AxiosResponse<LolChallengesV1PlayerInfoDto>>(
+    puuid: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/challenges/v1/player-data/${puuid}`,options
+    );
+  }
+
+const championMasteryV4ServiceGetAllChampionMasteriesByPUUID = <TData = AxiosResponse<ChampionMasteryV4ChampionMasteryDto[]>>(
+    encryptedPUUID: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/champion-mastery/v4/champion-masteries/by-puuid/${encryptedPUUID}`,options
+    );
+  }
+
+const championMasteryV4ServiceGetChampionMasteryByPUUID = <TData = AxiosResponse<ChampionMasteryV4ChampionMasteryDto>>(
+    encryptedPUUID: string,
+    championId: number, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/champion-mastery/v4/champion-masteries/by-puuid/${encryptedPUUID}/by-champion/${championId}`,options
+    );
+  }
+
+const championMasteryV4ServiceGetTopChampionMasteriesByPUUID = <TData = AxiosResponse<ChampionMasteryV4ChampionMasteryDto[]>>(
+    encryptedPUUID: string,
+    params?: ChampionMasteryV4ServiceGetTopChampionMasteriesByPUUIDParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/champion-mastery/v4/champion-masteries/by-puuid/${encryptedPUUID}/top`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const championMasteryV4ServiceGetChampionMasteryScoreByPUUID = <TData = AxiosResponse<number>>(
+    encryptedPUUID: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/champion-mastery/v4/scores/by-puuid/${encryptedPUUID}`,options
+    );
+  }
+
+const clashV1ServiceGetPlayersByPUUID = <TData = AxiosResponse<ClashV1PlayerDto[]>>(
+    puuid: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/clash/v1/players/by-puuid/${puuid}`,options
+    );
+  }
+
+const clashV1ServiceGetTeamById = <TData = AxiosResponse<ClashV1TeamDto>>(
+    teamId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/clash/v1/teams/${teamId}`,options
+    );
+  }
+
+const clashV1ServiceGetTournaments = <TData = AxiosResponse<ClashV1TournamentDto[]>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/clash/v1/tournaments`,options
+    );
+  }
+
+const clashV1ServiceGetTournamentByTeam = <TData = AxiosResponse<ClashV1TournamentDto>>(
+    teamId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/clash/v1/tournaments/by-team/${teamId}`,options
+    );
+  }
+
+const clashV1ServiceGetTournamentById = <TData = AxiosResponse<ClashV1TournamentDto>>(
+    tournamentId: number, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/clash/v1/tournaments/${tournamentId}`,options
+    );
+  }
+
+const leagueExpV4ServiceGetLeagueEntries = <TData = AxiosResponse<LeagueExpV4LeagueEntryDTO[]>>(
+    queue: string,
+    tier: string,
+    division: string,
+    params?: LeagueExpV4ServiceGetLeagueEntriesParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/league-exp/v4/entries/${queue}/${tier}/${division}`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const leagueV4ServiceGetChallengerLeague = <TData = AxiosResponse<LeagueV4LeagueListDTO>>(
+    queue: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/league/v4/challengerleagues/by-queue/${queue}`,options
+    );
+  }
+
+const leagueV4ServiceGetLeagueEntriesByPUUID = <TData = AxiosResponse<LeagueV4LeagueEntryDTO[]>>(
+    encryptedPUUID: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/league/v4/entries/by-puuid/${encryptedPUUID}`,options
+    );
+  }
+
+const leagueV4ServiceGetLeagueEntries = <TData = AxiosResponse<LeagueV4LeagueEntryDTO[]>>(
+    queue: string,
+    tier: string,
+    division: string,
+    params?: LeagueV4ServiceGetLeagueEntriesParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/league/v4/entries/${queue}/${tier}/${division}`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const leagueV4ServiceGetGrandmasterLeague = <TData = AxiosResponse<LeagueV4LeagueListDTO>>(
+    queue: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/league/v4/grandmasterleagues/by-queue/${queue}`,options
+    );
+  }
+
+const leagueV4ServiceGetLeagueById = <TData = AxiosResponse<LeagueV4LeagueListDTO>>(
+    leagueId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/league/v4/leagues/${leagueId}`,options
+    );
+  }
+
+const leagueV4ServiceGetMasterLeague = <TData = AxiosResponse<LeagueV4LeagueListDTO>>(
+    queue: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/league/v4/masterleagues/by-queue/${queue}`,options
+    );
+  }
+
+const matchV5ServiceGetMatchIdsByPUUID = <TData = AxiosResponse<string[]>>(
+    puuid: string,
+    params?: MatchV5ServiceGetMatchIdsByPUUIDParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/match/v5/matches/by-puuid/${puuid}/ids`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const matchV5ServiceGetReplay = <TData = AxiosResponse<MatchV5ReplayDTO>>(
+    puuid: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/match/v5/matches/by-puuid/${puuid}/replays`,options
+    );
+  }
+
+const matchV5ServiceGetMatch = <TData = AxiosResponse<MatchV5MatchDto>>(
+    matchId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/match/v5/matches/${matchId}`,options
+    );
+  }
+
+const matchV5ServiceGetTimeline = <TData = AxiosResponse<MatchV5TimelineDto>>(
+    matchId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/match/v5/matches/${matchId}/timeline`,options
+    );
+  }
+
+const championV3ServiceGetChampionInfo = <TData = AxiosResponse<ChampionV3ChampionInfo>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/platform/v3/champion-rotations`,options
+    );
+  }
+
+const lolRsoMatchV1ServiceGetMatchIds = <TData = AxiosResponse<string[]>>(
+    params?: LolRsoMatchV1ServiceGetMatchIdsParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/rso-match/v1/matches/ids`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const lolRsoMatchV1ServiceGetMatch = <TData = AxiosResponse<MatchV5MatchDto>>(
+    matchId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/rso-match/v1/matches/${matchId}`,options
+    );
+  }
+
+const lolRsoMatchV1ServiceGetTimeline = <TData = AxiosResponse<MatchV5TimelineDto>>(
+    matchId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/rso-match/v1/matches/${matchId}/timeline`,options
+    );
+  }
+
+const spectatorTftV5ServiceGetCurrentGameInfoByPuuid = <TData = AxiosResponse<SpectatorTftV5CurrentGameInfo>>(
+    encryptedPUUID: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/spectator/tft/v5/active-games/by-puuid/${encryptedPUUID}`,options
+    );
+  }
+
+const spectatorV5ServiceGetCurrentGameInfoByPuuid = <TData = AxiosResponse<SpectatorV5CurrentGameInfo>>(
+    encryptedPUUID: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/spectator/v5/active-games/by-summoner/${encryptedPUUID}`,options
+    );
+  }
+
+const lolStatusV4ServiceGetPlatformData = <TData = AxiosResponse<LolStatusV4PlatformDataDto>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/status/v4/platform-data`,options
+    );
+  }
+
+const summonerV4ServiceGetByPUUID = <TData = AxiosResponse<SummonerV4SummonerDTO>>(
+    encryptedPUUID: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/summoner/v4/summoners/by-puuid/${encryptedPUUID}`,options
+    );
+  }
+
+const summonerV4ServiceGetByAccessToken = <TData = AxiosResponse<SummonerV4SummonerDTO>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/summoner/v4/summoners/me`,options
+    );
+  }
+
+const tournamentStubV5ServiceCreateTournamentCode = <TData = AxiosResponse<string[]>>(
+    params: TournamentStubV5ServiceCreateTournamentCodeParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.post(
+      `/lol/tournament-stub/v5/codes`,undefined,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const tournamentStubV5ServiceGetTournamentCode = <TData = AxiosResponse<TournamentStubV5TournamentCodeV5DTO>>(
+    tournamentCode: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/tournament-stub/v5/codes/${tournamentCode}`,options
+    );
+  }
+
+const tournamentStubV5ServiceGetLobbyEventsByCode = <TData = AxiosResponse<TournamentStubV5LobbyEventV5DTOWrapper>>(
+    tournamentCode: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/tournament-stub/v5/lobby-events/by-code/${tournamentCode}`,options
+    );
+  }
+
+const tournamentStubV5ServiceRegisterProviderData = <TData = AxiosResponse<number>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.post(
+      `/lol/tournament-stub/v5/providers`,undefined,options
+    );
+  }
+
+const tournamentStubV5ServiceRegisterTournament = <TData = AxiosResponse<number>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.post(
+      `/lol/tournament-stub/v5/tournaments`,undefined,options
+    );
+  }
+
+const tournamentV5ServiceCreateTournamentCode = <TData = AxiosResponse<string[]>>(
+    params: TournamentV5ServiceCreateTournamentCodeParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.post(
+      `/lol/tournament/v5/codes`,undefined,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const tournamentV5ServiceGetTournamentCode = <TData = AxiosResponse<TournamentV5TournamentCodeV5DTO>>(
+    tournamentCode: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/tournament/v5/codes/${tournamentCode}`,options
+    );
+  }
+
+const tournamentV5ServiceUpdateCode = <TData = AxiosResponse<void>>(
+    tournamentCode: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.put(
+      `/lol/tournament/v5/codes/${tournamentCode}`,undefined,options
+    );
+  }
+
+const tournamentV5ServiceGetGames = <TData = AxiosResponse<TournamentV5TournamentGamesV5[]>>(
+    tournamentCode: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/tournament/v5/games/by-code/${tournamentCode}`,options
+    );
+  }
+
+const tournamentV5ServiceGetLobbyEventsByCode = <TData = AxiosResponse<TournamentV5LobbyEventV5DTOWrapper>>(
+    tournamentCode: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lol/tournament/v5/lobby-events/by-code/${tournamentCode}`,options
+    );
+  }
+
+const tournamentV5ServiceRegisterProviderData = <TData = AxiosResponse<number>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.post(
+      `/lol/tournament/v5/providers`,undefined,options
+    );
+  }
+
+const tournamentV5ServiceRegisterTournament = <TData = AxiosResponse<number>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.post(
+      `/lol/tournament/v5/tournaments`,undefined,options
+    );
+  }
+
+const lorDeckV1ServiceGetDecks = <TData = AxiosResponse<LorDeckV1DeckDto[]>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lor/deck/v1/decks/me`,options
+    );
+  }
+
+const lorDeckV1ServiceCreateDeck = <TData = AxiosResponse<string>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.post(
+      `/lor/deck/v1/decks/me`,undefined,{
+        responseType: 'text',
+    ...options,}
+    );
+  }
+
+const lorInventoryV1ServiceGetCards = <TData = AxiosResponse<LorInventoryV1CardDto[]>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lor/inventory/v1/cards/me`,options
+    );
+  }
+
+const lorMatchV1ServiceGetMatchIdsByPUUID = <TData = AxiosResponse<string[]>>(
+    puuid: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lor/match/v1/matches/by-puuid/${puuid}/ids`,options
+    );
+  }
+
+const lorMatchV1ServiceGetMatch = <TData = AxiosResponse<LorMatchV1MatchDto>>(
+    matchId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lor/match/v1/matches/${matchId}`,options
+    );
+  }
+
+const lorRankedV1ServiceGetLeaderboards = <TData = AxiosResponse<LorRankedV1LeaderboardDto>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lor/ranked/v1/leaderboards`,options
+    );
+  }
+
+const lorStatusV1ServiceGetPlatformData = <TData = AxiosResponse<LorStatusV1PlatformDataDto>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/lor/status/v1/platform-data`,options
+    );
+  }
+
+const riftboundContentV1ServiceGetContent = <TData = AxiosResponse<RiftboundContentV1RiftboundContentDTO>>(
+    params?: RiftboundContentV1ServiceGetContentParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/riftbound/content/v1/contents`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const accountV1ServiceGetByPuuid = <TData = AxiosResponse<AccountV1AccountDto>>(
+    puuid: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/riot/account/v1/accounts/by-puuid/${puuid}`,options
+    );
+  }
+
+const accountV1ServiceGetByRiotId = <TData = AxiosResponse<AccountV1AccountDto>>(
+    gameName: string,
+    tagLine: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}`,options
+    );
+  }
+
+const accountV1ServiceGetByAccessToken = <TData = AxiosResponse<AccountV1AccountDto>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/riot/account/v1/accounts/me`,options
+    );
+  }
+
+const accountV1ServiceGetActiveShard = <TData = AxiosResponse<AccountV1ActiveShardDto>>(
+    game: string,
+    puuid: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/riot/account/v1/active-shards/by-game/${game}/by-puuid/${puuid}`,options
+    );
+  }
+
+const accountV1ServiceGetActiveRegion = <TData = AxiosResponse<AccountV1AccountRegionDTO>>(
+    game: string,
+    puuid: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/riot/account/v1/region/by-game/${game}/by-puuid/${puuid}`,options
+    );
+  }
+
+const tftLeagueV1ServiceGetLeagueEntriesByPUUID = <TData = AxiosResponse<TftLeagueV1LeagueEntryDTO[]>>(
+    puuid: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/league/v1/by-puuid/${puuid}`,options
+    );
+  }
+
+const tftLeagueV1ServiceGetChallengerLeague = <TData = AxiosResponse<TftLeagueV1LeagueListDTO>>(
+    params?: TftLeagueV1ServiceGetChallengerLeagueParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/league/v1/challenger`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const tftLeagueV1ServiceGetLeagueEntries = <TData = AxiosResponse<TftLeagueV1LeagueEntryDTO[]>>(
+    tier: string,
+    division: string,
+    params?: TftLeagueV1ServiceGetLeagueEntriesParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/league/v1/entries/${tier}/${division}`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const tftLeagueV1ServiceGetGrandmasterLeague = <TData = AxiosResponse<TftLeagueV1LeagueListDTO>>(
+    params?: TftLeagueV1ServiceGetGrandmasterLeagueParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/league/v1/grandmaster`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const tftLeagueV1ServiceGetLeagueById = <TData = AxiosResponse<TftLeagueV1LeagueListDTO>>(
+    leagueId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/league/v1/leagues/${leagueId}`,options
+    );
+  }
+
+const tftLeagueV1ServiceGetMasterLeague = <TData = AxiosResponse<TftLeagueV1LeagueListDTO>>(
+    params?: TftLeagueV1ServiceGetMasterLeagueParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/league/v1/master`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const tftLeagueV1ServiceGetTopRatedLadder = <TData = AxiosResponse<TftLeagueV1TopRatedLadderEntryDto[]>>(
+    queue: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/league/v1/rated-ladders/${queue}/top`,options
+    );
+  }
+
+const tftMatchV1ServiceGetMatchIdsByPUUID = <TData = AxiosResponse<string[]>>(
+    puuid: string,
+    params?: TftMatchV1ServiceGetMatchIdsByPUUIDParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/match/v1/matches/by-puuid/${puuid}/ids`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const tftMatchV1ServiceGetMatch = <TData = AxiosResponse<TftMatchV1MatchDto>>(
+    matchId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/match/v1/matches/${matchId}`,options
+    );
+  }
+
+const tftStatusV1ServiceGetPlatformData = <TData = AxiosResponse<TftStatusV1PlatformDataDto>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/status/v1/platform-data`,options
+    );
+  }
+
+const tftSummonerV1ServiceGetByPUUID = <TData = AxiosResponse<TftSummonerV1SummonerDTO>>(
+    encryptedPUUID: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/summoner/v1/summoners/by-puuid/${encryptedPUUID}`,options
+    );
+  }
+
+const tftSummonerV1ServiceGetByAccessToken = <TData = AxiosResponse<TftSummonerV1SummonerDTO>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/tft/summoner/v1/summoners/me`,options
+    );
+  }
+
+const valConsoleRankedV1ServiceGetLeaderboard = <TData = AxiosResponse<ValConsoleRankedV1LeaderboardDto>>(
+    actId: string,
+    params: ValConsoleRankedV1ServiceGetLeaderboardParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/val/console/ranked/v1/leaderboards/by-act/${actId}`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const valContentV1ServiceGetContent = <TData = AxiosResponse<ValContentV1ContentDto>>(
+    params?: ValContentV1ServiceGetContentParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/val/content/v1/contents`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const valConsoleMatchV1ServiceGetMatch = <TData = AxiosResponse<ValConsoleMatchV1MatchDto>>(
+    matchId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/val/match/console/v1/matches/${matchId}`,options
+    );
+  }
+
+const valConsoleMatchV1ServiceGetMatchlist = <TData = AxiosResponse<ValConsoleMatchV1MatchlistDto>>(
+    puuid: string,
+    params: ValConsoleMatchV1ServiceGetMatchlistParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/val/match/console/v1/matchlists/by-puuid/${puuid}`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const valConsoleMatchV1ServiceGetRecent = <TData = AxiosResponse<ValConsoleMatchV1RecentMatchesDto>>(
+    queue: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/val/match/console/v1/recent-matches/by-queue/${queue}`,options
+    );
+  }
+
+const valMatchV1ServiceGetMatch = <TData = AxiosResponse<ValMatchV1MatchDto>>(
+    matchId: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/val/match/v1/matches/${matchId}`,options
+    );
+  }
+
+const valMatchV1ServiceGetMatchlist = <TData = AxiosResponse<ValMatchV1MatchlistDto>>(
+    puuid: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/val/match/v1/matchlists/by-puuid/${puuid}`,options
+    );
+  }
+
+const valMatchV1ServiceGetRecent = <TData = AxiosResponse<ValMatchV1RecentMatchesDto>>(
+    queue: string, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/val/match/v1/recent-matches/by-queue/${queue}`,options
+    );
+  }
+
+const valRankedV1ServiceGetLeaderboard = <TData = AxiosResponse<ValRankedV1LeaderboardDto>>(
+    actId: string,
+    params?: ValRankedV1ServiceGetLeaderboardParams, options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/val/ranked/v1/leaderboards/by-act/${actId}`,{
+    ...options,
+        params: {...params, ...options?.params},}
+    );
+  }
+
+const valStatusV1ServiceGetPlatformData = <TData = AxiosResponse<ValStatusV1PlatformDataDto>>(
+     options?: AxiosRequestConfig
+ ): Promise<TData> => {
+    return axios.default.get(
+      `/val/status/v1/platform-data`,options
+    );
+  }
+
+return {lolChallengesV1ServiceGetAllChallengeConfigs,lolChallengesV1ServiceGetAllChallengePercentiles,lolChallengesV1ServiceGetChallengeConfigs,lolChallengesV1ServiceGetChallengeLeaderboards,lolChallengesV1ServiceGetChallengePercentiles,lolChallengesV1ServiceGetPlayerData,championMasteryV4ServiceGetAllChampionMasteriesByPUUID,championMasteryV4ServiceGetChampionMasteryByPUUID,championMasteryV4ServiceGetTopChampionMasteriesByPUUID,championMasteryV4ServiceGetChampionMasteryScoreByPUUID,clashV1ServiceGetPlayersByPUUID,clashV1ServiceGetTeamById,clashV1ServiceGetTournaments,clashV1ServiceGetTournamentByTeam,clashV1ServiceGetTournamentById,leagueExpV4ServiceGetLeagueEntries,leagueV4ServiceGetChallengerLeague,leagueV4ServiceGetLeagueEntriesByPUUID,leagueV4ServiceGetLeagueEntries,leagueV4ServiceGetGrandmasterLeague,leagueV4ServiceGetLeagueById,leagueV4ServiceGetMasterLeague,matchV5ServiceGetMatchIdsByPUUID,matchV5ServiceGetReplay,matchV5ServiceGetMatch,matchV5ServiceGetTimeline,championV3ServiceGetChampionInfo,lolRsoMatchV1ServiceGetMatchIds,lolRsoMatchV1ServiceGetMatch,lolRsoMatchV1ServiceGetTimeline,spectatorTftV5ServiceGetCurrentGameInfoByPuuid,spectatorV5ServiceGetCurrentGameInfoByPuuid,lolStatusV4ServiceGetPlatformData,summonerV4ServiceGetByPUUID,summonerV4ServiceGetByAccessToken,tournamentStubV5ServiceCreateTournamentCode,tournamentStubV5ServiceGetTournamentCode,tournamentStubV5ServiceGetLobbyEventsByCode,tournamentStubV5ServiceRegisterProviderData,tournamentStubV5ServiceRegisterTournament,tournamentV5ServiceCreateTournamentCode,tournamentV5ServiceGetTournamentCode,tournamentV5ServiceUpdateCode,tournamentV5ServiceGetGames,tournamentV5ServiceGetLobbyEventsByCode,tournamentV5ServiceRegisterProviderData,tournamentV5ServiceRegisterTournament,lorDeckV1ServiceGetDecks,lorDeckV1ServiceCreateDeck,lorInventoryV1ServiceGetCards,lorMatchV1ServiceGetMatchIdsByPUUID,lorMatchV1ServiceGetMatch,lorRankedV1ServiceGetLeaderboards,lorStatusV1ServiceGetPlatformData,riftboundContentV1ServiceGetContent,accountV1ServiceGetByPuuid,accountV1ServiceGetByRiotId,accountV1ServiceGetByAccessToken,accountV1ServiceGetActiveShard,accountV1ServiceGetActiveRegion,tftLeagueV1ServiceGetLeagueEntriesByPUUID,tftLeagueV1ServiceGetChallengerLeague,tftLeagueV1ServiceGetLeagueEntries,tftLeagueV1ServiceGetGrandmasterLeague,tftLeagueV1ServiceGetLeagueById,tftLeagueV1ServiceGetMasterLeague,tftLeagueV1ServiceGetTopRatedLadder,tftMatchV1ServiceGetMatchIdsByPUUID,tftMatchV1ServiceGetMatch,tftStatusV1ServiceGetPlatformData,tftSummonerV1ServiceGetByPUUID,tftSummonerV1ServiceGetByAccessToken,valConsoleRankedV1ServiceGetLeaderboard,valContentV1ServiceGetContent,valConsoleMatchV1ServiceGetMatch,valConsoleMatchV1ServiceGetMatchlist,valConsoleMatchV1ServiceGetRecent,valMatchV1ServiceGetMatch,valMatchV1ServiceGetMatchlist,valMatchV1ServiceGetRecent,valRankedV1ServiceGetLeaderboard,valStatusV1ServiceGetPlatformData}};
+export type LolChallengesV1ServiceGetAllChallengeConfigsResult = AxiosResponse<LolChallengesV1ChallengeConfigInfoDto[]>
+export type LolChallengesV1ServiceGetAllChallengePercentilesResult = AxiosResponse<LolChallengesV1ServiceGetAllChallengePercentiles200>
+export type LolChallengesV1ServiceGetChallengeConfigsResult = AxiosResponse<LolChallengesV1ChallengeConfigInfoDto>
+export type LolChallengesV1ServiceGetChallengeLeaderboardsResult = AxiosResponse<LolChallengesV1ApexPlayerInfoDto[]>
+export type LolChallengesV1ServiceGetChallengePercentilesResult = AxiosResponse<LolChallengesV1ServiceGetChallengePercentiles200>
+export type LolChallengesV1ServiceGetPlayerDataResult = AxiosResponse<LolChallengesV1PlayerInfoDto>
+export type ChampionMasteryV4ServiceGetAllChampionMasteriesByPUUIDResult = AxiosResponse<ChampionMasteryV4ChampionMasteryDto[]>
+export type ChampionMasteryV4ServiceGetChampionMasteryByPUUIDResult = AxiosResponse<ChampionMasteryV4ChampionMasteryDto>
+export type ChampionMasteryV4ServiceGetTopChampionMasteriesByPUUIDResult = AxiosResponse<ChampionMasteryV4ChampionMasteryDto[]>
+export type ChampionMasteryV4ServiceGetChampionMasteryScoreByPUUIDResult = AxiosResponse<number>
+export type ClashV1ServiceGetPlayersByPUUIDResult = AxiosResponse<ClashV1PlayerDto[]>
+export type ClashV1ServiceGetTeamByIdResult = AxiosResponse<ClashV1TeamDto>
+export type ClashV1ServiceGetTournamentsResult = AxiosResponse<ClashV1TournamentDto[]>
+export type ClashV1ServiceGetTournamentByTeamResult = AxiosResponse<ClashV1TournamentDto>
+export type ClashV1ServiceGetTournamentByIdResult = AxiosResponse<ClashV1TournamentDto>
+export type LeagueExpV4ServiceGetLeagueEntriesResult = AxiosResponse<LeagueExpV4LeagueEntryDTO[]>
+export type LeagueV4ServiceGetChallengerLeagueResult = AxiosResponse<LeagueV4LeagueListDTO>
+export type LeagueV4ServiceGetLeagueEntriesByPUUIDResult = AxiosResponse<LeagueV4LeagueEntryDTO[]>
+export type LeagueV4ServiceGetLeagueEntriesResult = AxiosResponse<LeagueV4LeagueEntryDTO[]>
+export type LeagueV4ServiceGetGrandmasterLeagueResult = AxiosResponse<LeagueV4LeagueListDTO>
+export type LeagueV4ServiceGetLeagueByIdResult = AxiosResponse<LeagueV4LeagueListDTO>
+export type LeagueV4ServiceGetMasterLeagueResult = AxiosResponse<LeagueV4LeagueListDTO>
+export type MatchV5ServiceGetMatchIdsByPUUIDResult = AxiosResponse<string[]>
+export type MatchV5ServiceGetReplayResult = AxiosResponse<MatchV5ReplayDTO>
+export type MatchV5ServiceGetMatchResult = AxiosResponse<MatchV5MatchDto>
+export type MatchV5ServiceGetTimelineResult = AxiosResponse<MatchV5TimelineDto>
+export type ChampionV3ServiceGetChampionInfoResult = AxiosResponse<ChampionV3ChampionInfo>
+export type LolRsoMatchV1ServiceGetMatchIdsResult = AxiosResponse<string[]>
+export type LolRsoMatchV1ServiceGetMatchResult = AxiosResponse<MatchV5MatchDto>
+export type LolRsoMatchV1ServiceGetTimelineResult = AxiosResponse<MatchV5TimelineDto>
+export type SpectatorTftV5ServiceGetCurrentGameInfoByPuuidResult = AxiosResponse<SpectatorTftV5CurrentGameInfo>
+export type SpectatorV5ServiceGetCurrentGameInfoByPuuidResult = AxiosResponse<SpectatorV5CurrentGameInfo>
+export type LolStatusV4ServiceGetPlatformDataResult = AxiosResponse<LolStatusV4PlatformDataDto>
+export type SummonerV4ServiceGetByPUUIDResult = AxiosResponse<SummonerV4SummonerDTO>
+export type SummonerV4ServiceGetByAccessTokenResult = AxiosResponse<SummonerV4SummonerDTO>
+export type TournamentStubV5ServiceCreateTournamentCodeResult = AxiosResponse<string[]>
+export type TournamentStubV5ServiceGetTournamentCodeResult = AxiosResponse<TournamentStubV5TournamentCodeV5DTO>
+export type TournamentStubV5ServiceGetLobbyEventsByCodeResult = AxiosResponse<TournamentStubV5LobbyEventV5DTOWrapper>
+export type TournamentStubV5ServiceRegisterProviderDataResult = AxiosResponse<number>
+export type TournamentStubV5ServiceRegisterTournamentResult = AxiosResponse<number>
+export type TournamentV5ServiceCreateTournamentCodeResult = AxiosResponse<string[]>
+export type TournamentV5ServiceGetTournamentCodeResult = AxiosResponse<TournamentV5TournamentCodeV5DTO>
+export type TournamentV5ServiceUpdateCodeResult = AxiosResponse<void>
+export type TournamentV5ServiceGetGamesResult = AxiosResponse<TournamentV5TournamentGamesV5[]>
+export type TournamentV5ServiceGetLobbyEventsByCodeResult = AxiosResponse<TournamentV5LobbyEventV5DTOWrapper>
+export type TournamentV5ServiceRegisterProviderDataResult = AxiosResponse<number>
+export type TournamentV5ServiceRegisterTournamentResult = AxiosResponse<number>
+export type LorDeckV1ServiceGetDecksResult = AxiosResponse<LorDeckV1DeckDto[]>
+export type LorDeckV1ServiceCreateDeckResult = AxiosResponse<string>
+export type LorInventoryV1ServiceGetCardsResult = AxiosResponse<LorInventoryV1CardDto[]>
+export type LorMatchV1ServiceGetMatchIdsByPUUIDResult = AxiosResponse<string[]>
+export type LorMatchV1ServiceGetMatchResult = AxiosResponse<LorMatchV1MatchDto>
+export type LorRankedV1ServiceGetLeaderboardsResult = AxiosResponse<LorRankedV1LeaderboardDto>
+export type LorStatusV1ServiceGetPlatformDataResult = AxiosResponse<LorStatusV1PlatformDataDto>
+export type RiftboundContentV1ServiceGetContentResult = AxiosResponse<RiftboundContentV1RiftboundContentDTO>
+export type AccountV1ServiceGetByPuuidResult = AxiosResponse<AccountV1AccountDto>
+export type AccountV1ServiceGetByRiotIdResult = AxiosResponse<AccountV1AccountDto>
+export type AccountV1ServiceGetByAccessTokenResult = AxiosResponse<AccountV1AccountDto>
+export type AccountV1ServiceGetActiveShardResult = AxiosResponse<AccountV1ActiveShardDto>
+export type AccountV1ServiceGetActiveRegionResult = AxiosResponse<AccountV1AccountRegionDTO>
+export type TftLeagueV1ServiceGetLeagueEntriesByPUUIDResult = AxiosResponse<TftLeagueV1LeagueEntryDTO[]>
+export type TftLeagueV1ServiceGetChallengerLeagueResult = AxiosResponse<TftLeagueV1LeagueListDTO>
+export type TftLeagueV1ServiceGetLeagueEntriesResult = AxiosResponse<TftLeagueV1LeagueEntryDTO[]>
+export type TftLeagueV1ServiceGetGrandmasterLeagueResult = AxiosResponse<TftLeagueV1LeagueListDTO>
+export type TftLeagueV1ServiceGetLeagueByIdResult = AxiosResponse<TftLeagueV1LeagueListDTO>
+export type TftLeagueV1ServiceGetMasterLeagueResult = AxiosResponse<TftLeagueV1LeagueListDTO>
+export type TftLeagueV1ServiceGetTopRatedLadderResult = AxiosResponse<TftLeagueV1TopRatedLadderEntryDto[]>
+export type TftMatchV1ServiceGetMatchIdsByPUUIDResult = AxiosResponse<string[]>
+export type TftMatchV1ServiceGetMatchResult = AxiosResponse<TftMatchV1MatchDto>
+export type TftStatusV1ServiceGetPlatformDataResult = AxiosResponse<TftStatusV1PlatformDataDto>
+export type TftSummonerV1ServiceGetByPUUIDResult = AxiosResponse<TftSummonerV1SummonerDTO>
+export type TftSummonerV1ServiceGetByAccessTokenResult = AxiosResponse<TftSummonerV1SummonerDTO>
+export type ValConsoleRankedV1ServiceGetLeaderboardResult = AxiosResponse<ValConsoleRankedV1LeaderboardDto>
+export type ValContentV1ServiceGetContentResult = AxiosResponse<ValContentV1ContentDto>
+export type ValConsoleMatchV1ServiceGetMatchResult = AxiosResponse<ValConsoleMatchV1MatchDto>
+export type ValConsoleMatchV1ServiceGetMatchlistResult = AxiosResponse<ValConsoleMatchV1MatchlistDto>
+export type ValConsoleMatchV1ServiceGetRecentResult = AxiosResponse<ValConsoleMatchV1RecentMatchesDto>
+export type ValMatchV1ServiceGetMatchResult = AxiosResponse<ValMatchV1MatchDto>
+export type ValMatchV1ServiceGetMatchlistResult = AxiosResponse<ValMatchV1MatchlistDto>
+export type ValMatchV1ServiceGetRecentResult = AxiosResponse<ValMatchV1RecentMatchesDto>
+export type ValRankedV1ServiceGetLeaderboardResult = AxiosResponse<ValRankedV1LeaderboardDto>
+export type ValStatusV1ServiceGetPlatformDataResult = AxiosResponse<ValStatusV1PlatformDataDto>
